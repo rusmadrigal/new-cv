@@ -2,49 +2,21 @@
 
 import { motion } from "motion/react";
 import { GraduationCap, Languages } from "lucide-react";
+import { getTranslations, type Locale } from "@/lib/translations";
 
-const education = [
-  {
-    institution: "McKinsey & Company",
-    degree:
-      "Professional Development Program (Leadership, Problem Solving, and Business Skills)",
-    field: "",
-    period: "October 2025 – April 2026",
-  },
-  {
-    institution: "Le Studio by PGD",
-    degree: "Management Development Program 2024",
-    field: "Marketing",
-    period: "April 2024 – May 2024",
-  },
-  {
-    institution: "Universidad de La Sabana",
-    degree: "Metodologías Ágiles e Innovación en la Organización",
-    field: "Marketing",
-    period: "October 2023 – February 2024",
-  },
-  {
-    institution: "Universidad Latina de Costa Rica",
-    degree:
-      "Degree of Business Administration with emphasis in Marketing & Sales",
-    field: "Marketing",
-    period: "2012 – 2014",
-  },
-  {
-    institution: "Universidad Latina de Costa Rica",
-    degree:
-      "Bachelor of Business Administration with emphasis in Marketing & Sales",
-    field: "Empresa, gestión, marketing y disciplinas afines",
-    period: "2007 – 2010",
-  },
+const LANGUAGES_LIST = (t: ReturnType<typeof getTranslations>) => [
+  { language: t.education.langEnglish, level: t.education.fullProfessional },
+  { language: t.education.langSpanish, level: t.education.nativeBilingual },
 ];
 
-const languages = [
-  { language: "English", level: "Full Professional" },
-  { language: "Español", level: "Native or Bilingual" },
-];
+interface EducationSectionProps {
+  locale?: Locale;
+}
 
-export function EducationSection() {
+export function EducationSection({ locale = "en" }: EducationSectionProps) {
+  const t = getTranslations(locale);
+  const languages = LANGUAGES_LIST(t);
+  const education = t.education.items;
   return (
     <section
       id="education"
@@ -61,7 +33,7 @@ export function EducationSection() {
           <div className="flex items-center gap-3 mb-8">
             <Languages className="w-8 h-8 text-blue-400" />
             <h2 className="text-3xl md:text-4xl bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Languages
+              {t.education.languages}
             </h2>
           </div>
 
@@ -91,7 +63,7 @@ export function EducationSection() {
           <div className="flex items-center gap-3 mb-8">
             <GraduationCap className="w-8 h-8 text-blue-400" />
             <h2 className="text-3xl md:text-4xl bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Education
+              {t.education.education}
             </h2>
           </div>
 

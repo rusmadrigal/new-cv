@@ -2,8 +2,14 @@
 
 import { motion } from "motion/react";
 import { Mail, Linkedin, Github, ArrowRight } from "lucide-react";
+import { getTranslations, type Locale } from "@/lib/translations";
 
-export function ContactSection() {
+interface ContactSectionProps {
+  locale?: Locale;
+}
+
+export function ContactSection({ locale = "en" }: ContactSectionProps) {
+  const t = getTranslations(locale);
   return (
     <section
       id="contact"
@@ -20,13 +26,11 @@ export function ContactSection() {
           className="text-center"
         >
           <h2 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-            Let&apos;s Work Together
+            {t.contact.title}
           </h2>
 
           <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-            Interested in technical SEO, automation, and scalable growth
-            strategies? Let&apos;s connect and discuss how we can work
-            together.
+            {t.contact.subtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
@@ -67,7 +71,7 @@ export function ContactSection() {
             whileHover={{ scale: 1.05 }}
             className="mt-16 px-8 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-all hover:shadow-lg hover:shadow-white/20 inline-flex items-center gap-2"
           >
-            Back to Top
+            {t.contact.backToTop}
             <ArrowRight className="w-5 h-5 rotate-[-90deg]" />
           </motion.button>
         </motion.div>

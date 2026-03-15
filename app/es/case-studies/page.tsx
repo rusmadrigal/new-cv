@@ -14,10 +14,10 @@ const iconMap: Record<string, LucideIcon> = {
 
 export const dynamic = "force-dynamic";
 
-export default async function CaseStudiesPage() {
-  const caseStudies = await getCaseStudies("en");
+export default async function EsCaseStudiesPage() {
+  const caseStudies = await getCaseStudies("es");
   const hasCaseStudies = caseStudies.length > 0;
-  const t = getTranslations("en");
+  const t = getTranslations("es");
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -45,7 +45,7 @@ export default async function CaseStudiesPage() {
                 return (
                   <Link
                     key={study._id}
-                    href={`/case-studies/${study.slug}`}
+                    href={`/es/case-studies/${study.slug}`}
                     className="block group"
                   >
                     <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-2xl overflow-hidden hover:border-gray-600 transition-all hover:shadow-2xl hover:shadow-blue-500/10">
@@ -90,7 +90,7 @@ export default async function CaseStudiesPage() {
           )}
         </div>
       </main>
-      <Footer locale="en" />
+      <Footer locale="es" />
     </div>
   );
 }

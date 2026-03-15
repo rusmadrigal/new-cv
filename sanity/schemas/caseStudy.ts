@@ -70,6 +70,22 @@ export const caseStudy = defineType({
       description: "Override for social share image (default: first gallery image or site image).",
     }),
     defineField({
+      name: "language",
+      type: "string",
+      title: "Language",
+      group: "content",
+      description: "Idioma de publicación. Crea un documento por idioma si publicas en inglés y español.",
+      options: {
+        list: [
+          { title: "English", value: "en" },
+          { title: "Español", value: "es" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "en",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "title",
       type: "string",
       title: "Title",
@@ -218,10 +234,11 @@ export const caseStudy = defineType({
     { title: "Title", name: "titleAsc", by: [{ field: "title", direction: "asc" }] },
   ],
   preview: {
-    select: { title: "title", client: "client" },
-    prepare({ title, client }) {
+    select: { title: "title", client: "client", language: "language" },
+    prepare({ title, client, language }) {
+      const lang = language === "es" ? "ES" : "EN";
       return {
-        title,
+        title: `${title} [${lang}]`,
         subtitle: client,
       };
     },

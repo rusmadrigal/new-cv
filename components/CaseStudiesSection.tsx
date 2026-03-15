@@ -10,6 +10,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import type { CaseStudy } from "@/lib/sanity";
+import { getTranslations, type Locale } from "@/lib/translations";
 
 const iconMap: Record<string, LucideIcon> = {
   zap: Zap,
@@ -76,10 +77,18 @@ const defaultCaseStudies: CaseStudy[] = [
 
 interface CaseStudiesSectionProps {
   caseStudies?: CaseStudy[] | null;
+  locale?: Locale;
 }
 
-export function CaseStudiesSection({ caseStudies }: CaseStudiesSectionProps) {
-  const studies = caseStudies?.length ? caseStudies : defaultCaseStudies;
+export function CaseStudiesSection({ caseStudies, locale = "en" }: CaseStudiesSectionProps) {
+  const t = getTranslations(locale);
+  const studies =
+    caseStudies && caseStudies.length > 0
+      ? caseStudies
+      : caseStudies === undefined || caseStudies === null
+        ? defaultCaseStudies
+        : [];
+  if (studies.length === 0) return null;
   return (
     <section
       id="case-studies"
@@ -97,11 +106,10 @@ export function CaseStudiesSection({ caseStudies }: CaseStudiesSectionProps) {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-            Case Studies
+            {t.caseStudies.title}
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Real-world technical SEO projects delivering measurable organic
-            growth and performance improvements
+            {t.caseStudies.subtitle}
           </p>
         </motion.div>
 
@@ -129,7 +137,7 @@ export function CaseStudiesSection({ caseStudies }: CaseStudiesSectionProps) {
                       </div>
                       <div className="flex-1">
                         <Link
-                          href={`/case-studies/${study.slug}`}
+                          href={`${locale === "es" ? "/es" : ""}/case-studies/${study.slug}`}
                           className="block"
                         >
                           <h3 className="text-2xl md:text-3xl text-white mb-2 group-hover:text-blue-400 transition-colors">
@@ -146,7 +154,7 @@ export function CaseStudiesSection({ caseStudies }: CaseStudiesSectionProps) {
                       <div className="space-y-6">
                         <div>
                           <h4 className="text-gray-400 text-sm uppercase tracking-wider mb-3">
-                            Challenge
+                            {t.caseStudies.challenge}
                           </h4>
                           <p className="text-gray-300 leading-relaxed">
                             {study.challenge}
@@ -155,7 +163,7 @@ export function CaseStudiesSection({ caseStudies }: CaseStudiesSectionProps) {
 
                         <div>
                           <h4 className="text-gray-400 text-sm uppercase tracking-wider mb-3">
-                            Solution
+                            {t.caseStudies.solution}
                           </h4>
                           <p className="text-gray-300 leading-relaxed">
                             {study.solution}
@@ -165,7 +173,7 @@ export function CaseStudiesSection({ caseStudies }: CaseStudiesSectionProps) {
 
                       <div>
                         <h4 className="text-gray-400 text-sm uppercase tracking-wider mb-4">
-                          Results
+                          {t.caseStudies.results}
                         </h4>
                         <div className="space-y-4">
                           {results.map((result, i) => (
@@ -211,10 +219,10 @@ export function CaseStudiesSection({ caseStudies }: CaseStudiesSectionProps) {
                         </span>
                       ))}
                       <Link
-                        href={`/case-studies/${study.slug}`}
+                        href={`${locale === "es" ? "/es" : ""}/case-studies/${study.slug}`}
                         className="ml-auto px-4 py-1 text-blue-400 hover:text-blue-300 text-sm flex items-center gap-1 transition-colors"
                       >
-                        View Details
+                        {t.caseStudies.viewDetails}
                         <ArrowRight className="w-4 h-4" />
                       </Link>
                     </div>

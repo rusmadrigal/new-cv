@@ -18,6 +18,8 @@ export interface CaseStudyResult {
   change?: string;
 }
 
+export type Locale = "en" | "es";
+
 /** Used for list (case studies, featured on home). challenge/solution are plain text from pt::text(). */
 export interface CaseStudy {
   _id: string;
@@ -32,6 +34,7 @@ export interface CaseStudy {
   gradient: string;
   featured?: boolean;
   order?: number | null;
+  language?: Locale;
 }
 
 export interface SanityImageAsset {
@@ -67,11 +70,13 @@ const listFields = `
   order
 `;
 
-export const caseStudiesQuery = `*[_type == "caseStudy"] | order(order asc, title asc) {
+const languageFilter = `(language == $locale || (language == null && $locale == "en"))`;
+
+export const caseStudiesQuery = `*[_type == "caseStudy" && ${languageFilter}] | order(order asc, title asc) {
   ${listFields}
 }`;
 
-export const featuredCaseStudiesQuery = `*[_type == "caseStudy" && featured == true] | order(order asc, title asc) {
+export const featuredCaseStudiesQuery = `*[_type == "caseStudy" && featured == true && ${languageFilter}] | order(order asc, title asc) {
   ${listFields}
 }`;
 
@@ -100,29 +105,29 @@ const pageFields = `
   "ogImage": ogImage.asset->url
 `;
 
-export const caseStudyBySlugQuery = `*[_type == "caseStudy" && slug.current == $slug][0] {
+export const caseStudyBySlugQuery = `*[_type == "caseStudy" && slug.current == $slug && ${languageFilter}][0] {
   ${pageFields}
 }`;
 
-export const caseStudySlugsQuery = `*[_type == "caseStudy"].slug.current`;
+export const caseStudySlugsQuery = `*[_type == "caseStudy" && ${languageFilter}].slug.current`;
 
-export async function getCaseStudies(): Promise<CaseStudy[]> {
-  const data = await client.fetch<CaseStudy[]>(caseStudiesQuery);
+export async function getCaseStudies(locale: Locale = "en"): Promise<CaseStudy[]> {
+  const data = await client.fetch<CaseStudy[]>(caseStudiesQuery, { locale });
   return data ?? [];
 }
 
-export async function getFeaturedCaseStudies(): Promise<CaseStudy[]> {
-  const data = await client.fetch<CaseStudy[]>(featuredCaseStudiesQuery);
+export async function getFeaturedCaseStudies(locale: Locale = "en"): Promise<CaseStudy[]> {
+  const data = await client.fetch<CaseStudy[]>(featuredCaseStudiesQuery, { locale });
   return data ?? [];
 }
 
-export async function getCaseStudyBySlug(slug: string): Promise<CaseStudyPage | null> {
-  const data = await client.fetch<CaseStudyPage | null>(caseStudyBySlugQuery, { slug });
+export async function getCaseStudyBySlug(slug: string, locale: Locale = "en"): Promise<CaseStudyPage | null> {
+  const data = await client.fetch<CaseStudyPage | null>(caseStudyBySlugQuery, { slug, locale });
   return data ?? null;
 }
 
-export async function getCaseStudySlugs(): Promise<string[]> {
-  const data = await client.fetch<string[]>(caseStudySlugsQuery);
+export async function getCaseStudySlugs(locale: Locale = "en"): Promise<string[]> {
+  const data = await client.fetch<string[]>(caseStudySlugsQuery, { locale });
   return data ?? [];
 }
 

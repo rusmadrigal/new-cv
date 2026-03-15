@@ -1,8 +1,14 @@
 "use client";
 
 import { motion } from "motion/react";
+import { getTranslations, type Locale } from "@/lib/translations";
 
-export function AboutSection() {
+interface AboutSectionProps {
+  locale?: Locale;
+}
+
+export function AboutSection({ locale = "en" }: AboutSectionProps) {
+  const t = getTranslations(locale);
   return (
     <section id="about" className="py-24 bg-black relative">
       <div className="absolute inset-0 bg-grid-pattern opacity-10" />
@@ -15,27 +21,13 @@ export function AboutSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl mb-8 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-            About Me
+            {t.about.title}
           </h2>
 
           <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
-            <p>
-              Technical SEO strategist with more than a decade of experience
-              working with large-scale international websites and global brands.
-            </p>
-
-            <p>
-              My work focuses on the intersection of SEO, engineering, and data.
-              I specialize in improving crawlability, rendering behavior, Core
-              Web Vitals, and structured data implementations across modern
-              JavaScript environments.
-            </p>
-
-            <p>
-              I frequently collaborate with product, engineering, and analytics
-              teams to solve complex technical challenges and drive sustainable
-              organic growth.
-            </p>
+            <p>{t.about.p1}</p>
+            <p>{t.about.p2}</p>
+            <p>{t.about.p3}</p>
           </div>
         </motion.div>
       </div>

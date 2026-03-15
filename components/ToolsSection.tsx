@@ -12,19 +12,26 @@ import {
   Target,
   type LucideIcon,
 } from "lucide-react";
+import { getTranslations, type Locale } from "@/lib/translations";
 
-const tools: { name: string; icon: LucideIcon }[] = [
-  { name: "Google Search Console", icon: Search },
-  { name: "Screaming Frog", icon: Activity },
-  { name: "Ahrefs", icon: BarChart3 },
-  { name: "SEMrush", icon: TrendingUp },
-  { name: "Sitebulb", icon: Target },
-  { name: "GA4", icon: PieChart },
-  { name: "Adobe Analytics", icon: Database },
-  { name: "Looker Studio", icon: FileText },
+const TOOL_ICONS: LucideIcon[] = [
+  Search,
+  Activity,
+  BarChart3,
+  TrendingUp,
+  Target,
+  PieChart,
+  Database,
+  FileText,
 ];
 
-export function ToolsSection() {
+interface ToolsSectionProps {
+  locale?: Locale;
+}
+
+export function ToolsSection({ locale = "en" }: ToolsSectionProps) {
+  const t = getTranslations(locale);
+  const tools = t.tools.list.map((name, i) => ({ name, icon: TOOL_ICONS[i] ?? Search }));
   return (
     <section
       id="tools"
@@ -38,7 +45,7 @@ export function ToolsSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl mb-12 text-center bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-            Tools & Platforms
+            {t.tools.title}
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

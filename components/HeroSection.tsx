@@ -3,12 +3,17 @@
 import { motion } from "motion/react";
 import { ChevronDown, Download } from "lucide-react";
 import { ImageWithFallback } from "./ImageWithFallback";
+import { getTranslations, type Locale } from "@/lib/translations";
 
 const HERO_IMAGE = "/rusben.jpg";
-// PDF del CV: colócalo en public/ como resume.pdf (o cambia la ruta)
 const RESUME_PDF = "/resume.pdf";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  locale?: Locale;
+}
+
+export function HeroSection({ locale = "en" }: HeroSectionProps) {
+  const t = getTranslations(locale);
   const scrollToAbout = () => {
     const aboutSection = document.getElementById("about");
     if (aboutSection) {
@@ -76,14 +81,11 @@ export function HeroSection() {
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-8">
-            Senior Technical SEO | AI-Driven SEO, Web Performance & Growth
+            {t.hero.subtitle}
           </p>
 
           <p className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Senior SEO professional with 10+ years of experience specializing in
-            Technical SEO, large-scale websites, and AI-assisted workflows.
-            Strong technical expertise across JavaScript environments, web
-            performance optimization, and scalable organic growth strategies.
+            {t.hero.bio}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -91,7 +93,7 @@ export function HeroSection() {
               onClick={() => scrollToAbout()}
               className="px-8 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-all hover:scale-105 hover:shadow-lg hover:shadow-white/20"
             >
-              View Experience
+              {t.hero.viewExperience}
             </button>
             <a
               href={RESUME_PDF}
@@ -99,13 +101,13 @@ export function HeroSection() {
               className="inline-flex items-center gap-2 px-8 py-3 border border-gray-700 text-white rounded-lg hover:border-gray-500 transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 group"
             >
               <Download className="w-4 h-4 shrink-0 transition-transform group-hover:translate-y-0.5" />
-              Download Resume
+              {t.hero.downloadResume}
             </a>
             <button
               onClick={() => scrollToContact()}
               className="px-8 py-3 border border-gray-700 text-white rounded-lg hover:border-gray-500 transition-all hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20"
             >
-              Contact Me
+              {t.hero.contactMe}
             </button>
           </div>
         </motion.div>

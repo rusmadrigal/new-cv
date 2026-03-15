@@ -22,13 +22,18 @@ const iconMap: Record<string, LucideIcon> = {
   trendingUp: TrendingUp,
 };
 
-function buildMeta(study: CaseStudyPage, slug: string, caseStudyMeta: string): Metadata {
+function buildMeta(
+  study: CaseStudyPage,
+  slug: string,
+  caseStudyMeta: string,
+  basePath: string
+): Metadata {
   const title = study.seoTitle ?? study.title;
   const description =
     study.seoDescription ??
     `${study.title} – ${study.client}. ${caseStudyMeta}`;
   const desc = description.slice(0, 155);
-  const canonical = `${siteUrl}/case-studies/${slug}`;
+  const canonical = `${siteUrl}${basePath}/case-studies/${slug}`;
   const ogImage =
     study.ogImage ?? (study.gallery?.[0]?.url) ?? `${siteUrl}/rusben.jpg`;
 
@@ -56,11 +61,14 @@ function ArticleJsonLd({
   study,
   slug,
   caseStudyMeta,
+  basePath,
 }: {
   study: CaseStudyPage;
   slug: string;
   caseStudyMeta: string;
+  basePath: string;
 }) {
+  const url = `${siteUrl}${basePath}/case-studies/${slug}`;
   const json = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -78,7 +86,7 @@ function ArticleJsonLd({
       name: "Rusben Madrigal",
       logo: { "@type": "ImageObject", url: `${siteUrl}/rusben.jpg` },
     },
-    mainEntityOfPage: { "@type": "WebPage", "@id": `${siteUrl}/case-studies/${slug}` },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
     datePublished: undefined as string | undefined,
     dateModified: undefined as string | undefined,
   };
@@ -92,8 +100,10 @@ function ArticleJsonLd({
 
 export const dynamic = "force-dynamic";
 
+const BASE_ES = "/es";
+
 export async function generateStaticParams() {
-  const slugs = await getCaseStudySlugs("en");
+  const slugs = await getCaseStudySlugs("es");
   return slugs.map((slug) => ({ slug }));
 }
 
@@ -103,19 +113,24 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const study = await getCaseStudyBySlug(slug, "en");
+  const study = await getCaseStudyBySlug(slug, "es");
   if (!study) return {};
-  return buildMeta(study, slug, getTranslations("en").caseStudyMeta);
+  return buildMeta(
+    study,
+    slug,
+    getTranslations("es").caseStudyMeta,
+    BASE_ES
+  );
 }
 
-export default async function CaseStudyPage({
+export default async function EsCaseStudyPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const study = await getCaseStudyBySlug(slug, "en");
-  const t = getTranslations("en");
+  const study = await getCaseStudyBySlug(slug, "es");
+  const t = getTranslations("es");
 
   if (!study) notFound();
 
@@ -123,12 +138,17 @@ export default async function CaseStudyPage({
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <ArticleJsonLd study={study} slug={slug} caseStudyMeta={t.caseStudyMeta} />
+      <ArticleJsonLd
+        study={study}
+        slug={slug}
+        caseStudyMeta={t.caseStudyMeta}
+        basePath={BASE_ES}
+      />
       <Navigation hasCaseStudies />
       <main className="pt-24 pb-24">
         <div className="max-w-4xl mx-auto px-6">
           <Link
-            href="/case-studies"
+            href="/es/case-studies"
             className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-12"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -263,7 +283,7 @@ export default async function CaseStudyPage({
           </article>
         </div>
       </main>
-      <Footer locale="en" />
+      <Footer locale="es" />
     </div>
   );
 }

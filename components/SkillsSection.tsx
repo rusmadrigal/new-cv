@@ -1,27 +1,15 @@
 "use client";
 
 import { motion } from "motion/react";
+import { getTranslations, type Locale } from "@/lib/translations";
 
-const skills = [
-  "SEO Strategy",
-  "IA / AI-Driven SEO",
-  "Web Performance Optimization",
-  "Technical SEO",
-  "JavaScript SEO",
-  "Next.js / Rendering",
-  "Site Architecture",
-  "Crawlability & Indexation",
-  "Core Web Vitals",
-  "Structured Data (JSON-LD)",
-  "Log File Analysis",
-  "GA4",
-  "GTM",
-  "Looker Studio",
-  "SQL",
-  "Lighthouse & PageSpeed Insights",
-];
+interface SkillsSectionProps {
+  locale?: Locale;
+}
 
-export function SkillsSection() {
+export function SkillsSection({ locale = "en" }: SkillsSectionProps) {
+  const t = getTranslations(locale);
+  const skills = t.skills.list;
   return (
     <section
       id="skills"
@@ -35,7 +23,7 @@ export function SkillsSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl mb-12 text-center bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-            Core Skills
+            {t.skills.title}
           </h2>
 
           <div className="flex flex-wrap gap-4 justify-center">

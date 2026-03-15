@@ -12,27 +12,27 @@ import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { getCaseStudies } from "@/lib/sanity";
 
-export default async function Home() {
-  const allCaseStudies = await getCaseStudies();
+export default async function EsHome() {
+  const allCaseStudies = await getCaseStudies("es");
   const hasCaseStudies = allCaseStudies.length > 0;
   const featuredCaseStudies = allCaseStudies.filter((s) => s.featured);
 
   return (
     <>
       <Navigation hasCaseStudies={hasCaseStudies} />
-      <HeroSection />
-      <AboutSection />
-      <VideoSection />
-      <SkillsSection />
-      <ExperienceSection />
+      <HeroSection locale="es" />
+      <AboutSection locale="es" />
+      <VideoSection locale="es" />
+      <SkillsSection locale="es" />
+      <ExperienceSection locale="es" />
       {hasCaseStudies && (
-        <CaseStudiesSection caseStudies={featuredCaseStudies} />
+        <CaseStudiesSection caseStudies={featuredCaseStudies} locale="es" />
       )}
-      <ToolsSection />
-      <ExpertiseSection />
-      <EducationSection />
-      <ContactSection />
-      <Footer />
+      <ToolsSection locale="es" />
+      <ExpertiseSection locale="es" />
+      <EducationSection locale="es" />
+      <ContactSection locale="es" />
+      <Footer locale="es" />
     </>
   );
 }

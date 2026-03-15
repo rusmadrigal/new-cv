@@ -8,7 +8,24 @@ export const siteUrl =
 export const siteName = "Rusben Madrigal";
 export const siteTitle = "Rusben Madrigal | Senior Technical SEO | AI-Driven SEO & Growth";
 export const siteDescription =
-  "Senior Technical SEO. AI-driven SEO, web performance & growth. 10+ years, large-scale sites, Core Web Vitals & JS SEO. Costa Rica.";
+  "Senior Technical SEO with 10+ years driving growth for large websites. Expert in AI-driven SEO, Core Web Vitals optimization, and JavaScript SEO.";
+
+export const siteTitleEs = "Rusben Madrigal | SEO Técnico Senior | SEO con IA y Growth";
+export const siteDescriptionEs =
+  "SEO Técnico Senior con 10+ años impulsando crecimiento en sitios web grandes. Experto en SEO con IA, Core Web Vitals y optimización JavaScript SEO.";
+
+/** Keywords for Spanish version (meta keywords). */
+export const siteKeywordsEs = [
+  "SEO técnico",
+  "SEO con IA",
+  "Rendimiento web",
+  "Core Web Vitals",
+  "JavaScript SEO",
+  "Crecimiento orgánico",
+  "Rusben Madrigal",
+  "Consultor SEO",
+  "Costa Rica",
+];
 
 export const person = {
   name: "Rusben Madrigal",

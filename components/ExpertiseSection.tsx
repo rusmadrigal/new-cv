@@ -10,51 +10,20 @@ import {
   Bot,
   type LucideIcon,
 } from "lucide-react";
+import { getTranslations, type Locale } from "@/lib/translations";
 
-const expertiseAreas: {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-}[] = [
-  {
-    icon: FileCode,
-    title: "Technical SEO Audits",
-    description:
-      "Comprehensive technical analysis of large-scale websites to identify optimization opportunities and improve organic performance.",
-  },
-  {
-    icon: Code2,
-    title: "JavaScript SEO",
-    description:
-      "Expertise in rendering behavior, indexation strategies, and optimization for modern JavaScript frameworks like Next.js and React.",
-  },
-  {
-    icon: Gauge,
-    title: "Core Web Vitals Optimization",
-    description:
-      "Performance optimization focusing on LCP, FID, and CLS to improve user experience and search rankings.",
-  },
-  {
-    icon: ScrollText,
-    title: "Structured Data Implementation",
-    description:
-      "Implementation and maintenance of JSON-LD schema markup to enhance search visibility and rich results.",
-  },
-  {
-    icon: Zap,
-    title: "Log File Analysis",
-    description:
-      "Deep analysis of crawl patterns and server logs to optimize crawl budget and improve indexation efficiency.",
-  },
-  {
-    icon: Bot,
-    title: "SEO Automation & AI Workflows",
-    description:
-      "Development of AI-assisted workflows and automated processes to scale SEO operations and accelerate analysis.",
-  },
-];
+const EXPERTISE_ICONS: LucideIcon[] = [FileCode, Code2, Gauge, ScrollText, Zap, Bot];
 
-export function ExpertiseSection() {
+interface ExpertiseSectionProps {
+  locale?: Locale;
+}
+
+export function ExpertiseSection({ locale = "en" }: ExpertiseSectionProps) {
+  const t = getTranslations(locale);
+  const areas = t.expertise.items.map((item, i) => ({
+    ...item,
+    icon: EXPERTISE_ICONS[i] ?? FileCode,
+  }));
   return (
     <section id="expertise" className="py-24 bg-black relative">
       <div className="max-w-6xl mx-auto px-6">
@@ -65,11 +34,11 @@ export function ExpertiseSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl mb-12 text-center bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-            Technical Expertise
+            {t.expertise.title}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {expertiseAreas.map((area, index) => {
+            {areas.map((area, index) => {
               const Icon = area.icon;
               return (
                 <motion.div

@@ -55,6 +55,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: siteUrl,
+    languages: { en: siteUrl, es: `${siteUrl}/es` },
   },
   verification: {
     // Añade aquí cuando tengas: google: "tu-codigo",
