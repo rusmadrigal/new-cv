@@ -8,6 +8,7 @@ import { CaseStudiesSection } from "@/components/CaseStudiesSection";
 import { ToolsSection } from "@/components/ToolsSection";
 import { ExpertiseSection } from "@/components/ExpertiseSection";
 import { EducationSection } from "@/components/EducationSection";
+import { RecommendationsSection } from "@/components/RecommendationsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { getCaseStudies } from "@/lib/sanity";
@@ -31,6 +32,7 @@ export default async function Home() {
       <ToolsSection />
       <ExpertiseSection />
       <EducationSection />
+      <RecommendationsSection />
       <ContactSection />
       <Footer />
     </>

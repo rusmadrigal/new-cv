@@ -12,6 +12,7 @@ const translations = {
       tools: "Tools",
       expertise: "Expertise",
       education: "Education",
+      recommendations: "Recommendations",
       contact: "Contact",
       letsTalk: "Let's Talk",
       navigation: "Navigation",
@@ -178,6 +179,11 @@ const translations = {
         { institution: "Universidad Latina de Costa Rica", degree: "Bachelor of Business Administration with emphasis in Marketing & Sales", field: "Empresa, gestión, marketing y disciplinas afines", period: "2007 – 2010" },
       ],
     },
+    recommendations: {
+      title: "What others say",
+      subtitle: "Recommendations from colleagues and managers on LinkedIn.",
+      readOnLinkedIn: "Read all on LinkedIn",
+    },
     contact: {
       title: "Open to Opportunities",
       subtitle: "I'm open to technical SEO and growth roles. If you're a recruiter or hiring manager looking for someone with 10+ years driving organic growth on large-scale websites, let's connect.",
@@ -203,6 +209,7 @@ const translations = {
       tools: "Herramientas",
       expertise: "Experiencia técnica",
       education: "Formación",
+      recommendations: "Recomendaciones",
       contact: "Contacto",
       letsTalk: "Hablemos",
       navigation: "Navegación",
@@ -368,6 +375,11 @@ const translations = {
         { institution: "Universidad Latina de Costa Rica", degree: "Licenciatura en Administración de Empresas con énfasis en Marketing y Ventas", field: "Marketing", period: "2012 – 2014" },
         { institution: "Universidad Latina de Costa Rica", degree: "Bachillerato en Administración de Empresas con énfasis en Marketing y Ventas", field: "Empresa, gestión, marketing y disciplinas afines", period: "2007 – 2010" },
       ],
+    },
+    recommendations: {
+      title: "Lo que dicen de mí",
+      subtitle: "Recomendaciones de colegas y managers en LinkedIn.",
+      readOnLinkedIn: "Ver todas en LinkedIn",
     },
     contact: {
       title: "Abierto a oportunidades",

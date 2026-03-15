@@ -35,6 +35,7 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
       { name: tr.nav.tools, href: "#tools" },
       { name: tr.nav.expertise, href: "#expertise" },
       { name: tr.nav.education, href: "#education" },
+      { name: tr.nav.recommendations, href: "#recommendations" },
       { name: tr.nav.contact, href: "#contact" },
     ];
     return hasCaseStudies ? items : items.filter((item) => item.href !== "#case-studies");
