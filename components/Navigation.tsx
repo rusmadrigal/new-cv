@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, ChevronRight, Languages } from "lucide-react";
-import { useState, useEffect, useMemo } from "react";
+import { Menu, X, ChevronRight, ChevronDown, Languages } from "lucide-react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { getTranslations, type Locale } from "@/lib/translations";
 
 function getLocaleFromPathname(pathname: string): Locale {
@@ -41,11 +41,33 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
     return hasCaseStudies ? items : items.filter((item) => item.href !== "#case-studies");
   }, [locale, hasCaseStudies]);
 
+  /** Desktop: main bar = Home, About, Experience, Case Studies */
+  const primaryIds = useMemo(() => ["hero", "about", "experience", "case-studies"], []);
+  const primaryItems = useMemo(
+    () => navItems.filter((item) => primaryIds.includes(item.href.replace("#", ""))),
+    [navItems, primaryIds]
+  );
+  /** Desktop: "More" dropdown = Video, Skills, Tools, Expertise, Education, Recommendations */
+  const secondaryItems = useMemo(
+    () => navItems.filter((item) => !primaryIds.includes(item.href.replace("#", "")) && item.href !== "#contact"),
+    [navItems, primaryIds]
+  );
+
   const SECTION_IDS = useMemo(() => navItems.map((item) => item.href.replace("#", "")), [navItems]);
 
   const [isOpen, setIsOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const moreRef = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("hero");
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) setMoreOpen(false);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,6 +92,7 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsOpen(false);
+    setMoreOpen(false);
 
     if (!isHome && href.startsWith("#")) {
       window.location.href = `${basePath || "/"}${href}`;
@@ -133,7 +156,7 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
             )}
 
             <div className="hidden lg:flex items-center gap-0.5">
-              {navItems.map((item) => {
+              {primaryItems.map((item) => {
                 const id = item.href.replace("#", "");
                 const isActive = activeSection === id;
                 return (
@@ -161,6 +184,63 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
                   </motion.a>
                 );
               })}
+
+              <div className="relative" ref={moreRef}>
+                <motion.button
+                  type="button"
+                  onClick={() => setMoreOpen((o) => !o)}
+                  className={`relative flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                    secondaryItems.some((item) => item.href.replace("#", "") === activeSection)
+                      ? "text-white"
+                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                  }`}
+                  whileHover={{ y: -1 }}
+                  whileTap={{ scale: 0.98 }}
+                  aria-expanded={moreOpen}
+                  aria-haspopup="true"
+                  aria-label={t.nav.more}
+                >
+                  {secondaryItems.some((item) => item.href.replace("#", "") === activeSection) && (
+                    <span className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg border border-white/10" />
+                  )}
+                  <span className="relative">{t.nav.more}</span>
+                  <ChevronDown
+                    className={`relative w-4 h-4 transition-transform duration-200 ${moreOpen ? "rotate-180" : ""}`}
+                  />
+                </motion.button>
+
+                <AnimatePresence>
+                  {moreOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-0 mt-1 py-1.5 min-w-[200px] rounded-xl bg-gray-900/95 backdrop-blur-xl border border-white/10 shadow-xl shadow-black/40 z-50"
+                    >
+                      {secondaryItems.map((item) => {
+                        const id = item.href.replace("#", "");
+                        const isActive = activeSection === id;
+                        return (
+                          <a
+                            key={id}
+                            href={item.href}
+                            onClick={(e) => handleNavClick(e, item.href)}
+                            className={`flex items-center justify-between gap-3 px-4 py-2.5 text-sm font-medium transition-colors ${
+                              isActive ? "text-white bg-white/10" : "text-gray-400 hover:text-white hover:bg-white/5"
+                            }`}
+                          >
+                            <span>{item.name}</span>
+                            {isActive && (
+                              <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-purple-400" />
+                            )}
+                          </a>
+                        );
+                      })}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               <Link
                 href={langSwitcherHref}
