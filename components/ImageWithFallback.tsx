@@ -12,6 +12,7 @@ interface ImageWithFallbackProps {
   width?: number;
   height?: number;
   className?: string;
+  priority?: boolean;
 }
 
 export function ImageWithFallback({
@@ -20,13 +21,14 @@ export function ImageWithFallback({
   className = "",
   width = 160,
   height = 160,
+  priority = false,
 }: ImageWithFallbackProps) {
   const [didError, setDidError] = useState(false);
 
   if (didError) {
     return (
       <div
-        className={`inline-block bg-gray-800 text-center align-middle rounded-full flex items-center justify-center overflow-hidden ${className}`}
+        className={`flex bg-gray-800 text-center align-middle rounded-full items-center justify-center overflow-hidden ${className}`}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -40,6 +42,8 @@ export function ImageWithFallback({
     );
   }
 
+  const isLocal = src.startsWith("/");
+
   return (
     <Image
       src={src}
@@ -48,7 +52,9 @@ export function ImageWithFallback({
       height={height}
       className={className}
       onError={() => setDidError(true)}
-      unoptimized
+      priority={priority}
+      unoptimized={!isLocal}
+      sizes={priority ? "(max-width: 768px) 128px, 160px" : undefined}
     />
   );
 }

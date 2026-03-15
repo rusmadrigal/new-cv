@@ -3,7 +3,7 @@
  * Set NEXT_PUBLIC_SITE_URL in production (e.g. https://rusbenmadrigal.com).
  */
 export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://rusbenmadrigal.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rusbenmadrigal.com";
 
 export const siteName = "Rusben Madrigal";
 export const siteTitle = "Rusben Madrigal | Senior Technical SEO | AI-Driven SEO & Growth";

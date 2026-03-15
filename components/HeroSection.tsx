@@ -65,6 +65,7 @@ export function HeroSection() {
                 alt="Rusben Madrigal"
                 width={160}
                 height={160}
+                priority
                 className="w-full h-full rounded-full object-cover border-2 border-white/20 shadow-xl"
               />
             </div>

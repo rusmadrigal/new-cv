@@ -1,10 +1,19 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { getCaseStudyBySlug, getCaseStudySlugs } from "@/lib/sanity";
+import { PortableText } from "@/components/PortableText";
+import { VideoEmbed } from "@/components/VideoEmbed";
+import {
+  getCaseStudyBySlug,
+  getCaseStudySlugs,
+  type CaseStudyPage,
+} from "@/lib/sanity";
+import { siteUrl } from "@/lib/site";
 import { Zap, Search, TrendingUp, ArrowLeft } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import type { Metadata } from "next";
 
 const iconMap: Record<string, LucideIcon> = {
   zap: Zap,
@@ -12,11 +21,82 @@ const iconMap: Record<string, LucideIcon> = {
   trendingUp: TrendingUp,
 };
 
+function buildMeta(study: CaseStudyPage, slug: string): Metadata {
+  const title = study.seoTitle ?? study.title;
+  const description =
+    study.seoDescription ??
+    `${study.title} – ${study.client}. Case study by Rusben Madrigal.`;
+  const desc = description.slice(0, 155);
+  const canonical = `${siteUrl}/case-studies/${slug}`;
+  const ogImage =
+    study.ogImage ?? (study.gallery?.[0]?.url) ?? `${siteUrl}/rusben.jpg`;
+
+  return {
+    title,
+    description: desc,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      url: canonical,
+      title,
+      description: desc,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: study.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: desc,
+      images: [ogImage],
+    },
+  };
+}
+
+function ArticleJsonLd({ study, slug }: { study: CaseStudyPage; slug: string }) {
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: study.title,
+    description:
+      study.seoDescription ??
+      `${study.title} – ${study.client}. Case study by Rusben Madrigal.`,
+    author: {
+      "@type": "Person",
+      name: "Rusben Madrigal",
+      url: siteUrl,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Rusben Madrigal",
+      logo: { "@type": "ImageObject", url: `${siteUrl}/rusben.jpg` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${siteUrl}/case-studies/${slug}` },
+    datePublished: undefined as string | undefined,
+    dateModified: undefined as string | undefined,
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
+    />
+  );
+}
+
 export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
   const slugs = await getCaseStudySlugs();
   return slugs.map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const study = await getCaseStudyBySlug(slug);
+  if (!study) return {};
+  return buildMeta(study, slug);
 }
 
 export default async function CaseStudyPage({
@@ -33,6 +113,7 @@ export default async function CaseStudyPage({
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <ArticleJsonLd study={study} slug={slug} />
       <Navigation />
       <main className="pt-24 pb-24">
         <div className="max-w-4xl mx-auto px-6">
@@ -66,17 +147,17 @@ export default async function CaseStudyPage({
                     <h2 className="text-gray-400 text-sm uppercase tracking-wider mb-3">
                       Challenge
                     </h2>
-                    <p className="text-gray-300 leading-relaxed">
-                      {study.challenge}
-                    </p>
+                    <div className="text-gray-300 leading-relaxed prose prose-invert max-w-none">
+                      <PortableText value={study.challenge} />
+                    </div>
                   </div>
                   <div>
                     <h2 className="text-gray-400 text-sm uppercase tracking-wider mb-3">
                       Solution
                     </h2>
-                    <p className="text-gray-300 leading-relaxed">
-                      {study.solution}
-                    </p>
+                    <div className="text-gray-300 leading-relaxed prose prose-invert max-w-none">
+                      <PortableText value={study.solution} />
+                    </div>
                   </div>
                 </div>
 
@@ -110,6 +191,51 @@ export default async function CaseStudyPage({
                   </div>
                 </div>
               </div>
+
+              {study.videoUrl && (
+                <section className="mb-8">
+                  <h2 className="text-gray-400 text-sm uppercase tracking-wider mb-4">
+                    Video
+                  </h2>
+                  <VideoEmbed url={study.videoUrl} title={study.title} />
+                </section>
+              )}
+
+              {study.gallery?.filter((img) => img.url).length ? (
+                <section className="mb-8">
+                  <h2 className="text-gray-400 text-sm uppercase tracking-wider mb-4">
+                    Gallery
+                  </h2>
+                  <div className="grid gap-6 sm:grid-cols-2">
+                    {study.gallery.filter((img) => img.url).map((img, i) => (
+                      <figure key={i}>
+                        <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-800">
+                          <Image
+                            src={img.url}
+                            alt={img.alt ?? study.title}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 640px) 100vw, 50vw"
+                          />
+                        </div>
+                        {img.caption && (
+                          <figcaption className="text-sm text-gray-500 mt-2">
+                            {img.caption}
+                          </figcaption>
+                        )}
+                      </figure>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
+
+              {study.body && study.body.length > 0 && (
+                <section className="pt-6 border-t border-gray-700">
+                  <div className="prose prose-invert max-w-none text-gray-300">
+                    <PortableText value={study.body} />
+                  </div>
+                </section>
+              )}
 
               {study.tags && study.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 pt-6 border-t border-gray-700">

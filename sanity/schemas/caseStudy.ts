@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { blockContent } from "./blockContent";
 
 // Result item: igual que en el home (metric, value, change)
 export const caseStudyResult = defineType({
@@ -46,6 +47,29 @@ export const caseStudy = defineType({
   ],
   fields: [
     defineField({
+      name: "seoTitle",
+      type: "string",
+      title: "SEO Title",
+      group: "seo",
+      description: "Override for meta title (default: case study title).",
+    }),
+    defineField({
+      name: "seoDescription",
+      type: "text",
+      title: "Meta Description",
+      group: "seo",
+      rows: 2,
+      description: "Override for meta description (max ~155 chars).",
+    }),
+    defineField({
+      name: "ogImage",
+      type: "image",
+      title: "OG Image",
+      group: "seo",
+      options: { hotspot: true },
+      description: "Override for social share image (default: first gallery image or site image).",
+    }),
+    defineField({
       name: "title",
       type: "string",
       title: "Title",
@@ -75,21 +99,49 @@ export const caseStudy = defineType({
     }),
     defineField({
       name: "challenge",
-      type: "text",
+      type: "blockContent",
       title: "Challenge",
       group: "content",
-      description: "Texto que se muestra como “Challenge” en el home y en la página del case study.",
-      rows: 4,
+      description: "Rich text for the Challenge section (headings, lists, links, images).",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "solution",
-      type: "text",
+      type: "blockContent",
       title: "Solution",
       group: "content",
-      description: "Texto que se muestra como “Solution” en el home y en la página del case study.",
-      rows: 4,
+      description: "Rich text for the Solution section.",
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "gallery",
+      type: "array",
+      title: "Gallery",
+      group: "content",
+      of: [
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            { name: "alt", type: "string", title: "Alt text" },
+            { name: "caption", type: "string", title: "Caption" },
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: "videoUrl",
+      type: "url",
+      title: "Video URL",
+      group: "content",
+      description: "YouTube or Vimeo embed URL (e.g. https://www.youtube.com/watch?v=...).",
+    }),
+    defineField({
+      name: "body",
+      type: "blockContent",
+      title: "Additional content",
+      group: "content",
+      description: "Optional rich content (text, images) below Challenge/Solution/Results.",
     }),
     defineField({
       name: "results",
