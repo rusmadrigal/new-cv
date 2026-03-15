@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { Download } from "lucide-react";
 
 const experiences = [
   {
@@ -127,6 +128,28 @@ export function ExperienceSection() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="relative pl-0 md:pl-20 mt-12"
+          >
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-8 text-center">
+              <p className="text-gray-300 mb-4">
+                Want to see my full experience and background?
+              </p>
+              <a
+                href="/resume.pdf"
+                download="Rusben-Madrigal-CV.pdf"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-white font-medium hover:shadow-lg hover:shadow-blue-500/40 transition-all"
+              >
+                <Download className="w-4 h-4" />
+                Download my CV
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

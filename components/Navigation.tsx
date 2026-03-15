@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -20,6 +22,8 @@ const navItems = [
 const SECTION_IDS = navItems.map((item) => item.href.replace("#", ""));
 
 export function Navigation() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("hero");
@@ -52,6 +56,11 @@ export function Navigation() {
     e.preventDefault();
     setIsOpen(false);
 
+    if (!isHome && href.startsWith("#")) {
+      window.location.href = `/${href}`;
+      return;
+    }
+
     const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
 
@@ -81,15 +90,33 @@ export function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <motion.a
-              href="#hero"
-              onClick={(e) => handleNavClick(e, "#hero")}
-              className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-400 via-blue-300 to-purple-400 bg-clip-text text-transparent hover:opacity-90 transition-opacity tracking-tight"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              RM
-            </motion.a>
+            {isHome ? (
+              <motion.a
+                href="#hero"
+                onClick={(e) => handleNavClick(e, "#hero")}
+                className="group/logo relative inline-flex items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:border-white/20 hover:bg-white/10 hover:shadow-[0_0_24px_rgba(59,130,246,0.25)] transition-all duration-300"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="logo-rays absolute inset-0 opacity-0 transition-[opacity_300ms,transform_600ms] group-hover/logo:opacity-100 group-hover/logo:rotate-180" />
+                <span className="relative z-10 text-xl md:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 via-blue-300 to-purple-400 bg-clip-text text-transparent">
+                  RM
+                </span>
+              </motion.a>
+            ) : (
+              <Link href="/" className="group/logo block">
+                <motion.span
+                  className="relative inline-flex items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:border-white/20 hover:bg-white/10 hover:shadow-[0_0_24px_rgba(59,130,246,0.25)] transition-all duration-300"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <span className="logo-rays absolute inset-0 opacity-0 transition-[opacity_300ms,transform_600ms] group-hover/logo:opacity-100 group-hover/logo:rotate-180" />
+                  <span className="relative z-10 text-xl md:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 via-blue-300 to-purple-400 bg-clip-text text-transparent">
+                    RM
+                  </span>
+                </motion.span>
+              </Link>
+            )}
 
             {/* Desktop: links + CTA */}
             <div className="hidden lg:flex items-center gap-0.5">

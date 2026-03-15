@@ -42,7 +42,7 @@ export function ContactSection() {
 
           <div className="flex gap-6 justify-center">
             <motion.a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/rusmadrigal/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -2 }}
@@ -52,7 +52,7 @@ export function ContactSection() {
             </motion.a>
 
             <motion.a
-              href="https://github.com"
+              href="https://github.com/rusmadrigal"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -2 }}

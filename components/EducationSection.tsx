@@ -5,18 +5,17 @@ import { GraduationCap, Languages } from "lucide-react";
 
 const education = [
   {
-    institution: "Universidad Latina de Costa Rica",
-    degree:
-      "Degree of Business Administration with emphasis in Marketing & Sales",
-    field: "Marketing",
-    period: "2012 – 2014",
-  },
-  {
     institution: "McKinsey & Company",
     degree:
       "Professional Development Program (Leadership, Problem Solving, and Business Skills)",
     field: "",
     period: "October 2025 – April 2026",
+  },
+  {
+    institution: "Le Studio by PGD",
+    degree: "Management Development Program 2024",
+    field: "Marketing",
+    period: "April 2024 – May 2024",
   },
   {
     institution: "Universidad de La Sabana",
@@ -25,10 +24,11 @@ const education = [
     period: "October 2023 – February 2024",
   },
   {
-    institution: "Le Studio by PGD",
-    degree: "Management Development Program 2024",
+    institution: "Universidad Latina de Costa Rica",
+    degree:
+      "Degree of Business Administration with emphasis in Marketing & Sales",
     field: "Marketing",
-    period: "April 2024 – May 2024",
+    period: "2012 – 2014",
   },
   {
     institution: "Universidad Latina de Costa Rica",
