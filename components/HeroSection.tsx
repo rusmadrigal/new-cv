@@ -64,7 +64,7 @@ export function HeroSection({ locale = "en" }: HeroSectionProps) {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-8 flex justify-center"
           >
-            <div className="relative w-32 h-32 md:w-40 md:h-40">
+            <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0">
               <ImageWithFallback
                 src={HERO_IMAGE}
                 alt="Rusben Madrigal"
@@ -73,6 +73,15 @@ export function HeroSection({ locale = "en" }: HeroSectionProps) {
                 priority
                 className="w-full h-full rounded-full object-cover border-2 border-white/20 shadow-xl"
               />
+              {/* Open to Work badge – LinkedIn style, site neon gradient */}
+              <div
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[10%] w-[92%] flex items-center justify-center rounded-full py-1 px-1.5 bg-gradient-to-r from-blue-500 via-blue-400 to-purple-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.6),0_0_40px_rgba(147,51,234,0.3)] border border-white/20"
+                aria-hidden
+              >
+                <span className="text-[9px] md:text-[10px] font-bold tracking-tight uppercase">
+                  #OPENTOWORK
+                </span>
+              </div>
             </div>
           </motion.div>
 

@@ -1,9 +1,9 @@
 /**
  * Site config for SEO, canonical URLs, and social sharing.
- * Set NEXT_PUBLIC_SITE_URL in production (e.g. https://rusbenmadrigal.com).
+ * Set NEXT_PUBLIC_SITE_URL in production (e.g. https://www.rusmadrigal.com).
  */
 export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rusbenmadrigal.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rusmadrigal.com";
 
 export const siteName = "Rusben Madrigal";
 export const siteTitle = "Rusben Madrigal | Senior Technical SEO | AI-Driven SEO & Growth";
