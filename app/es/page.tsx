@@ -21,19 +21,21 @@ export default async function EsHome() {
   return (
     <>
       <Navigation hasCaseStudies={hasCaseStudies} />
-      <HeroSection locale="es" />
-      <AboutSection locale="es" />
-      <VideoSection locale="es" />
-      <SkillsSection locale="es" />
-      <ExperienceSection locale="es" />
-      {hasCaseStudies && (
-        <CaseStudiesSection caseStudies={featuredCaseStudies} locale="es" />
-      )}
-      <ToolsSection locale="es" />
-      <ExpertiseSection locale="es" />
-      <EducationSection locale="es" />
-      <RecommendationsSection locale="es" />
-      <ContactSection locale="es" />
+      <main id="main-content">
+        <HeroSection locale="es" />
+        <AboutSection locale="es" />
+        <VideoSection locale="es" />
+        <SkillsSection locale="es" />
+        <ExperienceSection locale="es" />
+        {hasCaseStudies && (
+          <CaseStudiesSection caseStudies={featuredCaseStudies} locale="es" />
+        )}
+        <ToolsSection locale="es" />
+        <ExpertiseSection locale="es" />
+        <EducationSection locale="es" />
+        <RecommendationsSection locale="es" />
+        <ContactSection locale="es" />
+      </main>
       <Footer locale="es" />
     </>
   );

@@ -92,20 +92,20 @@ export function CaseStudiesSection({ caseStudies, locale = "en" }: CaseStudiesSe
   return (
     <section
       id="case-studies"
-      className="py-24 bg-black relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-20 bg-black relative overflow-hidden px-4 sm:px-6"
     >
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[150px]" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[150px]" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
-          <h2 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl mb-4 sm:mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
             {t.caseStudies.title}
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
@@ -128,8 +128,8 @@ export function CaseStudiesSection({ caseStudies, locale = "en" }: CaseStudiesSe
                 className="group"
               >
                 <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-2xl overflow-hidden hover:border-gray-600 transition-all hover:shadow-2xl hover:shadow-blue-500/10">
-                  <div className="p-8 md:p-10">
-                    <div className="flex items-start gap-6 mb-6">
+                  <div className="p-6 sm:p-8 md:p-10">
+                    <div className="flex items-start gap-4 sm:gap-5 mb-5 sm:mb-6">
                       <div
                         className={`w-16 h-16 bg-gradient-to-br ${study.gradient} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg`}
                       >
@@ -209,7 +209,7 @@ export function CaseStudiesSection({ caseStudies, locale = "en" }: CaseStudiesSe
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-2 pt-6 border-t border-gray-700">
+                    <div className="flex flex-wrap gap-2 pt-5 border-t border-gray-700">
                       {tags.map((tag) => (
                         <span
                           key={tag}

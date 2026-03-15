@@ -145,7 +145,7 @@ export default async function EsCaseStudyPage({
         basePath={BASE_ES}
       />
       <Navigation hasCaseStudies />
-      <main className="pt-24 pb-24">
+      <main id="main-content" className="pt-24 pb-24">
         <div className="max-w-4xl mx-auto px-6">
           <Link
             href="/es/case-studies"

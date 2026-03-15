@@ -35,9 +35,9 @@ export function ToolsSection({ locale = "en" }: ToolsSectionProps) {
   return (
     <section
       id="tools"
-      className="py-24 bg-gradient-to-b from-black to-gray-950"
+      className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-black to-gray-950 px-4 sm:px-6"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ export function ToolsSection({ locale = "en" }: ToolsSectionProps) {
             {t.tools.title}
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {tools.map((tool, index) => {
               const Icon = tool.icon;
               return (

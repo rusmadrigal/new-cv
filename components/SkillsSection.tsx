@@ -13,20 +13,20 @@ export function SkillsSection({ locale = "en" }: SkillsSectionProps) {
   return (
     <section
       id="skills"
-      className="py-24 bg-gradient-to-b from-black to-gray-950"
+      className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-black to-gray-950 px-4 sm:px-6"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl mb-12 text-center bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl mb-6 sm:mb-8 text-center bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
             {t.skills.title}
           </h2>
 
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-3 sm:gap-4 justify-center">
             {skills.map((skill, index) => (
               <motion.div
                 key={skill}

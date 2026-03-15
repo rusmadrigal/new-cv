@@ -14,12 +14,12 @@ export function ExperienceSection({ locale = "en" }: ExperienceSectionProps) {
   return (
     <section
       id="experience"
-      className="py-24 bg-black relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-20 bg-black relative overflow-hidden px-4 sm:px-6"
     >
       <div className="absolute top-1/3 left-0 w-96 h-96 bg-blue-500/20 rounded-full blur-[150px]" />
       <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[150px]" />
 
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ export function ExperienceSection({ locale = "en" }: ExperienceSectionProps) {
         <div className="relative">
           <div className="hidden md:block absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500 via-purple-500 to-transparent" />
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-10">
             {experiences.map((exp, index) => (
               <motion.div
                 key={`${exp.company}-${exp.period}`}
@@ -46,7 +46,7 @@ export function ExperienceSection({ locale = "en" }: ExperienceSectionProps) {
               >
                 <div className="hidden md:block absolute left-6 top-6 w-5 h-5 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 shadow-lg shadow-blue-500/50" />
 
-                <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-8 hover:border-blue-500/50 transition-all hover:shadow-xl hover:shadow-blue-500/10">
+                <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-6 sm:p-8 hover:border-blue-500/50 transition-all hover:shadow-xl hover:shadow-blue-500/10">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                     <div>
                       <h3 className="text-2xl text-white mb-2">{exp.role}</h3>
@@ -81,9 +81,9 @@ export function ExperienceSection({ locale = "en" }: ExperienceSectionProps) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="relative pl-0 md:pl-20 mt-12"
+            className="relative pl-0 md:pl-20 mt-8 sm:mt-10"
           >
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-8 text-center">
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-6 sm:p-8 text-center">
               <p className="text-gray-300 mb-4">
                 {t.experience.wantFull}
               </p>

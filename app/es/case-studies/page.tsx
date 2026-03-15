@@ -3,6 +3,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { getCaseStudies } from "@/lib/sanity";
 import { getTranslations } from "@/lib/translations";
+import { siteUrl, siteName, person } from "@/lib/site";
 import { Zap, Search, TrendingUp, ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -14,6 +15,29 @@ const iconMap: Record<string, LucideIcon> = {
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Case Studies",
+  description:
+    "Case studies y proyectos de SEO técnico por Rusben Madrigal. Crecimiento orgánico medible y optimización en sitios a gran escala.",
+  alternates: {
+    canonical: `${siteUrl}/es/case-studies`,
+    languages: { en: `${siteUrl}/case-studies`, es: `${siteUrl}/es/case-studies` },
+  },
+  openGraph: {
+    url: `${siteUrl}/es/case-studies`,
+    title: `Case Studies | ${siteName}`,
+    description:
+      "Case studies y proyectos de SEO técnico por Rusben Madrigal. Crecimiento orgánico medible.",
+    siteName,
+    images: [{ url: `${siteUrl}${person.image}`, width: 1200, height: 630, alt: `${person.name}` }],
+  },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: `Case Studies | ${siteName}`,
+    description: "Case studies de SEO técnico por Rusben Madrigal.",
+  },
+};
+
 export default async function EsCaseStudiesPage() {
   const caseStudies = await getCaseStudies("es");
   const hasCaseStudies = caseStudies.length > 0;
@@ -22,7 +46,7 @@ export default async function EsCaseStudiesPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Navigation hasCaseStudies={hasCaseStudies} />
-      <main className="pt-24 pb-24">
+      <main id="main-content" className="pt-24 pb-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">

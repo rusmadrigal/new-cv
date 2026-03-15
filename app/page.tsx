@@ -21,19 +21,21 @@ export default async function Home() {
   return (
     <>
       <Navigation hasCaseStudies={hasCaseStudies} />
-      <HeroSection />
-      <AboutSection />
-      <VideoSection />
-      <SkillsSection />
-      <ExperienceSection />
-      {hasCaseStudies && (
-        <CaseStudiesSection caseStudies={featuredCaseStudies} />
-      )}
-      <ToolsSection />
-      <ExpertiseSection />
-      <EducationSection />
-      <RecommendationsSection />
-      <ContactSection />
+      <main id="main-content">
+        <HeroSection />
+        <AboutSection />
+        <VideoSection />
+        <SkillsSection />
+        <ExperienceSection />
+        {hasCaseStudies && (
+          <CaseStudiesSection caseStudies={featuredCaseStudies} />
+        )}
+        <ToolsSection />
+        <ExpertiseSection />
+        <EducationSection />
+        <RecommendationsSection />
+        <ContactSection />
+      </main>
       <Footer />
     </>
   );

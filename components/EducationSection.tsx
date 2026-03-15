@@ -20,9 +20,9 @@ export function EducationSection({ locale = "en" }: EducationSectionProps) {
   return (
     <section
       id="education"
-      className="py-24 bg-gradient-to-b from-gray-950 to-black"
+      className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-gray-950 to-black px-4 sm:px-6"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,7 +37,7 @@ export function EducationSection({ locale = "en" }: EducationSectionProps) {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {languages.map((lang, index) => (
               <motion.div
                 key={lang.language}
@@ -67,7 +67,7 @@ export function EducationSection({ locale = "en" }: EducationSectionProps) {
             </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-5">
             {education.map((edu, index) => (
               <motion.div
                 key={`${edu.institution}-${edu.period}`}

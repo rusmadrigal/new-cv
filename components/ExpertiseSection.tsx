@@ -25,8 +25,8 @@ export function ExpertiseSection({ locale = "en" }: ExpertiseSectionProps) {
     icon: EXPERTISE_ICONS[i] ?? FileCode,
   }));
   return (
-    <section id="expertise" className="py-24 bg-black relative">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="expertise" className="py-12 sm:py-16 md:py-20 bg-black relative px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,7 +37,7 @@ export function ExpertiseSection({ locale = "en" }: ExpertiseSectionProps) {
             {t.expertise.title}
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {areas.map((area, index) => {
               const Icon = area.icon;
               return (

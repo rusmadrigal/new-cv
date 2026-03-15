@@ -125,7 +125,7 @@ export default async function CaseStudyPage({
     <div className="min-h-screen bg-black text-white">
       <ArticleJsonLd study={study} slug={slug} caseStudyMeta={t.caseStudyMeta} />
       <Navigation hasCaseStudies />
-      <main className="pt-24 pb-24">
+      <main id="main-content" className="pt-24 pb-24">
         <div className="max-w-4xl mx-auto px-6">
           <Link
             href="/case-studies"
