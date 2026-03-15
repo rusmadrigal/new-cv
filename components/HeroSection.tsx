@@ -44,8 +44,8 @@ export function HeroSection() {
     >
       <div className="absolute inset-0 bg-grid-pattern opacity-20" />
 
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/30 rounded-full blur-[120px]" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/30 rounded-full blur-[120px]" />
+      <div className="hero-orb-blue absolute top-1/4 left-1/4 w-[28rem] h-[28rem] bg-blue-400/50 rounded-full blur-[100px]" />
+      <div className="hero-orb-purple absolute bottom-1/4 right-1/4 w-[28rem] h-[28rem] bg-purple-400/50 rounded-full blur-[100px]" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         <motion.div

@@ -3,6 +3,9 @@
 import { motion } from "motion/react";
 
 const skills = [
+  "SEO Strategy",
+  "IA / AI-Driven SEO",
+  "Web Performance Optimization",
   "Technical SEO",
   "JavaScript SEO",
   "Next.js / Rendering",
@@ -15,7 +18,6 @@ const skills = [
   "GTM",
   "Looker Studio",
   "SQL",
-  "Web Performance Optimization",
   "Lighthouse & PageSpeed Insights",
 ];
 
