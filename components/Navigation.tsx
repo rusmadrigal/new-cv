@@ -38,22 +38,38 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
       { name: tr.nav.recommendations, href: "#recommendations" },
       { name: tr.nav.contact, href: "#contact" },
     ];
-    return hasCaseStudies ? items : items.filter((item) => item.href !== "#case-studies");
+    return hasCaseStudies
+      ? items
+      : items.filter((item) => item.href !== "#case-studies");
   }, [locale, hasCaseStudies]);
 
   /** Desktop: main bar = Home, About, Experience, Case Studies */
-  const primaryIds = useMemo(() => ["hero", "about", "experience", "case-studies"], []);
+  const primaryIds = useMemo(
+    () => ["hero", "about", "experience", "case-studies"],
+    [],
+  );
   const primaryItems = useMemo(
-    () => navItems.filter((item) => primaryIds.includes(item.href.replace("#", ""))),
-    [navItems, primaryIds]
+    () =>
+      navItems.filter((item) =>
+        primaryIds.includes(item.href.replace("#", "")),
+      ),
+    [navItems, primaryIds],
   );
   /** Desktop: "More" dropdown = Video, Skills, Tools, Expertise, Education, Recommendations */
   const secondaryItems = useMemo(
-    () => navItems.filter((item) => !primaryIds.includes(item.href.replace("#", "")) && item.href !== "#contact"),
-    [navItems, primaryIds]
+    () =>
+      navItems.filter(
+        (item) =>
+          !primaryIds.includes(item.href.replace("#", "")) &&
+          item.href !== "#contact",
+      ),
+    [navItems, primaryIds],
   );
 
-  const SECTION_IDS = useMemo(() => navItems.map((item) => item.href.replace("#", "")), [navItems]);
+  const SECTION_IDS = useMemo(
+    () => navItems.map((item) => item.href.replace("#", "")),
+    [navItems],
+  );
 
   const [isOpen, setIsOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
@@ -63,7 +79,8 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (moreRef.current && !moreRef.current.contains(e.target as Node)) setMoreOpen(false);
+      if (moreRef.current && !moreRef.current.contains(e.target as Node))
+        setMoreOpen(false);
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -89,7 +106,10 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [SECTION_IDS]);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     e.preventDefault();
     setIsOpen(false);
     setMoreOpen(false);
@@ -165,7 +185,9 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
                     className={`relative px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                      isActive ? "text-white" : "text-gray-400 hover:text-white hover:bg-white/5"
+                      isActive
+                        ? "text-white"
+                        : "text-gray-400 hover:text-white hover:bg-white/5"
                     }`}
                     whileHover={{ y: -1 }}
                     whileTap={{ scale: 0.98 }}
@@ -190,7 +212,9 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
                   type="button"
                   onClick={() => setMoreOpen((o) => !o)}
                   className={`relative flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                    secondaryItems.some((item) => item.href.replace("#", "") === activeSection)
+                    secondaryItems.some(
+                      (item) => item.href.replace("#", "") === activeSection,
+                    )
                       ? "text-white"
                       : "text-gray-400 hover:text-white hover:bg-white/5"
                   }`}
@@ -200,7 +224,9 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
                   aria-haspopup="true"
                   aria-label={t.nav.more}
                 >
-                  {secondaryItems.some((item) => item.href.replace("#", "") === activeSection) && (
+                  {secondaryItems.some(
+                    (item) => item.href.replace("#", "") === activeSection,
+                  ) && (
                     <span className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg border border-white/10" />
                   )}
                   <span className="relative">{t.nav.more}</span>
@@ -227,7 +253,9 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
                             href={item.href}
                             onClick={(e) => handleNavClick(e, item.href)}
                             className={`flex items-center justify-between gap-3 px-4 py-2.5 text-sm font-medium transition-colors ${
-                              isActive ? "text-white bg-white/10" : "text-gray-400 hover:text-white hover:bg-white/5"
+                              isActive
+                                ? "text-white bg-white/10"
+                                : "text-gray-400 hover:text-white hover:bg-white/5"
                             }`}
                           >
                             <span>{item.name}</span>
@@ -245,7 +273,9 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
               <Link
                 href={langSwitcherHref}
                 className="ml-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-1.5"
-                title={locale === "en" ? "Versión en español" : "English version"}
+                title={
+                  locale === "en" ? "Versión en español" : "English version"
+                }
               >
                 <Languages className="w-4 h-4" />
                 {langSwitcherLabel}
@@ -268,7 +298,11 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
               className="lg:hidden w-11 h-11 flex items-center justify-center rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-colors"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </motion.button>
           </div>
         </div>
@@ -321,10 +355,14 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.03 }}
                         className={`flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl transition-colors ${
-                          isActive ? "bg-white/10 text-white" : "text-gray-400 hover:text-white hover:bg-white/5"
+                          isActive
+                            ? "bg-white/10 text-white"
+                            : "text-gray-400 hover:text-white hover:bg-white/5"
                         }`}
                       >
-                        <span className="font-medium text-[15px]">{item.name}</span>
+                        <span className="font-medium text-[15px]">
+                          {item.name}
+                        </span>
                         <ChevronRight
                           className={`w-4 h-4 shrink-0 transition-transform ${isActive ? "text-blue-400" : "text-gray-500"}`}
                         />
@@ -354,8 +392,12 @@ export function Navigation({ hasCaseStudies = true }: NavigationProps) {
               </nav>
 
               <div className="p-5 border-t border-white/10 bg-black/30">
-                <p className="text-sm font-medium text-gray-300 text-center">Rusben Madrigal</p>
-                <p className="text-xs text-gray-500 text-center mt-0.5">Senior Technical SEO</p>
+                <p className="text-sm font-medium text-gray-300 text-center">
+                  Rusben Madrigal
+                </p>
+                <p className="text-xs text-gray-500 text-center mt-0.5">
+                  Senior Technical SEO
+                </p>
               </div>
             </motion.div>
           </>

@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { siteUrl, siteName, siteTitle, siteDescription, person } from "@/lib/site";
+import {
+  siteUrl,
+  siteName,
+  siteTitle,
+  siteDescription,
+  person,
+} from "@/lib/site";
 import { PersonJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import { CookieConsent } from "@/components/CookieConsent";
 

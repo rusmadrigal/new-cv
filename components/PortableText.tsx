@@ -4,7 +4,10 @@ import { PortableText as BasePortableText } from "@portabletext/react";
 import Image from "next/image";
 import { createImageUrlBuilder } from "@sanity/image-url";
 import { projectId, dataset } from "@/lib/sanity";
-import type { PortableTextBlock, PortableTextComponents } from "@portabletext/react";
+import type {
+  PortableTextBlock,
+  PortableTextComponents,
+} from "@portabletext/react";
 
 const builder = createImageUrlBuilder({ projectId, dataset });
 
@@ -18,7 +21,9 @@ const components: PortableTextComponents = {
       <h2 className="text-xl font-semibold text-white mt-8 mb-3">{children}</h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-lg font-semibold text-gray-200 mt-6 mb-2">{children}</h3>
+      <h3 className="text-lg font-semibold text-gray-200 mt-6 mb-2">
+        {children}
+      </h3>
     ),
     normal: ({ children }) => (
       <p className="text-gray-300 leading-relaxed mb-4">{children}</p>
@@ -31,10 +36,14 @@ const components: PortableTextComponents = {
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">{children}</ul>
+      <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">
+        {children}
+      </ul>
     ),
     number: ({ children }) => (
-      <ol className="list-decimal list-inside text-gray-300 space-y-2 mb-4">{children}</ol>
+      <ol className="list-decimal list-inside text-gray-300 space-y-2 mb-4">
+        {children}
+      </ol>
     ),
   },
   listItem: {
@@ -42,7 +51,9 @@ const components: PortableTextComponents = {
     number: ({ children }) => <li className="leading-relaxed">{children}</li>,
   },
   marks: {
-    strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
+    strong: ({ children }) => (
+      <strong className="font-semibold text-white">{children}</strong>
+    ),
     em: ({ children }) => <em className="italic">{children}</em>,
     code: ({ children }) => (
       <code className="px-1.5 py-0.5 rounded bg-gray-800 text-gray-300 text-sm font-mono">

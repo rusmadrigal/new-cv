@@ -21,7 +21,10 @@ export const metadata = {
     "Technical SEO case studies and projects by Rusben Madrigal. Measurable organic growth, Core Web Vitals, and large-scale website optimization.",
   alternates: {
     canonical: `${siteUrl}/case-studies`,
-    languages: { en: `${siteUrl}/case-studies`, es: `${siteUrl}/es/case-studies` },
+    languages: {
+      en: `${siteUrl}/case-studies`,
+      es: `${siteUrl}/es/case-studies`,
+    },
   },
   openGraph: {
     url: `${siteUrl}/case-studies`,
@@ -29,7 +32,14 @@ export const metadata = {
     description:
       "Technical SEO case studies and projects by Rusben Madrigal. Measurable organic growth and large-scale optimization.",
     siteName,
-    images: [{ url: `${siteUrl}${person.image}`, width: 1200, height: 630, alt: `${person.name}` }],
+    images: [
+      {
+        url: `${siteUrl}${person.image}`,
+        width: 1200,
+        height: 630,
+        alt: `${person.name}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image" as const,

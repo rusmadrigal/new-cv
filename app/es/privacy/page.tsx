@@ -9,7 +9,8 @@ const baseUrlEs = `${siteUrl}/es`;
 
 export const metadata: Metadata = {
   title: "Política de privacidad",
-  description: "Política de privacidad y uso de cookies de www.rusmadrigal.com.",
+  description:
+    "Política de privacidad y uso de cookies de www.rusmadrigal.com.",
   alternates: {
     canonical: `${baseUrlEs}/privacy`,
     languages: { en: `${siteUrl}/privacy`, es: `${baseUrlEs}/privacy` },
@@ -17,14 +18,23 @@ export const metadata: Metadata = {
   openGraph: {
     url: `${baseUrlEs}/privacy`,
     title: `Política de privacidad | ${siteName}`,
-    description: "Política de privacidad y uso de cookies de www.rusmadrigal.com.",
+    description:
+      "Política de privacidad y uso de cookies de www.rusmadrigal.com.",
     siteName,
-    images: [{ url: `${siteUrl}${person.image}`, width: 1200, height: 630, alt: `${person.name} - ${siteName}` }],
+    images: [
+      {
+        url: `${siteUrl}${person.image}`,
+        width: 1200,
+        height: 630,
+        alt: `${person.name} - ${siteName}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `Política de privacidad | ${siteName}`,
-    description: "Política de privacidad y uso de cookies de www.rusmadrigal.com.",
+    description:
+      "Política de privacidad y uso de cookies de www.rusmadrigal.com.",
   },
 };
 
@@ -34,7 +44,10 @@ export default function PrivacyPageEs() {
   return (
     <>
       <Navigation hasCaseStudies />
-      <main id="main-content" className="min-h-screen bg-black text-white pt-24 pb-12 sm:pb-16">
+      <main
+        id="main-content"
+        className="min-h-screen bg-black text-white pt-24 pb-12 sm:pb-16"
+      >
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <Link
             href="/es"

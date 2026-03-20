@@ -23,6 +23,7 @@ The page should feel like a modern tech portfolio for a senior technical SEO and
 Use subtle gradients, glowing accents, and elegant typography similar to Vercel’s design system.
 
 Layout structure (Single Page)
+
 1. Hero Section
 
 Large hero section with a modern grid background and subtle gradient lighting.

@@ -84,9 +84,7 @@ export function ExperienceSection({ locale = "en" }: ExperienceSectionProps) {
             className="relative pl-0 md:pl-20 mt-8 sm:mt-10"
           >
             <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-6 sm:p-8 text-center">
-              <p className="text-gray-300 mb-4">
-                {t.experience.wantFull}
-              </p>
+              <p className="text-gray-300 mb-4">{t.experience.wantFull}</p>
               <a
                 href="/resume.pdf"
                 download="Rusben-Madrigal-CV.pdf"

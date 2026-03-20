@@ -22,7 +22,8 @@ const translations = {
       english: "English",
     },
     hero: {
-      subtitle: "Senior Technical SEO | AI-Driven SEO, Web Performance & Growth",
+      subtitle:
+        "Senior Technical SEO | AI-Driven SEO, Web Performance & Growth",
       bio: "SEO professional with 10+ years of experience specializing in Technical SEO, large-scale websites, and AI-assisted workflows. Strong technical expertise across JavaScript environments, web performance optimization, and scalable organic growth strategies.",
       viewExperience: "View Experience",
       downloadResume: "Download Resume",
@@ -37,7 +38,8 @@ const translations = {
     video: {
       badge: "Video introduction",
       title: "Get to Know Me",
-      description: "Watch a short intro to my background, experience, and approach to Technical SEO and Growth.",
+      description:
+        "Watch a short intro to my background, experience, and approach to Technical SEO and Growth.",
       videoTitle: "Hi, I'm Rusben!",
       videoSubtitle: "Technical SEO & Growth",
       videoA11y: "Hi, I'm Rusben – intro video",
@@ -76,7 +78,8 @@ const translations = {
           role: "SEO Associate Director",
           location: "Costa Rica",
           period: "February 2023 – January 2026",
-          description: "As a Media Delivery Associate Director, I lead the LATAM SEO Delivery team and oversee technical SEO initiatives across large-scale, multilingual websites.",
+          description:
+            "As a Media Delivery Associate Director, I lead the LATAM SEO Delivery team and oversee technical SEO initiatives across large-scale, multilingual websites.",
           highlights: [
             "Drive technical SEO strategy with a focus on site architecture, crawlability and indexation, Core Web Vitals optimization, structured data, and rendering behavior across JS- and PHP-based environments.",
             "Lead the adoption of AI-assisted and automated SEO workflows to support technical audits, issue prioritization, and scalable recommendations across markets.",
@@ -88,7 +91,8 @@ const translations = {
           role: "Technical SEO Manager",
           location: "Costa Rica",
           period: "May 2022 – October 2022",
-          description: "Solved complex Technical SEO challenges across large-scale, multilingual architectures, including PHP- and JavaScript-based technology stacks.",
+          description:
+            "Solved complex Technical SEO challenges across large-scale, multilingual architectures, including PHP- and JavaScript-based technology stacks.",
           highlights: [
             "Led technical audits, Core Web Vitals optimization, structured data implementation, log file analysis, and scalable internal linking models to improve organic visibility and crawl efficiency.",
             "Provided technical SEO guidance for offshore/onshore Sportsbook operations, supporting brands such as SportsbookReview.com, BookmakersReview.com, OddsTrader.com, Predictem.com, and others.",
@@ -100,7 +104,8 @@ const translations = {
           role: "Senior Technical SEO",
           location: "San José, Costa Rica",
           period: "May 2020 – April 2021",
-          description: "Specialized in technical SEO optimization for web performance and code quality.",
+          description:
+            "Specialized in technical SEO optimization for web performance and code quality.",
           highlights: [
             "Page speed monitoring and improvement.",
             "Code improvement and optimization (PHP and ReactJS).",
@@ -115,7 +120,8 @@ const translations = {
           role: "Senior Technical SEO",
           location: "Remote",
           period: "February 2018 – April 2020",
-          description: "Worked on large-scale international platforms to improve technical SEO performance.",
+          description:
+            "Worked on large-scale international platforms to improve technical SEO performance.",
           highlights: [
             "Code improvement and optimization (PHP).",
             "On-page optimization (metadata, internal links, etc.).",
@@ -128,7 +134,8 @@ const translations = {
     },
     caseStudies: {
       title: "Case Studies",
-      subtitle: "Real-world technical SEO projects delivering measurable organic growth and performance improvements",
+      subtitle:
+        "Real-world technical SEO projects delivering measurable organic growth and performance improvements",
       challenge: "Challenge",
       solution: "Solution",
       results: "Results",
@@ -139,7 +146,8 @@ const translations = {
       noCaseStudies: "No case studies yet.",
       addInSanity: "Add content in Sanity Studio (e.g. /studio)",
       listTitle: "Case Studies",
-      listSubtitle: "Real-world technical SEO projects delivering measurable organic growth and performance improvements",
+      listSubtitle:
+        "Real-world technical SEO projects delivering measurable organic growth and performance improvements",
     },
     tools: {
       title: "Tools & Platforms",
@@ -157,12 +165,36 @@ const translations = {
     expertise: {
       title: "Technical Expertise",
       items: [
-        { title: "Technical SEO Audits", description: "Comprehensive technical analysis of large-scale websites to identify optimization opportunities and improve organic performance." },
-        { title: "JavaScript SEO", description: "Expertise in rendering behavior, indexation strategies, and optimization for modern JavaScript frameworks like Next.js and React." },
-        { title: "Core Web Vitals Optimization", description: "Performance optimization focusing on LCP, FID, and CLS to improve user experience and search rankings." },
-        { title: "Structured Data Implementation", description: "Implementation and maintenance of JSON-LD schema markup to enhance search visibility and rich results." },
-        { title: "Log File Analysis", description: "Deep analysis of crawl patterns and server logs to optimize crawl budget and improve indexation efficiency." },
-        { title: "SEO Automation & AI Workflows", description: "Development of AI-assisted workflows and automated processes to scale SEO operations and accelerate analysis." },
+        {
+          title: "Technical SEO Audits",
+          description:
+            "Comprehensive technical analysis of large-scale websites to identify optimization opportunities and improve organic performance.",
+        },
+        {
+          title: "JavaScript SEO",
+          description:
+            "Expertise in rendering behavior, indexation strategies, and optimization for modern JavaScript frameworks like Next.js and React.",
+        },
+        {
+          title: "Core Web Vitals Optimization",
+          description:
+            "Performance optimization focusing on LCP, FID, and CLS to improve user experience and search rankings.",
+        },
+        {
+          title: "Structured Data Implementation",
+          description:
+            "Implementation and maintenance of JSON-LD schema markup to enhance search visibility and rich results.",
+        },
+        {
+          title: "Log File Analysis",
+          description:
+            "Deep analysis of crawl patterns and server logs to optimize crawl budget and improve indexation efficiency.",
+        },
+        {
+          title: "SEO Automation & AI Workflows",
+          description:
+            "Development of AI-assisted workflows and automated processes to scale SEO operations and accelerate analysis.",
+        },
       ],
     },
     education: {
@@ -173,11 +205,39 @@ const translations = {
       langEnglish: "English",
       langSpanish: "Español",
       items: [
-        { institution: "McKinsey & Company", degree: "Professional Development Program (Leadership, Problem Solving, and Business Skills)", field: "", period: "October 2025 – April 2026" },
-        { institution: "Le Studio by PGD", degree: "Management Development Program 2024", field: "Marketing", period: "April 2024 – May 2024" },
-        { institution: "Universidad de La Sabana", degree: "Metodologías Ágiles e Innovación en la Organización", field: "Marketing", period: "October 2023 – February 2024" },
-        { institution: "Universidad Latina de Costa Rica", degree: "Degree of Business Administration with emphasis in Marketing & Sales", field: "Marketing", period: "2012 – 2014" },
-        { institution: "Universidad Latina de Costa Rica", degree: "Bachelor of Business Administration with emphasis in Marketing & Sales", field: "Empresa, gestión, marketing y disciplinas afines", period: "2007 – 2010" },
+        {
+          institution: "McKinsey & Company",
+          degree:
+            "Professional Development Program (Leadership, Problem Solving, and Business Skills)",
+          field: "",
+          period: "October 2025 – April 2026",
+        },
+        {
+          institution: "Le Studio by PGD",
+          degree: "Management Development Program 2024",
+          field: "Marketing",
+          period: "April 2024 – May 2024",
+        },
+        {
+          institution: "Universidad de La Sabana",
+          degree: "Metodologías Ágiles e Innovación en la Organización",
+          field: "Marketing",
+          period: "October 2023 – February 2024",
+        },
+        {
+          institution: "Universidad Latina de Costa Rica",
+          degree:
+            "Degree of Business Administration with emphasis in Marketing & Sales",
+          field: "Marketing",
+          period: "2012 – 2014",
+        },
+        {
+          institution: "Universidad Latina de Costa Rica",
+          degree:
+            "Bachelor of Business Administration with emphasis in Marketing & Sales",
+          field: "Empresa, gestión, marketing y disciplinas afines",
+          period: "2007 – 2010",
+        },
       ],
     },
     recommendations: {
@@ -187,7 +247,8 @@ const translations = {
     },
     contact: {
       title: "Open to Opportunities",
-      subtitle: "I'm open to technical SEO and growth roles. If you're a recruiter or hiring manager looking for someone with 10+ years driving organic growth on large-scale websites, let's connect.",
+      subtitle:
+        "I'm open to technical SEO and growth roles. If you're a recruiter or hiring manager looking for someone with 10+ years driving organic growth on large-scale websites, let's connect.",
       backToTop: "Back to Top",
       linkedInAria: "Open LinkedIn profile",
       githubAria: "Open GitHub profile",
@@ -202,7 +263,8 @@ const translations = {
     },
     cookie: {
       headline: "Hey, I'm tracking you.",
-      message: "Only cookies — nothing creepy. Read the fine print or accept and carry on.",
+      message:
+        "Only cookies — nothing creepy. Read the fine print or accept and carry on.",
       accept: "Accept",
       privacyLink: "Privacy Policy",
     },
@@ -229,7 +291,8 @@ const translations = {
       english: "English",
     },
     hero: {
-      subtitle: "Senior Technical SEO | SEO con IA, rendimiento web y crecimiento",
+      subtitle:
+        "Senior Technical SEO | SEO con IA, rendimiento web y crecimiento",
       bio: "Profesional SEO con más de 10 años de experiencia, especializado en SEO técnico, sitios web a gran escala y flujos de trabajo con IA. Sólida experiencia técnica en entornos JavaScript, optimización del rendimiento web y estrategias de crecimiento orgánico escalables.",
       viewExperience: "Ver experiencia",
       downloadResume: "Descargar CV",
@@ -244,7 +307,8 @@ const translations = {
     video: {
       badge: "Video de presentación",
       title: "Conóceme",
-      description: "Mira una breve introducción sobre mi trayectoria, experiencia y enfoque en marketing digital y SEO",
+      description:
+        "Mira una breve introducción sobre mi trayectoria, experiencia y enfoque en marketing digital y SEO",
       videoTitle: "¡Hola, soy Rusben!",
       videoSubtitle: "Technical SEO & Growth",
       videoA11y: "Video de presentación de Rusben Madrigal",
@@ -283,7 +347,8 @@ const translations = {
           role: "SEO Associate Director",
           location: "Costa Rica",
           period: "Febrero 2023 – Enero 2026",
-          description: "Como Associate Director de Media Delivery, lidero el equipo de SEO Delivery para LATAM y superviso iniciativas de SEO técnico en sitios multilingües a gran escala.",
+          description:
+            "Como Associate Director de Media Delivery, lidero el equipo de SEO Delivery para LATAM y superviso iniciativas de SEO técnico en sitios multilingües a gran escala.",
           highlights: [
             "Impulso la estrategia de SEO técnico en arquitectura de sitio, rastreabilidad e indexación, optimización de Core Web Vitals, datos estructurados y comportamiento de renderizado en entornos JS y PHP.",
             "Lidero la adopción de flujos de trabajo SEO asistidos por IA y automatizados para auditorías técnicas, priorización de incidencias y recomendaciones escalables en mercados.",
@@ -295,7 +360,8 @@ const translations = {
           role: "Technical SEO Manager",
           location: "Costa Rica",
           period: "Mayo 2022 – Octubre 2022",
-          description: "Resolución de retos de SEO técnico en arquitecturas multilingües a gran escala, incluyendo stacks PHP y JavaScript.",
+          description:
+            "Resolución de retos de SEO técnico en arquitecturas multilingües a gran escala, incluyendo stacks PHP y JavaScript.",
           highlights: [
             "Lideré auditorías técnicas, optimización de Core Web Vitals, implementación de datos estructurados, análisis de logs y modelos de enlazado interno escalables para mejorar la visibilidad orgánica y la eficiencia de rastreo.",
             "Brindé orientación de SEO técnico para operaciones Sportsbook, apoyando marcas como SportsbookReview.com, BookmakersReview.com, OddsTrader.com, Predictem.com, entre otras.",
@@ -307,7 +373,8 @@ const translations = {
           role: "Senior Technical SEO",
           location: "San José, Costa Rica",
           period: "Mayo 2020 – Abril 2021",
-          description: "Especializado en optimización de SEO técnico para rendimiento web y calidad de código.",
+          description:
+            "Especializado en optimización de SEO técnico para rendimiento web y calidad de código.",
           highlights: [
             "Monitoreo y mejora de velocidad de página.",
             "Mejora y optimización de código (PHP y ReactJS).",
@@ -322,7 +389,8 @@ const translations = {
           role: "Senior Technical SEO",
           location: "Remoto",
           period: "Febrero 2018 – Abril 2020",
-          description: "Trabajé en plataformas internacionales a gran escala para mejorar el rendimiento de SEO técnico.",
+          description:
+            "Trabajé en plataformas internacionales a gran escala para mejorar el rendimiento de SEO técnico.",
           highlights: [
             "Mejora y optimización de código (PHP).",
             "Optimización on-page (metadatos, enlaces internos, etc.).",
@@ -335,7 +403,8 @@ const translations = {
     },
     caseStudies: {
       title: "Case Studies",
-      subtitle: "Proyectos reales de SEO técnico con crecimiento orgánico y mejoras de rendimiento medibles",
+      subtitle:
+        "Proyectos reales de SEO técnico con crecimiento orgánico y mejoras de rendimiento medibles",
       challenge: "Reto",
       solution: "Solución",
       results: "Resultados",
@@ -346,7 +415,8 @@ const translations = {
       noCaseStudies: "Aún no hay case studies.",
       addInSanity: "Añade contenido en Sanity Studio (ej. /studio)",
       listTitle: "Case Studies",
-      listSubtitle: "Proyectos reales de SEO técnico con crecimiento orgánico y mejoras de rendimiento medibles",
+      listSubtitle:
+        "Proyectos reales de SEO técnico con crecimiento orgánico y mejoras de rendimiento medibles",
     },
     tools: {
       title: "Herramientas y plataformas",
@@ -364,12 +434,36 @@ const translations = {
     expertise: {
       title: "Experiencia técnica",
       items: [
-        { title: "Auditorías de SEO técnico", description: "Análisis técnico integral de sitios a gran escala para identificar oportunidades de optimización y mejorar el rendimiento orgánico." },
-        { title: "JavaScript SEO", description: "Experiencia en comportamiento de renderizado, estrategias de indexación y optimización para frameworks JavaScript modernos como Next.js y React." },
-        { title: "Optimización Core Web Vitals", description: "Optimización de rendimiento centrada en LCP, FID y CLS para mejorar la experiencia de usuario y el posicionamiento." },
-        { title: "Implementación de datos estructurados", description: "Implementación y mantenimiento de schema markup JSON-LD para mejorar la visibilidad en búsqueda y resultados enriquecidos." },
-        { title: "Análisis de archivos de log", description: "Análisis profundo de patrones de rastreo y logs de servidor para optimizar el presupuesto de rastreo y la eficiencia de indexación." },
-        { title: "Automatización SEO y flujos con IA", description: "Desarrollo de flujos asistidos por IA y procesos automatizados para escalar operaciones SEO y acelerar el análisis." },
+        {
+          title: "Auditorías de SEO técnico",
+          description:
+            "Análisis técnico integral de sitios a gran escala para identificar oportunidades de optimización y mejorar el rendimiento orgánico.",
+        },
+        {
+          title: "JavaScript SEO",
+          description:
+            "Experiencia en comportamiento de renderizado, estrategias de indexación y optimización para frameworks JavaScript modernos como Next.js y React.",
+        },
+        {
+          title: "Optimización Core Web Vitals",
+          description:
+            "Optimización de rendimiento centrada en LCP, FID y CLS para mejorar la experiencia de usuario y el posicionamiento.",
+        },
+        {
+          title: "Implementación de datos estructurados",
+          description:
+            "Implementación y mantenimiento de schema markup JSON-LD para mejorar la visibilidad en búsqueda y resultados enriquecidos.",
+        },
+        {
+          title: "Análisis de archivos de log",
+          description:
+            "Análisis profundo de patrones de rastreo y logs de servidor para optimizar el presupuesto de rastreo y la eficiencia de indexación.",
+        },
+        {
+          title: "Automatización SEO y flujos con IA",
+          description:
+            "Desarrollo de flujos asistidos por IA y procesos automatizados para escalar operaciones SEO y acelerar el análisis.",
+        },
       ],
     },
     education: {
@@ -380,11 +474,39 @@ const translations = {
       langEnglish: "Inglés",
       langSpanish: "Español",
       items: [
-        { institution: "McKinsey & Company", degree: "Programa de desarrollo profesional (liderazgo, resolución de problemas y habilidades empresariales)", field: "", period: "Octubre 2025 – Abril 2026" },
-        { institution: "Le Studio by PGD", degree: "Management Development Program 2024", field: "Marketing", period: "Abril 2024 – Mayo 2024" },
-        { institution: "Universidad de La Sabana", degree: "Metodologías Ágiles e Innovación en la Organización", field: "Marketing", period: "Octubre 2023 – Febrero 2024" },
-        { institution: "Universidad Latina de Costa Rica", degree: "Licenciatura en Administración de Empresas con énfasis en Marketing y Ventas", field: "Marketing", period: "2012 – 2014" },
-        { institution: "Universidad Latina de Costa Rica", degree: "Bachillerato en Administración de Empresas con énfasis en Marketing y Ventas", field: "Empresa, gestión, marketing y disciplinas afines", period: "2007 – 2010" },
+        {
+          institution: "McKinsey & Company",
+          degree:
+            "Programa de desarrollo profesional (liderazgo, resolución de problemas y habilidades empresariales)",
+          field: "",
+          period: "Octubre 2025 – Abril 2026",
+        },
+        {
+          institution: "Le Studio by PGD",
+          degree: "Management Development Program 2024",
+          field: "Marketing",
+          period: "Abril 2024 – Mayo 2024",
+        },
+        {
+          institution: "Universidad de La Sabana",
+          degree: "Metodologías Ágiles e Innovación en la Organización",
+          field: "Marketing",
+          period: "Octubre 2023 – Febrero 2024",
+        },
+        {
+          institution: "Universidad Latina de Costa Rica",
+          degree:
+            "Licenciatura en Administración de Empresas con énfasis en Marketing y Ventas",
+          field: "Marketing",
+          period: "2012 – 2014",
+        },
+        {
+          institution: "Universidad Latina de Costa Rica",
+          degree:
+            "Bachillerato en Administración de Empresas con énfasis en Marketing y Ventas",
+          field: "Empresa, gestión, marketing y disciplinas afines",
+          period: "2007 – 2010",
+        },
       ],
     },
     recommendations: {
@@ -394,7 +516,8 @@ const translations = {
     },
     contact: {
       title: "Abierto a oportunidades",
-      subtitle: "Estoy abierto a posiciones en SEO técnico y Growth. Si eres reclutador o hiring manager buscando a alguien con 10+ años impulsando crecimiento orgánico en sitios web a gran escala, conectemos.",
+      subtitle:
+        "Estoy abierto a posiciones en SEO técnico y Growth. Si eres reclutador o hiring manager buscando a alguien con 10+ años impulsando crecimiento orgánico en sitios web a gran escala, conectemos.",
       backToTop: "Volver arriba",
       linkedInAria: "Abrir perfil de LinkedIn",
       githubAria: "Abrir perfil de GitHub",
@@ -409,7 +532,8 @@ const translations = {
     },
     cookie: {
       headline: "Hey, te estoy trackeando.",
-      message: "Solo cookies — nada raro. Lee la letra pequeña o acepta y sigue.",
+      message:
+        "Solo cookies — nada raro. Lee la letra pequeña o acepta y sigue.",
       accept: "Aceptar",
       privacyLink: "Política de privacidad",
     },

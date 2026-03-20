@@ -1,5 +1,14 @@
 import { motion } from "motion/react";
-import { Search, Activity, BarChart3, TrendingUp, Database, FileText, PieChart, Target } from "lucide-react";
+import {
+  Search,
+  Activity,
+  BarChart3,
+  TrendingUp,
+  Database,
+  FileText,
+  PieChart,
+  Target,
+} from "lucide-react";
 
 const tools = [
   { name: "Google Search Console", icon: Search },
@@ -14,7 +23,10 @@ const tools = [
 
 export function ToolsSection() {
   return (
-    <section id="tools" className="py-24 bg-gradient-to-b from-black to-gray-950">
+    <section
+      id="tools"
+      className="py-24 bg-gradient-to-b from-black to-gray-950"
+    >
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -25,7 +37,7 @@ export function ToolsSection() {
           <h2 className="text-4xl md:text-5xl mb-12 text-center bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
             Tools & Platforms
           </h2>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {tools.map((tool, index) => {
               const Icon = tool.icon;
@@ -40,7 +52,9 @@ export function ToolsSection() {
                   className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-6 flex flex-col items-center justify-center hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/30 transition-all cursor-default"
                 >
                   <Icon className="w-12 h-12 text-purple-400 mb-4" />
-                  <p className="text-gray-200 text-center text-sm">{tool.name}</p>
+                  <p className="text-gray-200 text-center text-sm">
+                    {tool.name}
+                  </p>
                 </motion.div>
               );
             })}

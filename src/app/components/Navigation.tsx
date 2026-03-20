@@ -23,26 +23,29 @@ export function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     e.preventDefault();
     setIsOpen(false);
-    
+
     const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
-    
+
     if (element) {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
+
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
@@ -54,8 +57,8 @@ export function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled 
-            ? "bg-black/80 backdrop-blur-xl border-b border-gray-800 shadow-lg shadow-blue-500/5" 
+          scrolled
+            ? "bg-black/80 backdrop-blur-xl border-b border-gray-800 shadow-lg shadow-blue-500/5"
             : "bg-transparent"
         }`}
       >
@@ -85,7 +88,7 @@ export function Navigation() {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-300" />
                 </motion.a>
               ))}
-              
+
               <motion.a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, "#contact")}
@@ -104,7 +107,11 @@ export function Navigation() {
               className="lg:hidden w-10 h-10 flex items-center justify-center text-white hover:text-blue-400 transition-colors"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </motion.button>
           </div>
         </div>

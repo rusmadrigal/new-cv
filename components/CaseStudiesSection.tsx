@@ -80,7 +80,10 @@ interface CaseStudiesSectionProps {
   locale?: Locale;
 }
 
-export function CaseStudiesSection({ caseStudies, locale = "en" }: CaseStudiesSectionProps) {
+export function CaseStudiesSection({
+  caseStudies,
+  locale = "en",
+}: CaseStudiesSectionProps) {
   const t = getTranslations(locale);
   const studies =
     caseStudies && caseStudies.length > 0

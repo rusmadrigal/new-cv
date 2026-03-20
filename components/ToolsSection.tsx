@@ -31,7 +31,10 @@ interface ToolsSectionProps {
 
 export function ToolsSection({ locale = "en" }: ToolsSectionProps) {
   const t = getTranslations(locale);
-  const tools = t.tools.list.map((name, i) => ({ name, icon: TOOL_ICONS[i] ?? Search }));
+  const tools = t.tools.list.map((name, i) => ({
+    name,
+    icon: TOOL_ICONS[i] ?? Search,
+  }));
   return (
     <section
       id="tools"

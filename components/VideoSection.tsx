@@ -13,7 +13,10 @@ const VIDEO_IDS: Record<Locale, string> = {
 
 const EMBED_PARAMS = "autoplay=1&rel=0&modestbranding=1";
 
-function getThumbnailUrl(videoId: string, quality: "maxresdefault" | "hqdefault") {
+function getThumbnailUrl(
+  videoId: string,
+  quality: "maxresdefault" | "hqdefault",
+) {
   return `https://img.youtube.com/vi/${videoId}/${quality}.jpg`;
 }
 
@@ -110,9 +113,7 @@ export function VideoSection({ locale = "en" }: VideoSectionProps) {
                       <h3 className="text-2xl text-white mb-2">
                         {t.video.videoTitle}
                       </h3>
-                      <p className="text-gray-300">
-                        {t.video.videoSubtitle}
-                      </p>
+                      <p className="text-gray-300">{t.video.videoSubtitle}</p>
                     </div>
                   </>
                 ) : (

@@ -6,11 +6,13 @@ export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rusmadrigal.com";
 
 export const siteName = "Rusben Madrigal";
-export const siteTitle = "Rusben Madrigal | Senior Technical SEO | AI-Driven SEO & Growth";
+export const siteTitle =
+  "Rusben Madrigal | Senior Technical SEO | AI-Driven SEO & Growth";
 export const siteDescription =
   "Senior Technical SEO with 10+ years driving growth for large websites. Expert in AI-driven SEO, Core Web Vitals optimization, and JavaScript SEO.";
 
-export const siteTitleEs = "Rusben Madrigal | SEO Técnico Senior | SEO con IA y Growth";
+export const siteTitleEs =
+  "Rusben Madrigal | SEO Técnico Senior | SEO con IA y Growth";
 export const siteDescriptionEs =
   "SEO Técnico Senior con 10+ años impulsando crecimiento en sitios web grandes. Experto en SEO con IA, Core Web Vitals y optimización JavaScript SEO.";
 

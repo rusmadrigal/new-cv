@@ -26,7 +26,7 @@ function buildMeta(
   study: CaseStudyPage,
   slug: string,
   caseStudyMeta: string,
-  basePath: string
+  basePath: string,
 ): Metadata {
   const title = study.seoTitle ?? study.title;
   const description =
@@ -35,7 +35,7 @@ function buildMeta(
   const desc = description.slice(0, 155);
   const canonical = `${siteUrl}${basePath}/case-studies/${slug}`;
   const ogImage =
-    study.ogImage ?? (study.gallery?.[0]?.url) ?? `${siteUrl}/rusben.jpg`;
+    study.ogImage ?? study.gallery?.[0]?.url ?? `${siteUrl}/rusben.jpg`;
 
   return {
     title,
@@ -115,12 +115,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const study = await getCaseStudyBySlug(slug, "es");
   if (!study) return {};
-  return buildMeta(
-    study,
-    slug,
-    getTranslations("es").caseStudyMeta,
-    BASE_ES
-  );
+  return buildMeta(study, slug, getTranslations("es").caseStudyMeta, BASE_ES);
 }
 
 export default async function EsCaseStudyPage({
@@ -237,24 +232,26 @@ export default async function EsCaseStudyPage({
                     {t.caseStudies.gallery}
                   </h2>
                   <div className="grid gap-6 sm:grid-cols-2">
-                    {study.gallery.filter((img) => img.url).map((img, i) => (
-                      <figure key={i}>
-                        <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-800">
-                          <Image
-                            src={img.url}
-                            alt={img.alt ?? study.title}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 640px) 100vw, 50vw"
-                          />
-                        </div>
-                        {img.caption && (
-                          <figcaption className="text-sm text-gray-500 mt-2">
-                            {img.caption}
-                          </figcaption>
-                        )}
-                      </figure>
-                    ))}
+                    {study.gallery
+                      .filter((img) => img.url)
+                      .map((img, i) => (
+                        <figure key={i}>
+                          <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-800">
+                            <Image
+                              src={img.url}
+                              alt={img.alt ?? study.title}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 640px) 100vw, 50vw"
+                            />
+                          </div>
+                          {img.caption && (
+                            <figcaption className="text-sm text-gray-500 mt-2">
+                              {img.caption}
+                            </figcaption>
+                          )}
+                        </figure>
+                      ))}
                   </div>
                 </section>
               ) : null}

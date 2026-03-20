@@ -67,14 +67,16 @@ export const caseStudy = defineType({
       title: "OG Image",
       group: "seo",
       options: { hotspot: true },
-      description: "Override for social share image (default: first gallery image or site image).",
+      description:
+        "Override for social share image (default: first gallery image or site image).",
     }),
     defineField({
       name: "language",
       type: "string",
       title: "Language",
       group: "content",
-      description: "Idioma de publicación. Crea un documento por idioma si publicas en inglés y español.",
+      description:
+        "Idioma de publicación. Crea un documento por idioma si publicas en inglés y español.",
       options: {
         list: [
           { title: "English", value: "en" },
@@ -90,7 +92,8 @@ export const caseStudy = defineType({
       type: "string",
       title: "Title",
       group: "content",
-      description: "Título principal del case study (ej: E-commerce Platform Core Web Vitals Optimization)",
+      description:
+        "Título principal del case study (ej: E-commerce Platform Core Web Vitals Optimization)",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -98,7 +101,8 @@ export const caseStudy = defineType({
       type: "slug",
       title: "URL Slug",
       group: "content",
-      description: "Para la URL: /case-studies/[slug]. Genera desde el título o edita a mano.",
+      description:
+        "Para la URL: /case-studies/[slug]. Genera desde el título o edita a mano.",
       options: {
         source: "title",
         maxLength: 96,
@@ -110,7 +114,8 @@ export const caseStudy = defineType({
       type: "string",
       title: "Client",
       group: "content",
-      description: "Nombre del cliente (ej: Global Fashion Retailer, B2B SaaS Company)",
+      description:
+        "Nombre del cliente (ej: Global Fashion Retailer, B2B SaaS Company)",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -118,7 +123,8 @@ export const caseStudy = defineType({
       type: "blockContent",
       title: "Challenge",
       group: "content",
-      description: "Rich text for the Challenge section (headings, lists, links, images).",
+      description:
+        "Rich text for the Challenge section (headings, lists, links, images).",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -150,21 +156,24 @@ export const caseStudy = defineType({
       type: "url",
       title: "Video URL",
       group: "content",
-      description: "YouTube or Vimeo embed URL (e.g. https://www.youtube.com/watch?v=...).",
+      description:
+        "YouTube or Vimeo embed URL (e.g. https://www.youtube.com/watch?v=...).",
     }),
     defineField({
       name: "body",
       type: "blockContent",
       title: "Additional content",
       group: "content",
-      description: "Optional rich content (text, images) below Challenge/Solution/Results.",
+      description:
+        "Optional rich content (text, images) below Challenge/Solution/Results.",
     }),
     defineField({
       name: "results",
       type: "array",
       title: "Results",
       group: "content",
-      description: "Métricas (metric, value, change). Se muestran en la sección “Results” igual que en el home.",
+      description:
+        "Métricas (metric, value, change). Se muestran en la sección “Results” igual que en el home.",
       of: [{ type: "caseStudyResult" }],
       validation: (Rule) => Rule.min(0).max(6),
     }),
@@ -173,7 +182,8 @@ export const caseStudy = defineType({
       type: "array",
       title: "Tags",
       group: "content",
-      description: "Etiquetas debajo del bloque (ej: Core Web Vitals, Next.js, Performance).",
+      description:
+        "Etiquetas debajo del bloque (ej: Core Web Vitals, Next.js, Performance).",
       of: [{ type: "string" }],
       options: {
         layout: "tags",
@@ -200,7 +210,8 @@ export const caseStudy = defineType({
       type: "string",
       title: "Gradient",
       group: "styling",
-      description: "Colores del icono y de los valores en Results. Mismo aspecto que en el home.",
+      description:
+        "Colores del icono y de los valores en Results. Mismo aspecto que en el home.",
       options: {
         list: [
           { title: "Blue → Cyan", value: "from-blue-500 to-cyan-500" },
@@ -217,7 +228,8 @@ export const caseStudy = defineType({
       type: "boolean",
       title: "Mostrar en el home",
       group: "content",
-      description: "Si está activo, aparece en la sección Case Studies del home.",
+      description:
+        "Si está activo, aparece en la sección Case Studies del home.",
       initialValue: true,
     }),
     defineField({
@@ -229,9 +241,21 @@ export const caseStudy = defineType({
     }),
   ],
   orderings: [
-    { title: "Order (asc)", name: "orderAsc", by: [{ field: "order", direction: "asc" }] },
-    { title: "Order (desc)", name: "orderDesc", by: [{ field: "order", direction: "desc" }] },
-    { title: "Title", name: "titleAsc", by: [{ field: "title", direction: "asc" }] },
+    {
+      title: "Order (asc)",
+      name: "orderAsc",
+      by: [{ field: "order", direction: "asc" }],
+    },
+    {
+      title: "Order (desc)",
+      name: "orderDesc",
+      by: [{ field: "order", direction: "desc" }],
+    },
+    {
+      title: "Title",
+      name: "titleAsc",
+      by: [{ field: "title", direction: "asc" }],
+    },
   ],
   preview: {
     select: { title: "title", client: "client", language: "language" },

@@ -17,7 +17,14 @@ export const metadata: Metadata = {
     title: `Privacy Policy | ${siteName}`,
     description: "Privacy policy and use of cookies for www.rusmadrigal.com.",
     siteName,
-    images: [{ url: `${siteUrl}${person.image}`, width: 1200, height: 630, alt: `${person.name} - ${siteName}` }],
+    images: [
+      {
+        url: `${siteUrl}${person.image}`,
+        width: 1200,
+        height: 630,
+        alt: `${person.name} - ${siteName}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -32,7 +39,10 @@ export default function PrivacyPage() {
   return (
     <>
       <Navigation hasCaseStudies />
-      <main id="main-content" className="min-h-screen bg-black text-white pt-24 pb-12 sm:pb-16">
+      <main
+        id="main-content"
+        className="min-h-screen bg-black text-white pt-24 pb-12 sm:pb-16"
+      >
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <Link
             href="/"

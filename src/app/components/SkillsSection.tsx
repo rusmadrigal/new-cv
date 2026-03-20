@@ -19,7 +19,10 @@ const skills = [
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-24 bg-gradient-to-b from-black to-gray-950">
+    <section
+      id="skills"
+      className="py-24 bg-gradient-to-b from-black to-gray-950"
+    >
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +33,7 @@ export function SkillsSection() {
           <h2 className="text-4xl md:text-5xl mb-12 text-center bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
             Core Skills
           </h2>
-          
+
           <div className="flex flex-wrap gap-4 justify-center">
             {skills.map((skill, index) => (
               <motion.div

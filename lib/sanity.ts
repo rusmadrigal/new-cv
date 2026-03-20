@@ -1,7 +1,8 @@
 import { createClient } from "next-sanity";
 import type { PortableTextBlock } from "@portabletext/types";
 
-export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "2za5lqrr";
+export const projectId =
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "2za5lqrr";
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production";
 
 export const client = createClient({
@@ -44,7 +45,10 @@ export interface SanityImageAsset {
 }
 
 /** Full case study for single page: rich text (blocks), gallery, video, SEO overrides. */
-export interface CaseStudyPage extends Omit<CaseStudy, "challenge" | "solution"> {
+export interface CaseStudyPage extends Omit<
+  CaseStudy,
+  "challenge" | "solution"
+> {
   challenge: PortableTextBlock[];
   solution: PortableTextBlock[];
   body?: PortableTextBlock[] | null;
@@ -111,22 +115,36 @@ export const caseStudyBySlugQuery = `*[_type == "caseStudy" && slug.current == $
 
 export const caseStudySlugsQuery = `*[_type == "caseStudy" && ${languageFilter}].slug.current`;
 
-export async function getCaseStudies(locale: Locale = "en"): Promise<CaseStudy[]> {
+export async function getCaseStudies(
+  locale: Locale = "en",
+): Promise<CaseStudy[]> {
   const data = await client.fetch<CaseStudy[]>(caseStudiesQuery, { locale });
   return data ?? [];
 }
 
-export async function getFeaturedCaseStudies(locale: Locale = "en"): Promise<CaseStudy[]> {
-  const data = await client.fetch<CaseStudy[]>(featuredCaseStudiesQuery, { locale });
+export async function getFeaturedCaseStudies(
+  locale: Locale = "en",
+): Promise<CaseStudy[]> {
+  const data = await client.fetch<CaseStudy[]>(featuredCaseStudiesQuery, {
+    locale,
+  });
   return data ?? [];
 }
 
-export async function getCaseStudyBySlug(slug: string, locale: Locale = "en"): Promise<CaseStudyPage | null> {
-  const data = await client.fetch<CaseStudyPage | null>(caseStudyBySlugQuery, { slug, locale });
+export async function getCaseStudyBySlug(
+  slug: string,
+  locale: Locale = "en",
+): Promise<CaseStudyPage | null> {
+  const data = await client.fetch<CaseStudyPage | null>(caseStudyBySlugQuery, {
+    slug,
+    locale,
+  });
   return data ?? null;
 }
 
-export async function getCaseStudySlugs(locale: Locale = "en"): Promise<string[]> {
+export async function getCaseStudySlugs(
+  locale: Locale = "en",
+): Promise<string[]> {
   const data = await client.fetch<string[]>(caseStudySlugsQuery, { locale });
   return data ?? [];
 }

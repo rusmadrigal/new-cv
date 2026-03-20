@@ -40,7 +40,9 @@ export function ContactSection({ locale = "en" }: ContactSectionProps) {
               className="flex items-center justify-center gap-3 min-h-[48px] px-6 py-3.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white hover:shadow-lg hover:shadow-blue-500/50 transition-all active:scale-[0.98] w-full sm:w-auto"
             >
               <Mail className="w-5 h-5 shrink-0" />
-              <span className="text-sm sm:text-base break-all">rusbenmadrigal@gmail.com</span>
+              <span className="text-sm sm:text-base break-all">
+                rusbenmadrigal@gmail.com
+              </span>
             </motion.a>
           </div>
 

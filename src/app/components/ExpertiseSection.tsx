@@ -5,32 +5,38 @@ const expertiseAreas = [
   {
     icon: FileCode,
     title: "Technical SEO Audits",
-    description: "Comprehensive technical analysis of large-scale websites to identify optimization opportunities and improve organic performance."
+    description:
+      "Comprehensive technical analysis of large-scale websites to identify optimization opportunities and improve organic performance.",
   },
   {
     icon: Code2,
     title: "JavaScript SEO",
-    description: "Expertise in rendering behavior, indexation strategies, and optimization for modern JavaScript frameworks like Next.js and React."
+    description:
+      "Expertise in rendering behavior, indexation strategies, and optimization for modern JavaScript frameworks like Next.js and React.",
   },
   {
     icon: Gauge,
     title: "Core Web Vitals Optimization",
-    description: "Performance optimization focusing on LCP, FID, and CLS to improve user experience and search rankings."
+    description:
+      "Performance optimization focusing on LCP, FID, and CLS to improve user experience and search rankings.",
   },
   {
     icon: ScrollText,
     title: "Structured Data Implementation",
-    description: "Implementation and maintenance of JSON-LD schema markup to enhance search visibility and rich results."
+    description:
+      "Implementation and maintenance of JSON-LD schema markup to enhance search visibility and rich results.",
   },
   {
     icon: Zap,
     title: "Log File Analysis",
-    description: "Deep analysis of crawl patterns and server logs to optimize crawl budget and improve indexation efficiency."
+    description:
+      "Deep analysis of crawl patterns and server logs to optimize crawl budget and improve indexation efficiency.",
   },
   {
     icon: Bot,
     title: "SEO Automation & AI Workflows",
-    description: "Development of AI-assisted workflows and automated processes to scale SEO operations and accelerate analysis."
+    description:
+      "Development of AI-assisted workflows and automated processes to scale SEO operations and accelerate analysis.",
   },
 ];
 
@@ -47,7 +53,7 @@ export function ExpertiseSection() {
           <h2 className="text-4xl md:text-5xl mb-12 text-center bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
             Technical Expertise
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {expertiseAreas.map((area, index) => {
               const Icon = area.icon;
@@ -65,7 +71,9 @@ export function ExpertiseSection() {
                     <Icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-xl text-white mb-3">{area.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{area.description}</p>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    {area.description}
+                  </p>
                 </motion.div>
               );
             })}

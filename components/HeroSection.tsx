@@ -89,7 +89,10 @@ export function HeroSection({ locale = "en" }: HeroSectionProps) {
                   className={`open-to-work-badge flex items-center justify-center rounded-full py-1 px-1.5 w-full max-w-full bg-gradient-to-r from-blue-500 via-blue-400 to-purple-500 text-white border border-white/20 cursor-default ${badgeHover ? "run-shimmer" : ""}`}
                   style={{ transformOrigin: "center center" }}
                   animate={{ scale: badgeScale }}
-                  transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  transition={{
+                    duration: 0.35,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                  }}
                   onPointerEnter={() => setBadgeHover(true)}
                   onPointerLeave={() => {
                     setBadgeHover(false);

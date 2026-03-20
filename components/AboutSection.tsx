@@ -10,7 +10,10 @@ interface AboutSectionProps {
 export function AboutSection({ locale = "en" }: AboutSectionProps) {
   const t = getTranslations(locale);
   return (
-    <section id="about" className="py-12 sm:py-16 md:py-20 bg-black relative px-4 sm:px-6">
+    <section
+      id="about"
+      className="py-12 sm:py-16 md:py-20 bg-black relative px-4 sm:px-6"
+    >
       <div className="absolute inset-0 bg-grid-pattern opacity-10" />
 
       <div className="max-w-4xl mx-auto relative z-10">

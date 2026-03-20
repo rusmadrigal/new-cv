@@ -6,24 +6,31 @@ export function Footer() {
           <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} Rusben Madrigal. All rights reserved.
           </p>
-          
+
           <div className="flex gap-6 text-sm">
-            <a href="#about" className="text-gray-500 hover:text-white transition-colors">
+            <a
+              href="#about"
+              className="text-gray-500 hover:text-white transition-colors"
+            >
               About
             </a>
-            <a href="#experience" className="text-gray-500 hover:text-white transition-colors">
+            <a
+              href="#experience"
+              className="text-gray-500 hover:text-white transition-colors"
+            >
               Experience
             </a>
-            <a href="#contact" className="text-gray-500 hover:text-white transition-colors">
+            <a
+              href="#contact"
+              className="text-gray-500 hover:text-white transition-colors"
+            >
               Contact
             </a>
           </div>
         </div>
-        
+
         <div className="mt-6 text-center">
-          <p className="text-gray-600 text-xs">
-            San Jose, Costa Rica
-          </p>
+          <p className="text-gray-600 text-xs">San Jose, Costa Rica</p>
         </div>
       </div>
     </footer>

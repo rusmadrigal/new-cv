@@ -22,7 +22,11 @@ const iconMap: Record<string, LucideIcon> = {
   trendingUp: TrendingUp,
 };
 
-function buildMeta(study: CaseStudyPage, slug: string, caseStudyMeta: string): Metadata {
+function buildMeta(
+  study: CaseStudyPage,
+  slug: string,
+  caseStudyMeta: string,
+): Metadata {
   const title = study.seoTitle ?? study.title;
   const description =
     study.seoDescription ??
@@ -30,7 +34,7 @@ function buildMeta(study: CaseStudyPage, slug: string, caseStudyMeta: string): M
   const desc = description.slice(0, 155);
   const canonical = `${siteUrl}/case-studies/${slug}`;
   const ogImage =
-    study.ogImage ?? (study.gallery?.[0]?.url) ?? `${siteUrl}/rusben.jpg`;
+    study.ogImage ?? study.gallery?.[0]?.url ?? `${siteUrl}/rusben.jpg`;
 
   return {
     title,
@@ -78,7 +82,10 @@ function ArticleJsonLd({
       name: "Rusben Madrigal",
       logo: { "@type": "ImageObject", url: `${siteUrl}/rusben.jpg` },
     },
-    mainEntityOfPage: { "@type": "WebPage", "@id": `${siteUrl}/case-studies/${slug}` },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/case-studies/${slug}`,
+    },
     datePublished: undefined as string | undefined,
     dateModified: undefined as string | undefined,
   };
@@ -123,7 +130,11 @@ export default async function CaseStudyPage({
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <ArticleJsonLd study={study} slug={slug} caseStudyMeta={t.caseStudyMeta} />
+      <ArticleJsonLd
+        study={study}
+        slug={slug}
+        caseStudyMeta={t.caseStudyMeta}
+      />
       <Navigation hasCaseStudies />
       <main id="main-content" className="pt-24 pb-24">
         <div className="max-w-4xl mx-auto px-6">
@@ -217,24 +228,26 @@ export default async function CaseStudyPage({
                     {t.caseStudies.gallery}
                   </h2>
                   <div className="grid gap-6 sm:grid-cols-2">
-                    {study.gallery.filter((img) => img.url).map((img, i) => (
-                      <figure key={i}>
-                        <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-800">
-                          <Image
-                            src={img.url}
-                            alt={img.alt ?? study.title}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 640px) 100vw, 50vw"
-                          />
-                        </div>
-                        {img.caption && (
-                          <figcaption className="text-sm text-gray-500 mt-2">
-                            {img.caption}
-                          </figcaption>
-                        )}
-                      </figure>
-                    ))}
+                    {study.gallery
+                      .filter((img) => img.url)
+                      .map((img, i) => (
+                        <figure key={i}>
+                          <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-800">
+                            <Image
+                              src={img.url}
+                              alt={img.alt ?? study.title}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 640px) 100vw, 50vw"
+                            />
+                          </div>
+                          {img.caption && (
+                            <figcaption className="text-sm text-gray-500 mt-2">
+                              {img.caption}
+                            </figcaption>
+                          )}
+                        </figure>
+                      ))}
                   </div>
                 </section>
               ) : null}

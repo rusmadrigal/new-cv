@@ -12,7 +12,14 @@ import {
 } from "lucide-react";
 import { getTranslations, type Locale } from "@/lib/translations";
 
-const EXPERTISE_ICONS: LucideIcon[] = [FileCode, Code2, Gauge, ScrollText, Zap, Bot];
+const EXPERTISE_ICONS: LucideIcon[] = [
+  FileCode,
+  Code2,
+  Gauge,
+  ScrollText,
+  Zap,
+  Bot,
+];
 
 interface ExpertiseSectionProps {
   locale?: Locale;
@@ -25,7 +32,10 @@ export function ExpertiseSection({ locale = "en" }: ExpertiseSectionProps) {
     icon: EXPERTISE_ICONS[i] ?? FileCode,
   }));
   return (
-    <section id="expertise" className="py-12 sm:py-16 md:py-20 bg-black relative px-4 sm:px-6">
+    <section
+      id="expertise"
+      className="py-12 sm:py-16 md:py-20 bg-black relative px-4 sm:px-6"
+    >
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

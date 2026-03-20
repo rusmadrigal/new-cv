@@ -3,13 +3,18 @@
 import { motion } from "motion/react";
 import { Quote, Linkedin, ArrowUpRight } from "lucide-react";
 import { getTranslations, type Locale } from "@/lib/translations";
-import { getRecommendations, LINKEDIN_RECOMMENDATIONS_URL } from "@/lib/recommendations";
+import {
+  getRecommendations,
+  LINKEDIN_RECOMMENDATIONS_URL,
+} from "@/lib/recommendations";
 
 interface RecommendationsSectionProps {
   locale?: Locale;
 }
 
-export function RecommendationsSection({ locale = "en" }: RecommendationsSectionProps) {
+export function RecommendationsSection({
+  locale = "en",
+}: RecommendationsSectionProps) {
   const t = getTranslations(locale);
   const items = getRecommendations(locale);
 
@@ -58,7 +63,9 @@ export function RecommendationsSection({ locale = "en" }: RecommendationsSection
                 &ldquo;{rec.quote}&rdquo;
               </blockquote>
               <footer className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
-                <span className="font-semibold text-white">{rec.authorName}</span>
+                <span className="font-semibold text-white">
+                  {rec.authorName}
+                </span>
                 <span className="text-gray-500 text-sm">
                   {rec.authorRole}
                   {rec.authorCompany ? ` · ${rec.authorCompany}` : ""}

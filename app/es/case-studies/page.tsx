@@ -21,7 +21,10 @@ export const metadata = {
     "Case studies y proyectos de SEO técnico por Rusben Madrigal. Crecimiento orgánico medible y optimización en sitios a gran escala.",
   alternates: {
     canonical: `${siteUrl}/es/case-studies`,
-    languages: { en: `${siteUrl}/case-studies`, es: `${siteUrl}/es/case-studies` },
+    languages: {
+      en: `${siteUrl}/case-studies`,
+      es: `${siteUrl}/es/case-studies`,
+    },
   },
   openGraph: {
     url: `${siteUrl}/es/case-studies`,
@@ -29,7 +32,14 @@ export const metadata = {
     description:
       "Case studies y proyectos de SEO técnico por Rusben Madrigal. Crecimiento orgánico medible.",
     siteName,
-    images: [{ url: `${siteUrl}${person.image}`, width: 1200, height: 630, alt: `${person.name}` }],
+    images: [
+      {
+        url: `${siteUrl}${person.image}`,
+        width: 1200,
+        height: 630,
+        alt: `${person.name}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image" as const,

@@ -9,10 +9,10 @@ export function HeroSection() {
       const offset = 80;
       const elementPosition = aboutSection.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
+
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
@@ -23,23 +23,26 @@ export function HeroSection() {
       const offset = 80;
       const elementPosition = contactSection.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
+
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
-  
+
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20"
+    >
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20" />
-      
+
       {/* Gradient Glow */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/30 rounded-full blur-[120px]" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/30 rounded-full blur-[120px]" />
-      
+
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         <motion.div
@@ -63,21 +66,22 @@ export function HeroSection() {
               />
             </div>
           </motion.div>
-          
+
           <h1 className="text-6xl md:text-8xl mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
             Rusben Madrigal
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-gray-300 mb-8">
             Senior Technical SEO | AI-Driven SEO, Web Performance & Growth
           </p>
-          
+
           <p className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Senior SEO professional with 10+ years of experience specializing in Technical SEO, 
-            large-scale websites, and AI-assisted workflows. Strong technical expertise across 
-            JavaScript environments, web performance optimization, and scalable organic growth strategies.
+            Senior SEO professional with 10+ years of experience specializing in
+            Technical SEO, large-scale websites, and AI-assisted workflows.
+            Strong technical expertise across JavaScript environments, web
+            performance optimization, and scalable organic growth strategies.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={() => scrollToAbout()}
@@ -99,7 +103,7 @@ export function HeroSection() {
             </button>
           </div>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -109,12 +113,20 @@ export function HeroSection() {
           <ChevronDown className="w-6 h-6 text-gray-500 animate-bounce" />
         </motion.div>
       </div>
-      
+
       <style jsx>{`
         .bg-grid-pattern {
-          background-image: 
-            linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+          background-image:
+            linear-gradient(
+              to right,
+              rgba(255, 255, 255, 0.05) 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              to bottom,
+              rgba(255, 255, 255, 0.05) 1px,
+              transparent 1px
+            );
           background-size: 50px 50px;
         }
       `}</style>

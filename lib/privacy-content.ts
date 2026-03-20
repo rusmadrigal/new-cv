@@ -2,7 +2,10 @@ import type { Locale } from "@/lib/translations";
 
 export type PrivacySection = { title: string; body: string };
 
-const privacyContent: Record<Locale, { title: string; lastUpdated: string; sections: PrivacySection[] }> = {
+const privacyContent: Record<
+  Locale,
+  { title: string; lastUpdated: string; sections: PrivacySection[] }
+> = {
   en: {
     title: "Privacy Policy",
     lastUpdated: "Last updated: March 2025",

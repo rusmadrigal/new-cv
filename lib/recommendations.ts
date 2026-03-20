@@ -7,7 +7,8 @@ export interface Recommendation {
   authorCompany?: string;
 }
 
-const LINKEDIN_RECOMMENDATIONS_URL = "https://www.linkedin.com/in/rusmadrigal/details/recommendations/";
+const LINKEDIN_RECOMMENDATIONS_URL =
+  "https://www.linkedin.com/in/rusmadrigal/details/recommendations/";
 
 /**
  * Real LinkedIn recommendations. Order: most recent first.
@@ -20,7 +21,8 @@ const recommendations: Record<Locale, Recommendation[]> = {
       quote:
         "Discovering true and good SEO's in Central America is something like finding a needle in a haystack. If you come upon Rusben you have found a golden needle. Take care of it!",
       authorName: "Rodrigo de Bedout",
-      authorRole: "Precision-Engineered Growth Systems for Scalable Customer Acquisition",
+      authorRole:
+        "Precision-Engineered Growth Systems for Scalable Customer Acquisition",
       authorCompany: "Managed Rusben directly",
     },
     {
@@ -49,7 +51,8 @@ const recommendations: Record<Locale, Recommendation[]> = {
         "Rusben is a multi talented young man with excellent customer service skills. He always responds with a professional, up beat and genuinely attentive attitude to all work projects under his responsibility. He has strong personal ethics and is not drawn into negative actions of other less committed colleagues. He enjoys working as a team, but also independently created and implemented several new systems, demonstrating creative problem solving skills. I would definitely rehire Rusben, or would work with him again should our professional lives intersect again.",
       authorName: "Faith Anne Mulvihill",
       authorRole: "Licensed Real Estate Broker",
-      authorCompany: "Chicago / Vacation Home Specialist Costa Rica · Managed Rusben directly",
+      authorCompany:
+        "Chicago / Vacation Home Specialist Costa Rica · Managed Rusben directly",
     },
     {
       quote:
@@ -64,7 +67,8 @@ const recommendations: Record<Locale, Recommendation[]> = {
       quote:
         "Encontrar SEOs verdaderos y buenos en Centroamérica es como buscar una aguja en un pajar. Si te encuentras con Rusben, has encontrado una aguja de oro. ¡Cuídala!",
       authorName: "Rodrigo de Bedout",
-      authorRole: "Precision-Engineered Growth Systems for Scalable Customer Acquisition",
+      authorRole:
+        "Precision-Engineered Growth Systems for Scalable Customer Acquisition",
       authorCompany: "Fue mi manager directo",
     },
     {
@@ -93,7 +97,8 @@ const recommendations: Record<Locale, Recommendation[]> = {
         "Rusben es un joven multitalentoso con excelentes habilidades de servicio al cliente. Siempre responde con una actitud profesional, positiva y genuinamente atenta en todos los proyectos bajo su responsabilidad. Tiene una ética personal sólida y no se deja llevar por acciones negativas de otros colegas menos comprometidos. Disfruta trabajar en equipo, pero también creó e implementó de forma independiente varios sistemas nuevos, demostrando capacidad de resolución creativa de problemas. Sin duda lo volvería a contratar o trabajaría con él de nuevo si nuestras vidas profesionales se cruzan otra vez.",
       authorName: "Faith Anne Mulvihill",
       authorRole: "Licensed Real Estate Broker",
-      authorCompany: "Chicago / Vacation Home Specialist Costa Rica · Fue mi manager directa",
+      authorCompany:
+        "Chicago / Vacation Home Specialist Costa Rica · Fue mi manager directa",
     },
     {
       quote:
