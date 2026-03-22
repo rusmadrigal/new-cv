@@ -33,7 +33,7 @@ export const person = {
   name: "Rusben Madrigal",
   jobTitle: "Senior Technical SEO",
   tagline: "AI-Driven SEO, Web Performance & Growth",
-  email: "rusbenmadrigal@gmail.com",
+  email: "hello@rusmadrigal.com",
   image: "/rusben.jpg",
   linkedin: "https://www.linkedin.com/in/rusmadrigal/",
   github: "https://github.com/rusmadrigal",

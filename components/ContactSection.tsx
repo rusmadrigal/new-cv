@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { Mail, Linkedin, Github, ArrowRight } from "lucide-react";
 import { getTranslations, type Locale } from "@/lib/translations";
+import { person } from "@/lib/site";
 
 interface ContactSectionProps {
   locale?: Locale;
@@ -35,13 +36,13 @@ export function ContactSection({ locale = "en" }: ContactSectionProps) {
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-8 sm:mb-10">
             <motion.a
-              href="mailto:rusbenmadrigal@gmail.com"
+              href={`mailto:${person.email}`}
               whileHover={{ scale: 1.05 }}
               className="flex items-center justify-center gap-3 min-h-[48px] px-6 py-3.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white hover:shadow-lg hover:shadow-blue-500/50 transition-all active:scale-[0.98] w-full sm:w-auto"
             >
               <Mail className="w-5 h-5 shrink-0" />
               <span className="text-sm sm:text-base break-all">
-                rusbenmadrigal@gmail.com
+                {person.email}
               </span>
             </motion.a>
           </div>

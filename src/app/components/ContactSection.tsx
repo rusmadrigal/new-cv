@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Mail, Linkedin, Github, ArrowRight } from "lucide-react";
+import { person } from "../../../lib/site";
 
 export function ContactSection() {
   return (
@@ -25,12 +26,12 @@ export function ContactSection() {
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
             <motion.a
-              href="mailto:rusbenmadrigal@gmail.com"
+              href={`mailto:${person.email}`}
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white hover:shadow-lg hover:shadow-blue-500/50 transition-all"
             >
               <Mail className="w-5 h-5" />
-              <span>rusbenmadrigal@gmail.com</span>
+              <span>{person.email}</span>
             </motion.a>
           </div>
 

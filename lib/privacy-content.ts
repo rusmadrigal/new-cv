@@ -28,7 +28,7 @@ const privacyContent: Record<
       },
       {
         title: "Contact",
-        body: "For any privacy-related questions or requests, contact Rusben Madrigal at rusbenmadrigal@gmail.com.",
+        body: "For any privacy-related questions or requests, contact Rusben Madrigal at hello@rusmadrigal.com.",
       },
     ],
   },
@@ -54,7 +54,7 @@ const privacyContent: Record<
       },
       {
         title: "Contacto",
-        body: "Para cualquier pregunta o solicitud relacionada con la privacidad, contacta a Rusben Madrigal en rusbenmadrigal@gmail.com.",
+        body: "Para cualquier pregunta o solicitud relacionada con la privacidad, contacta a Rusben Madrigal en hello@rusmadrigal.com.",
       },
     ],
   },

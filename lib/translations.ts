@@ -246,9 +246,9 @@ const translations = {
       readOnLinkedIn: "Read all on LinkedIn",
     },
     contact: {
-      title: "Open to Opportunities",
+      title: "Consulting & collaboration",
       subtitle:
-        "I'm open to technical SEO and growth roles. If you're a recruiter or hiring manager looking for someone with 10+ years driving organic growth on large-scale websites, let's connect.",
+        "I work with teams and leaders on technical SEO and organic growth for large, complex sites. If you're thinking about advisory support, a focused technical review, or ongoing strategy, I'd be glad to hear what you're working on.",
       backToTop: "Back to Top",
       linkedInAria: "Open LinkedIn profile",
       githubAria: "Open GitHub profile",
@@ -515,9 +515,9 @@ const translations = {
       readOnLinkedIn: "Ver todas en LinkedIn",
     },
     contact: {
-      title: "Abierto a oportunidades",
+      title: "Consultoría y colaboración",
       subtitle:
-        "Estoy abierto a posiciones en SEO técnico y Growth. Si eres reclutador o hiring manager buscando a alguien con 10+ años impulsando crecimiento orgánico en sitios web a gran escala, conectemos.",
+        "Trabajo con equipos y líderes en SEO técnico y crecimiento orgánico en sitios grandes y complejos. Si estás valorando asesoría, una revisión técnica puntual o acompañamiento estratégico, escríbeme y vemos si encaja con lo que necesitas.",
       backToTop: "Volver arriba",
       linkedInAria: "Abrir perfil de LinkedIn",
       githubAria: "Abrir perfil de GitHub",
