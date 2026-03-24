@@ -277,7 +277,7 @@ const translations = {
       video: "Video",
       skills: "Habilidades",
       experience: "Experiencia",
-      caseStudies: "Case Studies",
+      caseStudies: "Casos de estudio",
       tools: "Herramientas",
       expertise: "Experiencia técnica",
       education: "Formación",
@@ -402,19 +402,19 @@ const translations = {
       ],
     },
     caseStudies: {
-      title: "Case Studies",
+      title: "Casos de estudio",
       subtitle:
         "Proyectos reales de SEO técnico con crecimiento orgánico y mejoras de rendimiento medibles",
       challenge: "Reto",
       solution: "Solución",
       results: "Resultados",
       viewDetails: "Ver detalle",
-      backToList: "Volver a Case Studies",
+      backToList: "Volver a casos de estudio",
       video: "Video",
       gallery: "Galería",
-      noCaseStudies: "Aún no hay case studies.",
+      noCaseStudies: "Aún no hay casos de estudio.",
       addInSanity: "Añade contenido en Sanity Studio (ej. /studio)",
-      listTitle: "Case Studies",
+      listTitle: "Casos de estudio",
       listSubtitle:
         "Proyectos reales de SEO técnico con crecimiento orgánico y mejoras de rendimiento medibles",
     },
@@ -537,7 +537,7 @@ const translations = {
       accept: "Aceptar",
       privacyLink: "Política de privacidad",
     },
-    caseStudyMeta: "Case study por Rusben Madrigal.",
+    caseStudyMeta: "Caso de estudio de Rusben Madrigal.",
   },
 };
 

@@ -16,9 +16,9 @@ const iconMap: Record<string, LucideIcon> = {
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Case Studies",
+  title: "Casos de estudio",
   description:
-    "Case studies y proyectos de SEO técnico por Rusben Madrigal. Crecimiento orgánico medible y optimización en sitios a gran escala.",
+    "Casos de estudio y proyectos de SEO técnico por Rusben Madrigal. Crecimiento orgánico medible y optimización en sitios a gran escala.",
   alternates: {
     canonical: `${siteUrl}/es/case-studies`,
     languages: {
@@ -28,9 +28,9 @@ export const metadata = {
   },
   openGraph: {
     url: `${siteUrl}/es/case-studies`,
-    title: `Case Studies | ${siteName}`,
+    title: `Casos de estudio | ${siteName}`,
     description:
-      "Case studies y proyectos de SEO técnico por Rusben Madrigal. Crecimiento orgánico medible.",
+      "Casos de estudio y proyectos de SEO técnico por Rusben Madrigal. Crecimiento orgánico medible.",
     siteName,
     images: [
       {
@@ -43,8 +43,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: `Case Studies | ${siteName}`,
-    description: "Case studies de SEO técnico por Rusben Madrigal.",
+    title: `Casos de estudio | ${siteName}`,
+    description: "Casos de estudio de SEO técnico por Rusben Madrigal.",
   },
 };
 
