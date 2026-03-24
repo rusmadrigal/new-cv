@@ -259,6 +259,7 @@ const translations = {
       experience: "Experience",
       contact: "Contact",
       privacy: "Privacy Policy",
+      servicesSeo: "SEO services",
       location: "San Jose, Costa Rica",
     },
     cookie: {
@@ -528,6 +529,7 @@ const translations = {
       experience: "Experiencia",
       contact: "Contacto",
       privacy: "Política de privacidad",
+      servicesSeo: "Servicios de SEO",
       location: "San José, Costa Rica",
     },
     cookie: {

@@ -46,6 +46,15 @@ export function Footer({ locale = "en" }: FooterProps) {
             >
               {t.footer.privacy}
             </Link>
+            {locale === "es" && (
+              <Link
+                href="/es/servicios"
+                className="text-gray-500 hover:text-white transition-colors py-2 min-h-[44px] flex items-center"
+                title={t.footer.servicesSeo}
+              >
+                {t.footer.servicesSeo}
+              </Link>
+            )}
           </div>
         </div>
 

@@ -149,4 +149,112 @@ export async function getCaseStudySlugs(
   return data ?? [];
 }
 
+// Landing pages (servicios SEO)
+export interface LandingPageServiceItem {
+  title: string;
+  description: string;
+}
+
+export interface LandingPageLocalBullet {
+  text: string;
+}
+
+export interface LandingPage {
+  _id: string;
+  slug: string;
+  country: string;
+  countryLabel?: string | null;
+  heroHeadline: string;
+  heroSubheadline?: string | null;
+  heroCtaText?: string | null;
+  heroCtaHref?: string | null;
+  seoEstrategicoTitle?: string | null;
+  seoEstrategicoSubtitle?: string | null;
+  seoEstrategicoServices?: LandingPageServiceItem[] | null;
+  seoLocalTitle?: string | null;
+  seoLocalSubtitle?: string | null;
+  seoLocalBullets?: LandingPageLocalBullet[] | null;
+  ctaHeadline?: string | null;
+  ctaSubheadline?: string | null;
+  ctaButtonText?: string | null;
+  ctaButtonHref?: string | null;
+  seoTitle?: string | null;
+  seoDescription?: string | null;
+  ogImage?: string | null;
+}
+
+const landingPageListFields = `
+  _id,
+  "slug": slug.current,
+  country,
+  countryLabel,
+  heroHeadline,
+  order
+`;
+
+const landingPageFullFields = `
+  _id,
+  "slug": slug.current,
+  country,
+  countryLabel,
+  heroHeadline,
+  heroSubheadline,
+  heroCtaText,
+  heroCtaHref,
+  seoEstrategicoTitle,
+  seoEstrategicoSubtitle,
+  seoEstrategicoServices,
+  seoLocalTitle,
+  seoLocalSubtitle,
+  seoLocalBullets,
+  ctaHeadline,
+  ctaSubheadline,
+  ctaButtonText,
+  ctaButtonHref,
+  seoTitle,
+  seoDescription,
+  "ogImage": ogImage.asset->url
+`;
+
+const landingPageFilter = `_type == "landingPage" && published == true && language == $locale`;
+
+export const landingPagesQuery = `*[${landingPageFilter}] | order(order asc, heroHeadline asc) {
+  ${landingPageListFields}
+}`;
+
+export const landingPageBySlugQuery = `*[${landingPageFilter} && slug.current == $slug][0] {
+  ${landingPageFullFields}
+}`;
+
+export const landingPageSlugsQuery = `*[${landingPageFilter}].slug.current`;
+
+export async function getLandingPages(
+  locale: Locale = "es",
+): Promise<LandingPage[]> {
+  const data = await client.fetch<LandingPage[]>(landingPagesQuery, {
+    locale,
+  });
+  return data ?? [];
+}
+
+export async function getLandingPageBySlug(
+  slug: string,
+  locale: Locale = "es",
+): Promise<LandingPage | null> {
+  const data = await client.fetch<LandingPage | null>(landingPageBySlugQuery, {
+    slug,
+    locale,
+  });
+  return data ?? null;
+}
+
+export async function getLandingPageSlugs(
+  locale: Locale = "es",
+): Promise<string[]> {
+  const data = await client.fetch<string[]>(landingPageSlugsQuery, {
+    locale,
+  });
+  return data ?? [];
+}
+
 export type { PortableTextBlock };
