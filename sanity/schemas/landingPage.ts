@@ -144,8 +144,19 @@ export const landingPage = defineType({
         {
           type: "object",
           fields: [
-            { name: "title", type: "string", title: "Título", validation: (Rule) => Rule.required() },
-            { name: "description", type: "text", title: "Descripción", rows: 3, validation: (Rule) => Rule.required() },
+            {
+              name: "title",
+              type: "string",
+              title: "Título",
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "description",
+              type: "text",
+              title: "Descripción",
+              rows: 3,
+              validation: (Rule) => Rule.required(),
+            },
           ],
           preview: {
             select: { title: "title" },
@@ -193,7 +204,11 @@ export const landingPage = defineType({
           preview: {
             select: { text: "text" },
             prepare({ text }) {
-              return { title: text ? text.slice(0, 50) + (text.length > 50 ? "…" : "") : "Punto" };
+              return {
+                title: text
+                  ? text.slice(0, 50) + (text.length > 50 ? "…" : "")
+                  : "Punto",
+              };
             },
           },
         },
@@ -254,12 +269,21 @@ export const landingPage = defineType({
       title: "OG Image",
       group: "seo",
       options: { hotspot: true },
-      description: "Imagen para compartir en redes (default: imagen del sitio).",
+      description:
+        "Imagen para compartir en redes (default: imagen del sitio).",
     }),
   ],
   orderings: [
-    { title: "Orden", name: "orderAsc", by: [{ field: "order", direction: "asc" }] },
-    { title: "País", name: "countryAsc", by: [{ field: "country", direction: "asc" }] },
+    {
+      title: "Orden",
+      name: "orderAsc",
+      by: [{ field: "order", direction: "asc" }],
+    },
+    {
+      title: "País",
+      name: "countryAsc",
+      by: [{ field: "country", direction: "asc" }],
+    },
   ],
   preview: {
     select: {
@@ -270,7 +294,7 @@ export const landingPage = defineType({
     },
     prepare({ heroHeadline, country, countryLabel, published }) {
       const label =
-        country === "otro" ? countryLabel : country?.replace("-", " ") ?? "";
+        country === "otro" ? countryLabel : (country?.replace("-", " ") ?? "");
       return {
         title: heroHeadline ?? "Landing Page",
         subtitle: `${label} ${published ? "✓" : "(borrador)"}`,

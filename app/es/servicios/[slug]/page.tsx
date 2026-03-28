@@ -8,13 +8,7 @@ import {
   getCaseStudies,
 } from "@/lib/sanity";
 import { siteUrl, siteName, person } from "@/lib/site";
-import {
-  ArrowLeft,
-  Mail,
-  Search,
-  MapPin,
-  CheckCircle2,
-} from "lucide-react";
+import { ArrowLeft, Mail, Search, MapPin, CheckCircle2 } from "lucide-react";
 
 const COUNTRY_LABELS: Record<string, string> = {
   "costa-rica": "Costa Rica",
@@ -26,7 +20,10 @@ const COUNTRY_LABELS: Record<string, string> = {
   panama: "Panamá",
 };
 
-function getCountryLabel(lp: { country: string; countryLabel?: string | null }) {
+function getCountryLabel(lp: {
+  country: string;
+  countryLabel?: string | null;
+}) {
   if (lp.country === "otro" && lp.countryLabel) return lp.countryLabel;
   return COUNTRY_LABELS[lp.country] ?? lp.country;
 }
@@ -65,7 +62,9 @@ export async function generateMetadata({
       title,
       description: desc,
       siteName,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: lp.heroHeadline }],
+      images: [
+        { url: ogImage, width: 1200, height: 630, alt: lp.heroHeadline },
+      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -158,9 +157,7 @@ export default async function EsServicioLandingPage({
                     key={i}
                     className="p-6 rounded-xl border border-gray-800 bg-gray-900/50"
                   >
-                    <h3 className="text-white font-medium mb-2">
-                      {srv.title}
-                    </h3>
+                    <h3 className="text-white font-medium mb-2">{srv.title}</h3>
                     <p className="text-gray-400 text-sm leading-relaxed">
                       {srv.description}
                     </p>
@@ -190,10 +187,7 @@ export default async function EsServicioLandingPage({
               )}
               <ul className="space-y-3">
                 {lp.seoLocalBullets.map((b, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-gray-300"
-                  >
+                  <li key={i} className="flex items-start gap-3 text-gray-300">
                     <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                     <span>{b.text}</span>
                   </li>

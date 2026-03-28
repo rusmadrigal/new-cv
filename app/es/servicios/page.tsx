@@ -15,7 +15,10 @@ const COUNTRY_LABELS: Record<string, string> = {
   panama: "Panamá",
 };
 
-function getCountryLabel(lp: { country: string; countryLabel?: string | null }) {
+function getCountryLabel(lp: {
+  country: string;
+  countryLabel?: string | null;
+}) {
   if (lp.country === "otro" && lp.countryLabel) return lp.countryLabel;
   return COUNTRY_LABELS[lp.country] ?? lp.country;
 }
@@ -78,8 +81,8 @@ export default async function EsServiciosPage() {
           {landingPages.length === 0 ? (
             <div className="py-16 text-center">
               <p className="text-gray-500">
-                Próximamente más mercados. Por ahora, escríbeme directamente para
-                consultas.
+                Próximamente más mercados. Por ahora, escríbeme directamente
+                para consultas.
               </p>
               <a
                 href="mailto:hello@rusmadrigal.com"
