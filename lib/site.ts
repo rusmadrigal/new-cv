@@ -37,5 +37,10 @@ export const person = {
   image: "/rusben.jpg",
   linkedin: "https://www.linkedin.com/in/rusmadrigal/",
   github: "https://github.com/rusmadrigal",
+  /** Locale-specific YouTube channel (Spanish vs English content). */
+  youtube: {
+    en: "https://www.youtube.com/@rusmadrigalen",
+    es: "https://www.youtube.com/@rusmadrigal",
+  },
   location: { locality: "San Jose", country: "Costa Rica" },
 };

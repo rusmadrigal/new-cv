@@ -12,7 +12,12 @@ export function PersonJsonLd() {
     url: siteUrl,
     image: `${siteUrl}${person.image}`,
     email: person.email,
-    sameAs: [person.linkedin, person.github],
+    sameAs: [
+      person.linkedin,
+      person.github,
+      person.youtube.en,
+      person.youtube.es,
+    ],
     address: {
       "@type": "PostalAddress",
       addressLocality: person.location.locality,
@@ -63,7 +68,12 @@ export function PersonJsonLdEs() {
     inLanguage: "es",
     image: `${siteUrl}${person.image}`,
     email: person.email,
-    sameAs: [person.linkedin, person.github],
+    sameAs: [
+      person.linkedin,
+      person.github,
+      person.youtube.en,
+      person.youtube.es,
+    ],
     address: {
       "@type": "PostalAddress",
       addressLocality: person.location.locality,

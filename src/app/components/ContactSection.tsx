@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Mail, Linkedin, Github, ArrowRight } from "lucide-react";
+import { Mail, Linkedin, Github, Youtube, ArrowRight } from "lucide-react";
 import { person } from "../../../lib/site";
 
 export function ContactSection() {
@@ -54,6 +54,17 @@ export function ContactSection() {
               className="w-14 h-14 bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 rounded-full flex items-center justify-center hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/30 transition-all"
             >
               <Github className="w-6 h-6 text-gray-300" />
+            </motion.a>
+
+            <motion.a
+              href={person.youtube.en}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open YouTube channel"
+              whileHover={{ scale: 1.1, y: -2 }}
+              className="w-14 h-14 bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 rounded-full flex items-center justify-center hover:border-red-500 hover:shadow-lg hover:shadow-red-500/30 transition-all"
+            >
+              <Youtube className="w-6 h-6 text-gray-300" />
             </motion.a>
           </div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Mail, Linkedin, Github, ArrowRight } from "lucide-react";
+import { Mail, Linkedin, Github, Youtube, ArrowRight } from "lucide-react";
 import { getTranslations, type Locale } from "@/lib/translations";
 import { person } from "@/lib/site";
 
@@ -68,6 +68,17 @@ export function ContactSection({ locale = "en" }: ContactSectionProps) {
               className="w-12 h-12 sm:w-14 sm:h-14 min-w-[48px] min-h-[48px] bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 rounded-full flex items-center justify-center hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/30 transition-all active:scale-95"
             >
               <Github className="w-5 h-5 sm:w-6 sm:h-6 text-gray-300" />
+            </motion.a>
+
+            <motion.a
+              href={person.youtube[locale]}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t.contact.youtubeAria}
+              whileHover={{ scale: 1.1, y: -2 }}
+              className="w-12 h-12 sm:w-14 sm:h-14 min-w-[48px] min-h-[48px] bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 rounded-full flex items-center justify-center hover:border-red-500 hover:shadow-lg hover:shadow-red-500/30 transition-all active:scale-95"
+            >
+              <Youtube className="w-5 h-5 sm:w-6 sm:h-6 text-gray-300" />
             </motion.a>
           </div>
 
