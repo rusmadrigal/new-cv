@@ -4,6 +4,7 @@ import {
   siteUrl,
   siteName,
   siteTitle,
+  siteTitleSuffix,
   siteDescription,
   person,
 } from "@/lib/site";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: siteTitle,
-    template: `%s | ${siteName}`,
+    template: `%s | ${siteTitleSuffix}`,
   },
   description: siteDescription,
   keywords: [

@@ -3,6 +3,7 @@ import {
   siteUrl,
   siteName,
   siteTitleEs,
+  siteTitleSuffix,
   siteDescriptionEs,
   siteKeywordsEs,
   person,
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: siteTitleEs,
-    template: `%s | ${siteName}`,
+    template: `%s | ${siteTitleSuffix}`,
   },
   description: siteDescriptionEs,
   keywords: siteKeywordsEs,

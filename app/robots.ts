@@ -1,7 +1,9 @@
 import { MetadataRoute } from "next";
 import { siteUrl } from "@/lib/site";
 
+/** robots.txt dinámico: permite indexación pública, bloquea /api/, enlaza sitemap. */
 export default function robots(): MetadataRoute.Robots {
+  const base = siteUrl.replace(/\/$/, "");
   return {
     rules: [
       {
@@ -10,6 +12,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: `${siteUrl}/sitemap.xml`,
+    host: base,
+    sitemap: `${base}/sitemap.xml`,
   };
 }

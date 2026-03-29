@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import { getLlmsTxtEn } from "@/lib/llms-txt";
+import { getLlmsTxtEs } from "@/lib/llms-txt";
 
 export function GET() {
-  return new NextResponse(getLlmsTxtEn(), {
+  return new NextResponse(getLlmsTxtEs(), {
     status: 200,
     headers: {
       "Content-Type": "text/plain; charset=utf-8",

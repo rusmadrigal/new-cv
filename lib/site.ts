@@ -6,6 +6,9 @@ export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rusmadrigal.com";
 
 export const siteName = "Rusben Madrigal";
+
+/** Sufijo del `<title>` cuando una página define `title` (metadata template). */
+export const siteTitleSuffix = "Rus Madrigal";
 export const siteTitle =
   "Rusben Madrigal | Senior Technical SEO | AI-Driven SEO & Growth";
 export const siteDescription =

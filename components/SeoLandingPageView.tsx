@@ -156,9 +156,9 @@ export function SeoLandingPageView({
         locale={locale}
       />
 
-      <main id="main-content">
-        {/* Hero */}
-        <section className="relative overflow-hidden bg-black pb-20 pt-20 sm:pb-24 sm:pt-24">
+      <main id="main-content" className="pt-14 sm:pt-16 md:pt-20">
+        {/* Hero — alineado con /servicios: aire bajo nav + pt hero 80–100px */}
+        <section className="relative overflow-hidden bg-black pb-14 pt-[5rem] sm:pb-16 sm:pt-[5.5rem] lg:pb-20 lg:pt-[6.25rem]">
           <div
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_-15%,rgba(59,130,246,0.35),transparent_55%)]"
             aria-hidden
@@ -183,7 +183,7 @@ export function SeoLandingPageView({
           <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6">
             <Link
               href={basePath}
-              className="mb-6 inline-flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-gray-200"
+              className="mb-8 inline-flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-gray-200 sm:mb-10"
             >
               <ArrowLeft className="h-4 w-4" />
               {t.back}
@@ -193,7 +193,7 @@ export function SeoLandingPageView({
               <motion.p
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-blue-300/90"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-blue-300/90"
               >
                 <MapPin className="h-3.5 w-3.5" />
                 {countryLabel}
@@ -202,7 +202,7 @@ export function SeoLandingPageView({
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05 }}
-                className="text-balance bg-gradient-to-b from-white via-white to-gray-400 bg-clip-text text-4xl font-bold leading-[1.1] tracking-tight text-transparent sm:text-5xl md:text-6xl"
+                className="mt-7 text-balance bg-gradient-to-b from-white via-white to-gray-400 bg-clip-text text-4xl font-bold leading-[1.1] tracking-tight text-transparent sm:mt-8 md:mt-10 sm:text-5xl md:text-6xl"
               >
                 {lp.heroHeadline}
               </motion.h1>
@@ -211,7 +211,7 @@ export function SeoLandingPageView({
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="mx-auto mt-6 max-w-[42rem] text-pretty text-base leading-[1.7] text-[#D1D5DB] sm:text-lg"
+                  className="mx-auto mt-5 max-w-[42rem] text-pretty text-base leading-[1.7] text-[#D1D5DB] sm:mt-6 sm:text-lg"
                 >
                   {lp.heroSubheadline}
                 </motion.p>
@@ -221,7 +221,7 @@ export function SeoLandingPageView({
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 }}
-                className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
+                className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-9 sm:flex-row sm:gap-4"
               >
                 <button
                   type="button"
@@ -241,7 +241,7 @@ export function SeoLandingPageView({
                 )}
               </motion.div>
               {lp.heroTrustLine && (
-                <p className="mt-8 text-sm leading-relaxed text-gray-400">
+                <p className="mt-7 text-sm leading-relaxed text-gray-400 sm:mt-8">
                   {lp.heroTrustLine}
                 </p>
               )}
@@ -251,7 +251,7 @@ export function SeoLandingPageView({
 
         {/* Stats */}
         {lp.stats && lp.stats.length > 0 && (
-          <section className="border-y border-white/10 bg-gradient-to-b from-[#0a1020] to-black py-16 sm:py-20">
+          <section className="border-t border-white/10 bg-gradient-to-b from-[#0a1020] to-black py-12 sm:py-16">
             <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:px-6">
               {lp.stats.map((stat, i) => {
                 const Icon = STAT_ICONS[i % STAT_ICONS.length];
