@@ -1,29 +1,39 @@
-import { SiteJsonLdGraph } from "@/components/JsonLd";
+import { EsServiciosIndexJsonLd } from "@/components/JsonLd";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ServiciosIndexView } from "@/components/ServiciosIndexView";
-import { getLandingPages, getCaseStudies } from "@/lib/sanity";
+import {
+  getLandingPages,
+  getCaseStudies,
+  getServiciosEsIndex,
+} from "@/lib/sanity";
+import { serviciosIndexCopy } from "@/lib/servicios-index-copy";
 import { siteUrl, siteName, person } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Servicios de SEO",
+  title: {
+    absolute:
+      "Servicios SEO en Latinoamérica | SEO Técnico y Estratégico",
+  },
   description:
-    "Servicios de SEO estratégico y local por país. Consultoría y auditorías técnicas para empresas que buscan crecimiento orgánico.",
+    "Servicios SEO para empresas en Latinoamérica. Estrategia, SEO técnico y contenido para crecer tráfico cualificado y escalar a nivel regional.",
   alternates: {
     canonical: `${siteUrl}/es/servicios`,
     languages: {
       en: `${siteUrl}/services`,
       es: `${siteUrl}/es/servicios`,
+      "es-419": `${siteUrl}/es/servicios`,
+      "es-CR": `${siteUrl}/es/servicios`,
       "x-default": `${siteUrl}/services`,
     },
   },
   openGraph: {
     url: `${siteUrl}/es/servicios`,
-    title: `Servicios de SEO | ${siteName}`,
+    title: "Servicios SEO en Latinoamérica | SEO Técnico y Estratégico",
     description:
-      "Servicios de SEO estratégico y local por país. Consultoría técnica y crecimiento orgánico.",
+      "Servicios SEO para empresas en Latinoamérica. Estrategia, SEO técnico y contenido para crecer tráfico cualificado y escalar a nivel regional.",
     siteName,
     images: [
       {
@@ -35,20 +45,42 @@ export const metadata = {
     ],
   },
   robots: { index: true, follow: true },
+  twitter: {
+    card: "summary_large_image",
+    title: "Servicios SEO en Latinoamérica | SEO Técnico y Estratégico",
+    description:
+      "Servicios SEO para empresas en Latinoamérica. Estrategia, SEO técnico y contenido para crecer tráfico cualificado y escalar a nivel regional.",
+    images: [`${siteUrl}${person.image}`],
+  },
 };
 
 export default async function EsServiciosPage() {
-  const [landingPages, caseStudies] = await Promise.all([
+  const [landingPages, caseStudies, serviciosEsDoc] = await Promise.all([
     getLandingPages("es"),
     getCaseStudies("es"),
+    getServiciosEsIndex(),
   ]);
   const hasCaseStudies = caseStudies.length > 0;
+  const fb = serviciosIndexCopy.es;
+  const titleFromSanity = serviciosEsDoc?.seoSectionTitle?.trim();
+  const parasFromSanity = (serviciosEsDoc?.seoSectionParagraphs ?? [])
+    .map((p) => p.trim())
+    .filter(Boolean);
+  const seoSection = {
+    title: titleFromSanity || fb.seoSectionTitle,
+    paragraphs:
+      parasFromSanity.length > 0 ? parasFromSanity : [...fb.seoSectionParagraphs],
+  };
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <SiteJsonLdGraph />
+      <EsServiciosIndexJsonLd />
       <Navigation hasCaseStudies={hasCaseStudies} />
-      <ServiciosIndexView locale="es" landingPages={landingPages} />
+      <ServiciosIndexView
+        locale="es"
+        landingPages={landingPages}
+        seoSection={seoSection}
+      />
       <Footer locale="es" />
     </div>
   );

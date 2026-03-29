@@ -298,4 +298,37 @@ export async function getLandingPageSlugs(
   return data ?? [];
 }
 
+/** Bloque SEO de /es/servicios y /services (documentos en Sanity). */
+export interface ServiciosIndexSeoDoc {
+  seoSectionTitle?: string | null;
+  seoSectionParagraphs?: string[] | null;
+}
+
+/** Compat: mismo shape que {@link ServiciosIndexSeoDoc}. */
+export type ServiciosEsIndex = ServiciosIndexSeoDoc;
+
+export const serviciosEsIndexQuery = `*[_type == "serviciosEsIndex"] | order(_updatedAt desc)[0] {
+  seoSectionTitle,
+  seoSectionParagraphs
+}`;
+
+export const serviciosEnIndexQuery = `*[_type == "serviciosEnIndex"] | order(_updatedAt desc)[0] {
+  seoSectionTitle,
+  seoSectionParagraphs
+}`;
+
+export async function getServiciosEsIndex(): Promise<ServiciosIndexSeoDoc | null> {
+  const data = await client.fetch<ServiciosIndexSeoDoc | null>(
+    serviciosEsIndexQuery,
+  );
+  return data ?? null;
+}
+
+export async function getServiciosEnIndex(): Promise<ServiciosIndexSeoDoc | null> {
+  const data = await client.fetch<ServiciosIndexSeoDoc | null>(
+    serviciosEnIndexQuery,
+  );
+  return data ?? null;
+}
+
 export type { PortableTextBlock };

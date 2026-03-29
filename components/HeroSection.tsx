@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { ChevronDown, Download } from "lucide-react";
+import Link from "next/link";
 import { ImageWithFallback } from "./ImageWithFallback";
 import { getTranslations, type Locale } from "@/lib/translations";
 
@@ -137,14 +138,14 @@ export function HeroSection({ locale = "en" }: HeroSectionProps) {
             >
               {t.hero.viewExperience}
             </button>
-            <a
+            <Link
               href={RESUME_PDF}
               download="Rusben-Madrigal-CV.pdf"
               className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 sm:px-8 py-3.5 border border-gray-700 text-white rounded-lg hover:border-gray-500 transition-all active:scale-[0.98] hover:shadow-lg hover:shadow-blue-500/20 group text-base font-medium"
             >
               <Download className="w-4 h-4 shrink-0 transition-transform group-hover:translate-y-0.5" />
               {t.hero.downloadResume}
-            </a>
+            </Link>
             <button
               onClick={() => scrollToContact()}
               className="min-h-[48px] px-6 sm:px-8 py-3.5 border border-gray-700 text-white rounded-lg hover:border-gray-500 transition-all active:scale-[0.98] hover:shadow-lg hover:shadow-purple-500/20 text-base font-medium"

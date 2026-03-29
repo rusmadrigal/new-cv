@@ -2,7 +2,12 @@ import { SiteJsonLdGraph } from "@/components/JsonLd";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ServiciosIndexView } from "@/components/ServiciosIndexView";
-import { getLandingPages, getCaseStudies } from "@/lib/sanity";
+import {
+  getLandingPages,
+  getCaseStudies,
+  getServiciosEnIndex,
+} from "@/lib/sanity";
+import { serviciosIndexCopy } from "@/lib/servicios-index-copy";
 import { siteUrl, siteName, person } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
@@ -16,6 +21,8 @@ export const metadata = {
     languages: {
       en: `${siteUrl}/services`,
       es: `${siteUrl}/es/servicios`,
+      "es-419": `${siteUrl}/es/servicios`,
+      "es-CR": `${siteUrl}/es/servicios`,
       "x-default": `${siteUrl}/services`,
     },
   },
@@ -23,7 +30,7 @@ export const metadata = {
     url: `${siteUrl}/services`,
     title: `SEO services | ${siteName}`,
     description:
-      "Strategic and local SEO by country. Technical consulting and organic growth.",
+      "Strategic and technical SEO for teams in Latin America. Consulting and organic growth by market.",
     siteName,
     images: [
       {
@@ -38,17 +45,32 @@ export const metadata = {
 };
 
 export default async function EnServicesPage() {
-  const [landingPages, caseStudies] = await Promise.all([
+  const [landingPages, caseStudies, serviciosEnDoc] = await Promise.all([
     getLandingPages("en"),
     getCaseStudies("en"),
+    getServiciosEnIndex(),
   ]);
   const hasCaseStudies = caseStudies.length > 0;
+  const fb = serviciosIndexCopy.en;
+  const titleFromSanity = serviciosEnDoc?.seoSectionTitle?.trim();
+  const parasFromSanity = (serviciosEnDoc?.seoSectionParagraphs ?? [])
+    .map((p) => p.trim())
+    .filter(Boolean);
+  const seoSection = {
+    title: titleFromSanity || fb.seoSectionTitle,
+    paragraphs:
+      parasFromSanity.length > 0 ? parasFromSanity : [...fb.seoSectionParagraphs],
+  };
 
   return (
     <div className="min-h-screen bg-black text-white">
       <SiteJsonLdGraph />
       <Navigation hasCaseStudies={hasCaseStudies} />
-      <ServiciosIndexView locale="en" landingPages={landingPages} />
+      <ServiciosIndexView
+        locale="en"
+        landingPages={landingPages}
+        seoSection={seoSection}
+      />
       <Footer locale="en" />
     </div>
   );

@@ -88,6 +88,7 @@ export function VideoSection({ locale = "en" }: VideoSectionProps) {
                         fill
                         className="object-cover"
                         sizes="(max-width: 1024px) 100vw, 1152px"
+                        fetchPriority="low"
                         onError={() => setThumbSrc(thumbnailFallback)}
                       />
                       <div className="absolute inset-0 bg-black/30" />

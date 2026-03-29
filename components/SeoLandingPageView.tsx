@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { SmartLink } from "@/components/SmartLink";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { PortableText } from "@/components/PortableText";
@@ -231,12 +232,12 @@ export function SeoLandingPageView({
                   {heroCtaText}
                 </button>
                 {lp.heroSecondaryCtaText && lp.heroSecondaryCtaHref && (
-                  <a
+                  <SmartLink
                     href={lp.heroSecondaryCtaHref}
                     className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg border border-white/10 bg-transparent px-6 py-2.5 text-sm font-medium text-[#D1D5DB] transition-colors hover:border-white/20 hover:text-white sm:w-auto"
                   >
                     {lp.heroSecondaryCtaText}
-                  </a>
+                  </SmartLink>
                 )}
               </motion.div>
               {lp.heroTrustLine && (

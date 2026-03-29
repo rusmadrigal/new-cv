@@ -2,6 +2,7 @@
 
 import { PortableText as BasePortableText } from "@portabletext/react";
 import Image from "next/image";
+import { SmartLink } from "@/components/SmartLink";
 import { createImageUrlBuilder } from "@sanity/image-url";
 import { projectId, dataset } from "@/lib/sanity";
 import type {
@@ -62,16 +63,18 @@ const components: PortableTextComponents = {
         {children}
       </code>
     ),
-    link: ({ children, value }) => (
-      <a
-        href={value?.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-400 hover:text-blue-300 underline"
-      >
-        {children}
-      </a>
-    ),
+    link: ({ children, value }) => {
+      const href = value?.href?.trim();
+      if (!href) return <>{children}</>;
+      return (
+        <SmartLink
+          href={href}
+          className="text-blue-400 hover:text-blue-300 underline"
+        >
+          {children}
+        </SmartLink>
+      );
+    },
   },
   types: {
     image: ({ value }) => {

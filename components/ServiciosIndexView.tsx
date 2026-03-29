@@ -8,7 +8,6 @@ import {
   Layers,
   MapPin,
   Search,
-  Sparkles,
   Zap,
 } from "lucide-react";
 import type { LandingPage, Locale } from "@/lib/sanity";
@@ -27,11 +26,14 @@ const STEP_ICONS = [Search, Layers, Zap, Activity] as const;
 type ServiciosIndexViewProps = {
   locale: Locale;
   landingPages: LandingPage[];
+  /** Bloque SEO bajo «Cómo trabajo» / How I work (Sanity + fallback en página). */
+  seoSection?: { title: string; paragraphs: string[] };
 };
 
 export function ServiciosIndexView({
   locale,
   landingPages,
+  seoSection,
 }: ServiciosIndexViewProps) {
   const t = serviciosIndexCopy[locale];
   const basePath = landingServicesBasePath(locale);
@@ -54,7 +56,7 @@ export function ServiciosIndexView({
     const sub = lp.heroSubheadline?.trim();
     if (sub) return sub;
     return locale === "es"
-      ? "SEO estratégico y local para tu mercado."
+      ? "SEO estratégico y técnico para tu mercado en Latinoamérica."
       : "Strategic and local SEO for your market.";
   };
 
@@ -86,20 +88,22 @@ export function ServiciosIndexView({
           />
 
           <div className="relative mx-auto max-w-5xl px-4 text-center sm:px-6">
-            <p className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.2em] text-blue-400/90 sm:text-xs">
-              <Sparkles className="h-3.5 w-3.5" aria-hidden />
-              {t.heroKicker}
-            </p>
-            {/* 24–40px between kicker and H1 for clearer hierarchy */}
-            <h1 className="mt-7 text-balance text-3xl font-semibold tracking-tight text-white sm:mt-8 md:mt-10 md:text-4xl">
-              {t.heroTitle}
-            </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-[#D1D5DB] sm:mt-5 sm:text-base">
-              {t.heroLead}
-            </p>
-            <p className="mx-auto mt-3 max-w-xl text-xs text-gray-500 sm:text-sm">
-              {t.heroContext}
-            </p>
+            {/* Tipografía alineada con SeoLandingPageView (single servicios) */}
+            <div className="mx-auto max-w-4xl text-center">
+              <h1 className="mt-7 text-balance bg-gradient-to-b from-white via-white to-gray-400 bg-clip-text text-4xl font-bold leading-[1.1] tracking-tight text-transparent sm:mt-8 md:mt-10 sm:text-5xl md:text-6xl">
+                {t.heroTitle}
+              </h1>
+              {t.heroSubheading.trim() ? (
+                <h2 className="mx-auto mt-5 max-w-[42rem] text-pretty text-base font-normal leading-[1.7] text-[#D1D5DB] sm:mt-6 sm:text-lg">
+                  {t.heroSubheading}
+                </h2>
+              ) : null}
+              {t.heroSupportingLine.trim() ? (
+                <p className="mx-auto mt-5 max-w-[42rem] text-pretty text-base font-normal leading-[1.7] text-[#D1D5DB] sm:mt-6 sm:text-lg">
+                  {t.heroSupportingLine}
+                </p>
+              ) : null}
+            </div>
           </div>
         </section>
 
@@ -109,7 +113,7 @@ export function ServiciosIndexView({
             {t.trust.map((item) => (
               <span
                 key={item}
-                className="text-[13px] font-medium tracking-tight text-gray-400 sm:text-sm"
+                className="text-[15px] font-medium leading-snug tracking-tight text-gray-300 sm:text-base"
               >
                 {item}
               </span>
@@ -121,13 +125,13 @@ export function ServiciosIndexView({
         <section className="mx-auto max-w-5xl px-4 pt-10 sm:px-6 sm:pt-12">
           {landingPages.length === 0 ? (
             <div className="mb-8 text-center">
-              <p className="text-sm leading-relaxed text-gray-500">
+              <p className="text-base leading-[1.7] text-[#D1D5DB]">
                 {t.emptyTitle}
               </p>
               <button
                 type="button"
                 onClick={() => setContactOpen(true)}
-                className="mt-4 text-sm font-semibold text-blue-400 transition hover:text-blue-300"
+                className="mt-4 text-base font-semibold text-blue-400 transition hover:text-blue-300"
               >
                 {t.emptyCta}
               </button>
@@ -150,13 +154,13 @@ export function ServiciosIndexView({
                       </span>
                       <ArrowRight className="h-5 w-5 shrink-0 text-gray-500 transition duration-300 ease-out group-hover:translate-x-1 group-hover:text-blue-400" />
                     </div>
-                    <p className="text-lg font-semibold leading-snug text-white transition duration-300 group-hover:text-blue-100">
+                    <p className="text-lg font-bold leading-snug text-white transition duration-300 group-hover:text-blue-100">
                       {lp.heroHeadline}
                     </p>
-                    <p className="mt-1 text-xs font-medium uppercase tracking-wider text-blue-400/80">
+                    <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-blue-400/80">
                       {label}
                     </p>
-                    <p className="mt-3 line-clamp-1 text-sm leading-relaxed text-gray-400">
+                    <p className="mt-3 line-clamp-2 text-[15px] leading-[1.7] text-gray-300">
                       {cardDescription(lp)}
                     </p>
                   </div>
@@ -183,10 +187,10 @@ export function ServiciosIndexView({
                         {t.upcomingLabel}
                       </span>
                     </div>
-                    <p className="text-lg font-semibold text-gray-500">
+                    <p className="text-lg font-bold text-gray-500">
                       {label}
                     </p>
-                    <p className="mt-3 text-sm text-gray-600">
+                    <p className="mt-3 text-[15px] leading-[1.7] text-gray-600">
                       {t.upcomingHint}
                     </p>
                   </div>
@@ -200,7 +204,7 @@ export function ServiciosIndexView({
 
         {/* How I work */}
         <section className="mx-auto max-w-5xl px-4 pt-10 sm:px-6 sm:pt-12">
-          <h2 className="mb-6 text-center text-lg font-semibold tracking-tight text-white sm:text-xl">
+          <h2 className="mb-10 text-center text-3xl font-bold tracking-tight text-white md:text-4xl">
             {t.howTitle}
           </h2>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
@@ -214,10 +218,10 @@ export function ServiciosIndexView({
                   <div className="mx-auto mb-2.5 flex h-9 w-9 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400/90">
                     <Icon className="h-4 w-4" />
                   </div>
-                  <p className="text-sm font-semibold text-white">
+                  <p className="text-lg font-bold leading-snug text-white">
                     {step.title}
                   </p>
-                  <p className="mt-1 text-[11px] leading-snug text-gray-500 sm:text-xs">
+                  <p className="mt-2 text-[15px] leading-[1.7] text-gray-300">
                     {step.desc}
                   </p>
                 </div>
@@ -226,21 +230,40 @@ export function ServiciosIndexView({
           </div>
         </section>
 
+        {seoSection && seoSection.paragraphs.length > 0 ? (
+          <section
+            className="relative mx-auto max-w-3xl px-4 pb-2 pt-10 text-left sm:px-6 sm:pb-4 sm:pt-12"
+            aria-labelledby="servicios-seo-latam-heading"
+          >
+            <h2
+              id="servicios-seo-latam-heading"
+              className="text-2xl font-bold tracking-tight text-white md:text-3xl"
+            >
+              {seoSection.title}
+            </h2>
+            <div className="mt-6 space-y-6 text-base leading-[1.7] text-[#D1D5DB]">
+              {seoSection.paragraphs.map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <div className="mx-auto mt-10 max-w-5xl border-t border-white/[0.07] px-4 sm:px-6" />
 
         {/* Mini CTA */}
         <section className="mx-auto max-w-5xl px-4 pb-4 pt-10 sm:px-6 sm:pt-12">
           <div className="rounded-2xl border border-blue-500/25 bg-gradient-to-br from-blue-950/40 via-black/40 to-violet-950/20 px-6 py-8 text-center shadow-[0_0_0_1px_rgba(59,130,246,0.12)] sm:px-10 sm:py-10">
-            <h2 className="text-lg font-semibold text-white sm:text-xl">
+            <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
               {t.ctaTitle}
             </h2>
-            <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-[#D1D5DB]">
+            <p className="mx-auto mt-6 max-w-[42rem] text-base leading-[1.7] text-[#D1D5DB]">
               {t.ctaSubtitle}
             </p>
             <button
               type="button"
               onClick={() => setContactOpen(true)}
-              className="mt-6 inline-flex min-h-[48px] cursor-pointer items-center justify-center gap-2 rounded-xl border-0 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-500 px-8 text-sm font-semibold text-white shadow-[0_12px_40px_-12px_rgba(37,99,235,0.55)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_48px_-12px_rgba(37,99,235,0.6)]"
+              className="mt-10 inline-flex min-h-[56px] cursor-pointer items-center justify-center gap-2 rounded-xl border-0 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-500 px-10 py-4 text-base font-semibold text-white shadow-[0_12px_40px_-12px_rgba(37,99,235,0.55)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_48px_-12px_rgba(37,99,235,0.6)]"
             >
               {t.ctaButton}
               <ArrowRight className="h-4 w-4" />

@@ -13,6 +13,8 @@ interface ImageWithFallbackProps {
   height?: number;
   className?: string;
   priority?: boolean;
+  /** Para LCP y layout estable; por defecto tamaño avatar hero */
+  sizes?: string;
 }
 
 export function ImageWithFallback({
@@ -22,6 +24,7 @@ export function ImageWithFallback({
   width = 160,
   height = 160,
   priority = false,
+  sizes,
 }: ImageWithFallbackProps) {
   const [didError, setDidError] = useState(false);
 
@@ -54,7 +57,9 @@ export function ImageWithFallback({
       onError={() => setDidError(true)}
       priority={priority}
       unoptimized={!isLocal}
-      sizes={priority ? "(max-width: 768px) 128px, 160px" : undefined}
+      sizes={
+        sizes ?? "(max-width: 768px) 128px, 160px"
+      }
     />
   );
 }

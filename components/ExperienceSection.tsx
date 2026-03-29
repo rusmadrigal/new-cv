@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "motion/react";
 import { Download } from "lucide-react";
 import { getTranslations, type Locale } from "@/lib/translations";
@@ -85,14 +86,14 @@ export function ExperienceSection({ locale = "en" }: ExperienceSectionProps) {
           >
             <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-6 sm:p-8 text-center">
               <p className="text-gray-300 mb-4">{t.experience.wantFull}</p>
-              <a
+              <Link
                 href="/resume.pdf"
                 download="Rusben-Madrigal-CV.pdf"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-white font-medium hover:shadow-lg hover:shadow-blue-500/40 transition-all"
               >
                 <Download className="w-4 h-4" />
                 {t.experience.downloadCv}
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>

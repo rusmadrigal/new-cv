@@ -1,4 +1,7 @@
-import { buildSiteJsonLdGraph } from "@/lib/jsonld";
+import {
+  buildEsServiciosIndexJsonLd,
+  buildSiteJsonLdGraph,
+} from "@/lib/jsonld";
 
 /**
  * Person + WebSite (grafo global). Incluido en home, listados y páginas de detalle
@@ -11,6 +14,18 @@ export function SiteJsonLdGraph() {
       type="application/ld+json"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(buildSiteJsonLdGraph()),
+      }}
+    />
+  );
+}
+
+/** `/es/servicios` — incluye ProfessionalService con areaServed LATAM + Costa Rica. */
+export function EsServiciosIndexJsonLd() {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(buildEsServiciosIndexJsonLd()),
       }}
     />
   );

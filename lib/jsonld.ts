@@ -27,6 +27,61 @@ export const SITE_PERSON_ID = `${siteUrl}/#person`;
 /** Stable @id for global WebSite */
 export const SITE_WEBSITE_ID = `${siteUrl}/#website`;
 
+/** JSON-LD for `/es/servicios`: sitio global + ProfessionalService (LATAM + CR) + WebPage. */
+export function buildEsServiciosIndexJsonLd() {
+  const canonicalUrl = `${siteUrl}/es/servicios`;
+  const name = "Servicios SEO en Latinoamérica";
+  const description =
+    "Servicios SEO para empresas en Latinoamérica. Estrategia, SEO técnico y contenido para crecer tráfico cualificado y escalar a nivel regional.";
+  const serviceId = `${canonicalUrl}#professional-service`;
+  const webpageId = `${canonicalUrl}#webpage`;
+
+  const site = buildSiteJsonLdGraph() as {
+    "@context": string;
+    "@graph": unknown[];
+  };
+
+  const professionalService: Record<string, unknown> = {
+    "@type": "ProfessionalService",
+    "@id": serviceId,
+    name,
+    url: canonicalUrl,
+    image: `${siteUrl}${person.image}`,
+    description,
+    inLanguage: "es-419",
+    email: person.email,
+    telephone: businessPhone,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: person.location.locality,
+      addressCountry: "CR",
+    },
+    areaServed: [
+      { "@type": "Country", name: "Costa Rica" },
+      { "@type": "Place", name: "Latin America" },
+    ],
+    provider: { "@id": SITE_PERSON_ID },
+    founder: { "@id": SITE_PERSON_ID },
+    sameAs: [person.linkedin, person.github],
+  };
+
+  const webPage: Record<string, unknown> = {
+    "@type": "WebPage",
+    "@id": webpageId,
+    url: canonicalUrl,
+    name,
+    description,
+    inLanguage: "es-419",
+    isPartOf: { "@id": SITE_WEBSITE_ID },
+    about: { "@id": serviceId },
+  };
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [...site["@graph"], professionalService, webPage],
+  };
+}
+
 /** Single root graph: Person + WebSite (no duplicate Person on /es). */
 export function buildSiteJsonLdGraph() {
   return {
