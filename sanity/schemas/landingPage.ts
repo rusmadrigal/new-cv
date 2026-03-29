@@ -5,7 +5,7 @@ export const landingPage = defineType({
   title: "Landing Page (Servicios SEO)",
   type: "document",
   description:
-    "Landing pages por país (SEO estratégico y local). URLs: /es/servicios/[slug] (ES) y /servicios/[slug] (EN).",
+    "Landing pages por país (SEO estratégico y local). URLs: /es/servicios/[slug] (ES) y /services/[slug] (EN).",
   groups: [
     { name: "content", title: "Contenido", default: true },
     { name: "seo", title: "SEO" },
@@ -72,7 +72,7 @@ export const landingPage = defineType({
       title: "URL Slug",
       group: "content",
       description:
-        "Slug único por idioma. ES: /es/servicios/[slug]. EN: /servicios/[slug]. Ej: costa-rica.",
+        "Slug único por idioma. ES: /es/servicios/[slug]. EN: /services/[slug]. Ej: costa-rica.",
       options: {
         source: "country",
         maxLength: 96,

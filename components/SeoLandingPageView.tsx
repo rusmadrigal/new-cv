@@ -156,7 +156,7 @@ export function SeoLandingPageView({
       />
 
       <main id="main-content" className="pt-14 sm:pt-16 md:pt-20">
-        {/* Hero — alineado con /servicios: aire bajo nav + pt hero 80–100px */}
+        {/* Hero — alineado con listado de servicios: aire bajo nav + pt hero 80–100px */}
         <section className="relative overflow-hidden bg-black pb-14 pt-[5rem] sm:pb-16 sm:pt-[5.5rem] lg:pb-20 lg:pt-[6.25rem]">
           <div
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_-15%,rgba(59,130,246,0.35),transparent_55%)]"

@@ -31,7 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const serviciosLandingEn: MetadataRoute.Sitemap = landingEn.map((slug) => ({
-    url: `${root}/servicios/${slug}`,
+    url: `${root}/services/${slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.85,
@@ -60,12 +60,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       alternates: { languages: { en: root, es: `${root}/es` } },
     },
     {
-      url: `${root}/servicios`,
+      url: `${root}/services`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.85,
       alternates: {
-        languages: { en: `${root}/servicios`, es: `${root}/es/servicios` },
+        languages: { en: `${root}/services`, es: `${root}/es/servicios` },
       },
     },
     {
@@ -74,7 +74,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.85,
       alternates: {
-        languages: { en: `${root}/servicios`, es: `${root}/es/servicios` },
+        languages: { en: `${root}/services`, es: `${root}/es/servicios` },
       },
     },
     {

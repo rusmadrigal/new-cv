@@ -12,15 +12,15 @@ export const metadata = {
   description:
     "Strategic and local SEO services by market. Technical consulting and audits for companies focused on organic growth.",
   alternates: {
-    canonical: `${siteUrl}/servicios`,
+    canonical: `${siteUrl}/services`,
     languages: {
-      en: `${siteUrl}/servicios`,
+      en: `${siteUrl}/services`,
       es: `${siteUrl}/es/servicios`,
-      "x-default": `${siteUrl}/servicios`,
+      "x-default": `${siteUrl}/services`,
     },
   },
   openGraph: {
-    url: `${siteUrl}/servicios`,
+    url: `${siteUrl}/services`,
     title: `SEO services | ${siteName}`,
     description:
       "Strategic and local SEO by country. Technical consulting and organic growth.",
@@ -37,7 +37,7 @@ export const metadata = {
   robots: { index: true, follow: true },
 };
 
-export default async function EnServiciosPage() {
+export default async function EnServicesPage() {
   const [landingPages, caseStudies] = await Promise.all([
     getLandingPages("en"),
     getCaseStudies("en"),

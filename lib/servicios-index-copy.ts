@@ -1,6 +1,6 @@
 import type { Locale } from "@/lib/sanity";
 
-/** Copy for /servicios and /es/servicios index pages. */
+/** Copy for `/services` (EN) y `/es/servicios` (ES). */
 export const serviciosIndexCopy: Record<
   Locale,
   {

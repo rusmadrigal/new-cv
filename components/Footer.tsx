@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getTranslations, type Locale } from "@/lib/translations";
+import { landingServicesBasePath } from "@/lib/landing-page";
 
 interface FooterProps {
   locale?: Locale;
@@ -47,7 +48,7 @@ export function Footer({ locale = "en" }: FooterProps) {
               {t.footer.privacy}
             </Link>
             <Link
-              href={locale === "es" ? "/es/servicios" : "/servicios"}
+              href={landingServicesBasePath(locale)}
               className="text-gray-500 hover:text-white transition-colors py-2 min-h-[44px] flex items-center"
               title={t.footer.servicesSeo}
             >

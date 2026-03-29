@@ -14,7 +14,7 @@ Personal portfolio and professional CV. Technical SEO, Core Web Vitals, JavaScri
 ## Main URLs
 - Home (EN): ${root}/
 - Home (ES): ${root}/es
-- SEO services (EN): ${root}/servicios
+- SEO services (EN): ${root}/services
 - SEO services (ES): ${root}/es/servicios
 - Case studies (EN): ${root}/case-studies
 - Case studies (ES): ${root}/es/case-studies
@@ -45,7 +45,7 @@ Portfolio personal y CV profesional. SEO técnico, Core Web Vitals, JavaScript S
 - Inicio (ES): ${root}/es
 - Inicio (EN): ${root}/
 - Servicios SEO (ES): ${root}/es/servicios
-- Servicios SEO (EN): ${root}/servicios
+- Servicios SEO (EN): ${root}/services
 - Casos de estudio (ES): ${root}/es/case-studies
 - Casos de estudio (EN): ${root}/case-studies
 - Privacidad (ES): ${root}/es/privacy

@@ -28,7 +28,7 @@ export async function buildLandingSlugMetadata(
   if (!lp) return null;
 
   const urlEs = `${siteUrl}/es/servicios/${slug}`;
-  const urlEn = `${siteUrl}/servicios/${slug}`;
+  const urlEn = `${siteUrl}/services/${slug}`;
 
   const languages: Record<string, string> = {};
   if (lpEs) languages[hreflangKey(lpEs, "es")] = urlEs;

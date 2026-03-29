@@ -18,6 +18,7 @@ export function getLandingCountryLabel(lp: {
   return LANDING_COUNTRY_LABELS[lp.country] ?? lp.country;
 }
 
+/** Listado y landings EN: `/services`; ES: `/es/servicios`. */
 export function landingServicesBasePath(locale: Locale) {
-  return locale === "es" ? "/es/servicios" : "/servicios";
+  return locale === "es" ? "/es/servicios" : "/services";
 }

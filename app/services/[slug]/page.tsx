@@ -25,7 +25,7 @@ export async function generateMetadata({
   return meta ?? {};
 }
 
-export default async function EnServicioLandingPage({
+export default async function EnServiceLandingPage({
   params,
 }: {
   params: Promise<{ slug: string }>;

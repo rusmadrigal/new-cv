@@ -14,9 +14,9 @@ export const metadata = {
   alternates: {
     canonical: `${siteUrl}/es/servicios`,
     languages: {
-      en: `${siteUrl}/servicios`,
+      en: `${siteUrl}/services`,
       es: `${siteUrl}/es/servicios`,
-      "x-default": `${siteUrl}/servicios`,
+      "x-default": `${siteUrl}/services`,
     },
   },
   openGraph: {
