@@ -159,6 +159,16 @@ export interface LandingPageLocalBullet {
   text: string;
 }
 
+export interface LandingPageStat {
+  value: string;
+  label: string;
+}
+
+export interface LandingPageFaq {
+  question: string;
+  answer: string;
+}
+
 export interface LandingPage {
   _id: string;
   slug: string;
@@ -168,12 +178,26 @@ export interface LandingPage {
   heroSubheadline?: string | null;
   heroCtaText?: string | null;
   heroCtaHref?: string | null;
+  heroTrustLine?: string | null;
+  heroSecondaryCtaText?: string | null;
+  heroSecondaryCtaHref?: string | null;
+  stats?: LandingPageStat[] | null;
+  introTitle?: string | null;
+  introBody?: PortableTextBlock[] | null;
+  differentiatorTitle?: string | null;
+  differentiatorSubtitle?: string | null;
+  differentiatorItems?: LandingPageServiceItem[] | null;
   seoEstrategicoTitle?: string | null;
   seoEstrategicoSubtitle?: string | null;
   seoEstrategicoServices?: LandingPageServiceItem[] | null;
   seoLocalTitle?: string | null;
   seoLocalSubtitle?: string | null;
   seoLocalBullets?: LandingPageLocalBullet[] | null;
+  processTitle?: string | null;
+  processSubtitle?: string | null;
+  processSteps?: LandingPageServiceItem[] | null;
+  faqTitle?: string | null;
+  faqs?: LandingPageFaq[] | null;
   ctaHeadline?: string | null;
   ctaSubheadline?: string | null;
   ctaButtonText?: string | null;
@@ -201,12 +225,26 @@ const landingPageFullFields = `
   heroSubheadline,
   heroCtaText,
   heroCtaHref,
+  heroTrustLine,
+  heroSecondaryCtaText,
+  heroSecondaryCtaHref,
+  stats,
+  introTitle,
+  introBody,
+  differentiatorTitle,
+  differentiatorSubtitle,
+  differentiatorItems,
   seoEstrategicoTitle,
   seoEstrategicoSubtitle,
   seoEstrategicoServices,
   seoLocalTitle,
   seoLocalSubtitle,
   seoLocalBullets,
+  processTitle,
+  processSubtitle,
+  processSteps,
+  faqTitle,
+  faqs,
   ctaHeadline,
   ctaSubheadline,
   ctaButtonText,

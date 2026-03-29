@@ -5,7 +5,7 @@ export const landingPage = defineType({
   title: "Landing Page (Servicios SEO)",
   type: "document",
   description:
-    "Landing pages por país para ofrecer servicios de SEO estratégico y local. Accesibles de forma discreta en /es/servicios/[slug].",
+    "Landing pages por país (SEO estratégico y local). URLs: /es/servicios/[slug] (ES) y /servicios/[slug] (EN).",
   groups: [
     { name: "content", title: "Contenido", default: true },
     { name: "seo", title: "SEO" },
@@ -71,7 +71,8 @@ export const landingPage = defineType({
       type: "slug",
       title: "URL Slug",
       group: "content",
-      description: "Para la URL: /es/servicios/[slug]. Ej: costa-rica, mexico.",
+      description:
+        "Slug único por idioma. ES: /es/servicios/[slug]. EN: /servicios/[slug]. Ej: costa-rica.",
       options: {
         source: "country",
         maxLength: 96,
@@ -118,6 +119,101 @@ export const landingPage = defineType({
       group: "content",
       description: "Ej: mailto:hello@rusmadrigal.com o #contacto",
       initialValue: "mailto:hello@rusmadrigal.com",
+    }),
+    defineField({
+      name: "heroTrustLine",
+      type: "string",
+      title: "Hero – Línea de confianza",
+      group: "content",
+      description:
+        "Opcional. Debajo del CTA (ej: +10 años · Sitios a gran escala · SEO técnico).",
+    }),
+    defineField({
+      name: "heroSecondaryCtaText",
+      type: "string",
+      title: "Hero – Segundo botón (texto)",
+      group: "content",
+      description: "Opcional. Ej: Ver servicios, How it works.",
+    }),
+    defineField({
+      name: "heroSecondaryCtaHref",
+      type: "string",
+      title: "Hero – Segundo botón (enlace)",
+      group: "content",
+      description: "Ancla (#servicios, #proceso) o URL.",
+    }),
+
+    defineField({
+      name: "stats",
+      type: "array",
+      title: "Barra de métricas / confianza",
+      group: "content",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "value", type: "string", title: "Valor", validation: (Rule) => Rule.required() },
+            { name: "label", type: "string", title: "Etiqueta", validation: (Rule) => Rule.required() },
+          ],
+          preview: {
+            select: { value: "value", label: "label" },
+            prepare({ value, label }) {
+              return { title: `${value} — ${label}` };
+            },
+          },
+        },
+      ],
+      description: "3–4 bloques (ej: 10+ años, Multilingüe, Enterprise).",
+    }),
+
+    defineField({
+      name: "introTitle",
+      type: "string",
+      title: "Intro – Título",
+      group: "content",
+      description: "Sección de contexto antes de los servicios.",
+    }),
+    defineField({
+      name: "introBody",
+      type: "blockContent",
+      title: "Intro – Contenido",
+      group: "content",
+      description: "Texto enriquecido: párrafos, listas, enlaces.",
+    }),
+
+    defineField({
+      name: "differentiatorTitle",
+      type: "string",
+      title: "Por qué trabajar conmigo – Título",
+      group: "content",
+    }),
+    defineField({
+      name: "differentiatorSubtitle",
+      type: "text",
+      title: "Por qué trabajar conmigo – Subtítulo",
+      group: "content",
+      rows: 2,
+    }),
+    defineField({
+      name: "differentiatorItems",
+      type: "array",
+      title: "Por qué trabajar conmigo – Puntos",
+      group: "content",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "title", type: "string", title: "Título", validation: (Rule) => Rule.required() },
+            { name: "description", type: "text", title: "Descripción", rows: 3, validation: (Rule) => Rule.required() },
+          ],
+          preview: {
+            select: { title: "title" },
+            prepare({ title }) {
+              return { title: title || "Punto" };
+            },
+          },
+        },
+      ],
     }),
 
     // SEO Estratégico
@@ -215,6 +311,75 @@ export const landingPage = defineType({
       ],
       description:
         "Ej: Optimización de Google Business Profile, citas locales, schema LocalBusiness, reseñas.",
+    }),
+
+    defineField({
+      name: "processTitle",
+      type: "string",
+      title: "Proceso – Título",
+      group: "content",
+      initialValue: "Cómo trabajamos",
+    }),
+    defineField({
+      name: "processSubtitle",
+      type: "text",
+      title: "Proceso – Subtítulo",
+      group: "content",
+      rows: 2,
+    }),
+    defineField({
+      name: "processSteps",
+      type: "array",
+      title: "Proceso – Pasos",
+      group: "content",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "title", type: "string", title: "Título del paso", validation: (Rule) => Rule.required() },
+            { name: "description", type: "text", title: "Descripción", rows: 3, validation: (Rule) => Rule.required() },
+          ],
+          preview: {
+            select: { title: "title" },
+            prepare({ title }) {
+              return { title: title || "Paso" };
+            },
+          },
+        },
+      ],
+    }),
+
+    defineField({
+      name: "faqTitle",
+      type: "string",
+      title: "FAQ – Título de sección",
+      group: "content",
+      initialValue: "Preguntas frecuentes",
+    }),
+    defineField({
+      name: "faqs",
+      type: "array",
+      title: "FAQ – Preguntas y respuestas",
+      group: "content",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "question", type: "string", title: "Pregunta", validation: (Rule) => Rule.required() },
+            { name: "answer", type: "text", title: "Respuesta", rows: 5, validation: (Rule) => Rule.required() },
+          ],
+          preview: {
+            select: { question: "question" },
+            prepare({ question }) {
+              return {
+                title: question
+                  ? question.slice(0, 60) + (question.length > 60 ? "…" : "")
+                  : "FAQ",
+              };
+            },
+          },
+        },
+      ],
     }),
 
     // CTA final

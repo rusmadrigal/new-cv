@@ -9,17 +9,17 @@ import { ArrowRight, MapPin, Sparkles } from "lucide-react";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Servicios de SEO",
+  title: "SEO services",
   description:
-    "Servicios de SEO estratégico y local por país. Consultoría y auditorías técnicas para empresas que buscan crecimiento orgánico.",
+    "Strategic and local SEO services by market. Technical consulting and audits for companies focused on organic growth.",
   alternates: {
-    canonical: `${siteUrl}/es/servicios`,
+    canonical: `${siteUrl}/servicios`,
   },
   openGraph: {
-    url: `${siteUrl}/es/servicios`,
-    title: `Servicios de SEO | ${siteName}`,
+    url: `${siteUrl}/servicios`,
+    title: `SEO services | ${siteName}`,
     description:
-      "Servicios de SEO estratégico y local por país. Consultoría técnica y crecimiento orgánico.",
+      "Strategic and local SEO by country. Technical consulting and organic growth.",
     siteName,
     images: [
       {
@@ -33,10 +33,10 @@ export const metadata = {
   robots: { index: true, follow: true },
 };
 
-export default async function EsServiciosPage() {
+export default async function EnServiciosPage() {
   const [landingPages, caseStudies] = await Promise.all([
-    getLandingPages("es"),
-    getCaseStudies("es"),
+    getLandingPages("en"),
+    getCaseStudies("en"),
   ]);
   const hasCaseStudies = caseStudies.length > 0;
 
@@ -52,21 +52,21 @@ export default async function EsServiciosPage() {
           <div className="relative mb-14 text-center">
             <p className="mb-3 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-blue-400/90">
               <Sparkles className="h-3.5 w-3.5" />
-              Servicios
+              Services
             </p>
             <h1 className="text-balance text-3xl font-semibold tracking-tight text-white md:text-4xl">
-              SEO estratégico y local por país
+              Strategic & local SEO by market
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-pretty text-gray-400">
-              Consultoría técnica, auditorías y crecimiento orgánico para
-              equipos que operan a escala. Elige tu mercado.
+              Technical SEO consulting, audits, and organic growth for teams
+              operating at scale. Pick your market below.
             </p>
           </div>
 
           {landingPages.length === 0 ? (
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] py-16 text-center">
               <p className="text-gray-400">
-                Próximamente más mercados. Por ahora, escríbeme directamente.
+                More markets coming soon. For now, reach out directly.
               </p>
               <a
                 href="mailto:hello@rusmadrigal.com"
@@ -82,7 +82,7 @@ export default async function EsServiciosPage() {
                 return (
                   <li key={lp._id}>
                     <Link
-                      href={`/es/servicios/${lp.slug}`}
+                      href={`/servicios/${lp.slug}`}
                       className="group flex items-center gap-4 rounded-2xl border border-gray-800 bg-gradient-to-r from-gray-900/80 to-gray-900/40 p-5 transition hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/5"
                     >
                       <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-500/15 text-blue-400">
@@ -103,7 +103,7 @@ export default async function EsServiciosPage() {
           )}
         </div>
       </main>
-      <Footer locale="es" />
+      <Footer locale="en" />
     </div>
   );
 }

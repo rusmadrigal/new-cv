@@ -11,7 +11,7 @@ import { SeoLandingPageView } from "@/components/SeoLandingPageView";
 export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
-  const slugs = await getLandingPageSlugs("es");
+  const slugs = await getLandingPageSlugs("en");
   return slugs.map((slug) => ({ slug }));
 }
 
@@ -21,15 +21,15 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const lp = await getLandingPageBySlug(slug, "es");
+  const lp = await getLandingPageBySlug(slug, "en");
   if (!lp) return {};
 
   const title = lp.seoTitle ?? lp.heroHeadline;
   const description =
     lp.seoDescription ??
-    `${lp.heroHeadline}. Servicios de SEO estratégico y local para empresas en ${getLandingCountryLabel(lp)}.`;
+    `${lp.heroHeadline}. Strategic and local SEO for businesses in ${getLandingCountryLabel(lp)}.`;
   const desc = description.slice(0, 155);
-  const canonical = `${siteUrl}/es/servicios/${slug}`;
+  const canonical = `${siteUrl}/servicios/${slug}`;
   const ogImage = lp.ogImage ?? `${siteUrl}${person.image}`;
 
   return {
@@ -55,15 +55,15 @@ export async function generateMetadata({
   };
 }
 
-export default async function EsServicioLandingPage({
+export default async function EnServicioLandingPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
   const [lp, caseStudies] = await Promise.all([
-    getLandingPageBySlug(slug, "es"),
-    getCaseStudies("es"),
+    getLandingPageBySlug(slug, "en"),
+    getCaseStudies("en"),
   ]);
 
   if (!lp) notFound();
@@ -71,7 +71,7 @@ export default async function EsServicioLandingPage({
   return (
     <SeoLandingPageView
       lp={lp}
-      locale="es"
+      locale="en"
       hasCaseStudies={caseStudies.length > 0}
     />
   );
