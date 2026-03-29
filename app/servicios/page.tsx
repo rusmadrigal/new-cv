@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SiteJsonLdGraph } from "@/components/JsonLd";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { getLandingPages, getCaseStudies } from "@/lib/sanity";
@@ -47,6 +48,7 @@ export default async function EnServiciosPage() {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <SiteJsonLdGraph />
       <Navigation hasCaseStudies={hasCaseStudies} />
       <main id="main-content" className="pt-24 pb-24">
         <div className="relative mx-auto max-w-4xl px-4 sm:px-6">

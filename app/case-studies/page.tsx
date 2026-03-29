@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SiteJsonLdGraph } from "@/components/JsonLd";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { getCaseStudies } from "@/lib/sanity";
@@ -55,6 +56,7 @@ export default async function CaseStudiesPage() {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <SiteJsonLdGraph />
       <Navigation hasCaseStudies={hasCaseStudies} />
       <main id="main-content" className="pt-24 pb-24">
         <div className="max-w-7xl mx-auto px-6">

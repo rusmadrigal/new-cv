@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SiteJsonLdGraph } from "@/components/JsonLd";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { siteUrl, siteName, person } from "@/lib/site";
@@ -43,6 +44,7 @@ export default function PrivacyPageEs() {
 
   return (
     <>
+      <SiteJsonLdGraph />
       <Navigation hasCaseStudies />
       <main
         id="main-content"

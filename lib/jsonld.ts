@@ -68,14 +68,14 @@ const landingBreadcrumbLabels = {
 } as const;
 
 /**
- * Landing service page @graph: ProfessionalService, WebPage, BreadcrumbList;
- * FAQPage (if FAQs); HowTo (if process steps).
+ * Nodos específicos de la landing (sin Person/WebSite).
+ * Se combinan con el grafo global en {@link buildLandingPageJsonLd}.
  */
-export function buildLandingPageJsonLd(params: {
+function buildLandingPageGraphNodes(params: {
   lp: LandingPage;
   locale: Locale;
   canonicalUrl: string;
-}) {
+}): unknown[] {
   const { lp, locale, canonicalUrl } = params;
   const countryLabel = getLandingCountryLabel(lp);
   const labels = landingBreadcrumbLabels[locale];
@@ -92,6 +92,7 @@ export function buildLandingPageJsonLd(params: {
   const serviceId = `${canonicalUrl}#professional-service`;
   const webpageId = `${canonicalUrl}#webpage`;
   const breadcrumbId = `${canonicalUrl}#breadcrumb`;
+  const faqPageId = `${canonicalUrl}#faqpage`;
 
   const og = absoluteAssetUrl(lp.ogImage);
 
@@ -190,9 +191,10 @@ export function buildLandingPageJsonLd(params: {
   }
 
   if (lp.faqs && lp.faqs.length > 0) {
+    webPage.mainEntity = { "@id": faqPageId };
     graph.push({
       "@type": "FAQPage",
-      "@id": `${canonicalUrl}#faqpage`,
+      "@id": faqPageId,
       url: canonicalUrl,
       inLanguage,
       isPartOf: { "@id": SITE_WEBSITE_ID },
@@ -207,8 +209,26 @@ export function buildLandingPageJsonLd(params: {
     });
   }
 
+  return graph;
+}
+
+/**
+ * Grafo completo en un solo JSON-LD: Person + WebSite (sitio) + servicio + WebPage
+ * + BreadcrumbList + HowTo (opc.) + FAQPage (opc.). Así las herramientas que solo
+ * leen un bloque detectan breadcrumb, página y FAQs.
+ */
+export function buildLandingPageJsonLd(params: {
+  lp: LandingPage;
+  locale: Locale;
+  canonicalUrl: string;
+}) {
+  const site = buildSiteJsonLdGraph() as {
+    "@context": string;
+    "@graph": unknown[];
+  };
+  const nodes = buildLandingPageGraphNodes(params);
   return {
     "@context": "https://schema.org",
-    "@graph": graph,
+    "@graph": [...site["@graph"], ...nodes],
   };
 }

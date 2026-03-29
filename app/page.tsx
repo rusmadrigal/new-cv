@@ -1,3 +1,4 @@
+import { SiteJsonLdGraph } from "@/components/JsonLd";
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
@@ -20,6 +21,7 @@ export default async function Home() {
 
   return (
     <>
+      <SiteJsonLdGraph />
       <Navigation hasCaseStudies={hasCaseStudies} />
       <main id="main-content">
         <HeroSection />

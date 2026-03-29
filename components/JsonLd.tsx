@@ -1,6 +1,10 @@
 import { buildSiteJsonLdGraph } from "@/lib/jsonld";
 
-/** Global Person + WebSite in a single @graph (no duplicate Person on /es). */
+/**
+ * Person + WebSite (grafo global). Incluido en home, listados y páginas de detalle
+ * que no llevan JSON-LD combinado. Las landings `/servicios/[slug]` usan un único
+ * bloque que ya mezcla esto + servicio + WebPage + breadcrumb + FAQ.
+ */
 export function SiteJsonLdGraph() {
   return (
     <script

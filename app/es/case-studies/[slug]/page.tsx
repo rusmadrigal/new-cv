@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { SiteJsonLdGraph } from "@/components/JsonLd";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { PortableText } from "@/components/PortableText";
@@ -133,6 +134,7 @@ export default async function EsCaseStudyPage({
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <SiteJsonLdGraph />
       <ArticleJsonLd
         study={study}
         slug={slug}

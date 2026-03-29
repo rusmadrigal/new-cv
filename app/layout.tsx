@@ -7,7 +7,6 @@ import {
   siteDescription,
   person,
 } from "@/lib/site";
-import { SiteJsonLdGraph } from "@/components/JsonLd";
 import { CookieConsent } from "@/components/CookieConsent";
 
 export const metadata: Metadata = {
@@ -87,7 +86,6 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <SiteJsonLdGraph />
         {children}
         <CookieConsent />
       </body>
