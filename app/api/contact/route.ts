@@ -3,12 +3,58 @@ import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
+const MAX = {
+  name: 200,
+  email: 254,
+  company: 200,
+  message: 8000,
+} as const;
+
 function isValidEmail(s: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
 }
 
+/**
+ * Reduce envíos directos al endpoint (curl/scripts) sin Origin del sitio.
+ * En desarrollo no se exige; el formulario en el navegador envía Origin en same-origin fetch.
+ */
+function isAllowedRequestOrigin(req: NextRequest): boolean {
+  if (process.env.NODE_ENV === "development") return true;
+  if (process.env.CONTACT_SKIP_ORIGIN_CHECK === "true") return true;
+
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!raw) return true;
+
+  let expectedHost: string;
+  try {
+    expectedHost = new URL(raw).hostname.replace(/^www\./, "");
+  } catch {
+    return true;
+  }
+
+  for (const header of [req.headers.get("origin"), req.headers.get("referer")]) {
+    if (!header) continue;
+    try {
+      const host = new URL(header).hostname.replace(/^www\./, "");
+      if (host === expectedHost) return true;
+    } catch {
+      continue;
+    }
+  }
+
+  return false;
+}
+
+function clip(s: string, max: number): string {
+  return s.length <= max ? s : s.slice(0, max);
+}
+
 export async function POST(req: NextRequest) {
   try {
+    if (!isAllowedRequestOrigin(req)) {
+      return NextResponse.json({ ok: false, error: "forbidden" }, { status: 403 });
+    }
+
     const body = await req.json();
 
     /** Honeypot — bots often fill hidden fields */
@@ -17,10 +63,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true });
     }
 
-    const name = String(body.name ?? "").trim();
-    const email = String(body.email ?? "").trim();
-    const company = String(body.company ?? "").trim();
-    const message = String(body.message ?? "").trim();
+    const name = clip(String(body.name ?? "").trim(), MAX.name);
+    const email = clip(String(body.email ?? "").trim(), MAX.email);
+    const company = clip(String(body.company ?? "").trim(), MAX.company);
+    const message = clip(String(body.message ?? "").trim(), MAX.message);
 
     if (!name || !email) {
       return NextResponse.json(
