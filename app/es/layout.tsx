@@ -7,8 +7,6 @@ import {
   siteKeywordsEs,
   person,
 } from "@/lib/site";
-import { PersonJsonLdEs, WebSiteJsonLdEs } from "@/components/JsonLd";
-
 const baseUrlEs = `${siteUrl}/es`;
 
 export const metadata: Metadata = {
@@ -63,11 +61,5 @@ export const metadata: Metadata = {
 export default function EsLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <>
-      <PersonJsonLdEs />
-      <WebSiteJsonLdEs />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

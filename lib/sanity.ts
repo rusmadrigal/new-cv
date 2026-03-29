@@ -205,6 +205,8 @@ export interface LandingPage {
   seoTitle?: string | null;
   seoDescription?: string | null;
   ogImage?: string | null;
+  /** BCP 47 p. ej. es-cr, es-mx; vacío → es o en según idioma del documento */
+  hreflang?: string | null;
 }
 
 const landingPageListFields = `
@@ -251,7 +253,8 @@ const landingPageFullFields = `
   ctaButtonHref,
   seoTitle,
   seoDescription,
-  "ogImage": ogImage.asset->url
+  "ogImage": ogImage.asset->url,
+  hreflang
 `;
 
 const landingPageFilter = `_type == "landingPage" && published == true && language == $locale`;

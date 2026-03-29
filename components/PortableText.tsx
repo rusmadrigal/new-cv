@@ -18,37 +18,43 @@ function urlFor(source: { _ref?: string; asset?: { _ref?: string } }) {
 const components: PortableTextComponents = {
   block: {
     h2: ({ children }) => (
-      <h2 className="text-xl font-semibold text-white mt-8 mb-3">{children}</h2>
+      <h2 className="mt-10 mb-4 text-xl font-semibold text-white first:mt-0">
+        {children}
+      </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-lg font-semibold text-gray-200 mt-6 mb-2">
+      <h3 className="mt-8 mb-3 text-lg font-semibold text-gray-100">
         {children}
       </h3>
     ),
     normal: ({ children }) => (
-      <p className="text-gray-300 leading-relaxed mb-4">{children}</p>
+      <p className="mb-5 text-[#D1D5DB] leading-[1.7]">{children}</p>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-blue-500/50 pl-4 my-4 text-gray-400 italic">
+      <blockquote className="my-4 border-l-4 border-blue-500/50 pl-4 italic text-[#D1D5DB]/90">
         {children}
       </blockquote>
     ),
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">
+      <ul className="mb-5 list-inside list-disc space-y-2 text-[#D1D5DB]">
         {children}
       </ul>
     ),
     number: ({ children }) => (
-      <ol className="list-decimal list-inside text-gray-300 space-y-2 mb-4">
+      <ol className="mb-5 list-inside list-decimal space-y-2 text-[#D1D5DB]">
         {children}
       </ol>
     ),
   },
   listItem: {
-    bullet: ({ children }) => <li className="leading-relaxed">{children}</li>,
-    number: ({ children }) => <li className="leading-relaxed">{children}</li>,
+    bullet: ({ children }) => (
+      <li className="leading-[1.7]">{children}</li>
+    ),
+    number: ({ children }) => (
+      <li className="leading-[1.7]">{children}</li>
+    ),
   },
   marks: {
     strong: ({ children }) => (

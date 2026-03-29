@@ -14,6 +14,11 @@ export const metadata = {
     "Strategic and local SEO services by market. Technical consulting and audits for companies focused on organic growth.",
   alternates: {
     canonical: `${siteUrl}/servicios`,
+    languages: {
+      en: `${siteUrl}/servicios`,
+      es: `${siteUrl}/es/servicios`,
+      "x-default": `${siteUrl}/servicios`,
+    },
   },
   openGraph: {
     url: `${siteUrl}/servicios`,

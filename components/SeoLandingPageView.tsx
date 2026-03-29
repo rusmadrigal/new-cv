@@ -73,7 +73,7 @@ function LandingFaqList({
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <div className="space-y-2.5">
+    <div className="space-y-3.5">
       {items.map((item, i) => {
         const isOpen = openIndex === i;
         return (
@@ -93,7 +93,7 @@ function LandingFaqList({
             >
               <span
                 className={`pr-2 text-[15px] font-semibold leading-snug sm:text-base ${
-                  isOpen ? "text-white" : "text-gray-200"
+                  isOpen ? "text-white" : "text-gray-100"
                 }`}
               >
                 {item.question}
@@ -113,7 +113,7 @@ function LandingFaqList({
                   transition={{ duration: 0.32, ease: [0.4, 0, 0.2, 1] }}
                   className="overflow-hidden border-t border-white/10"
                 >
-                  <p className="px-5 pb-5 pt-4 text-sm leading-relaxed text-gray-400 whitespace-pre-line sm:px-6 sm:pb-6">
+                  <p className="whitespace-pre-line px-5 pb-6 pt-5 text-[15px] leading-[1.7] text-[#D1D5DB] sm:px-7 sm:pb-7 sm:pt-6">
                     {item.answer}
                   </p>
                 </motion.div>
@@ -124,22 +124,6 @@ function LandingFaqList({
       })}
     </div>
   );
-}
-
-function faqJsonLd(faqs: NonNullable<LandingPage["faqs"]>) {
-  const mainEntity = faqs.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  }));
-  return JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity,
-  });
 }
 
 export function SeoLandingPageView({
@@ -165,14 +149,6 @@ export function SeoLandingPageView({
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {lp.faqs && lp.faqs.length > 0 && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: faqJsonLd(lp.faqs),
-          }}
-        />
-      )}
       <Navigation hasCaseStudies={hasCaseStudies} />
       <SeoContactModal
         open={contactOpen}
@@ -182,7 +158,7 @@ export function SeoLandingPageView({
 
       <main id="main-content">
         {/* Hero */}
-        <section className="relative overflow-hidden pt-20 pb-16 sm:pt-24 sm:pb-20">
+        <section className="relative overflow-hidden bg-black pb-20 pt-20 sm:pb-24 sm:pt-24">
           <div
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_-15%,rgba(59,130,246,0.35),transparent_55%)]"
             aria-hidden
@@ -207,7 +183,7 @@ export function SeoLandingPageView({
           <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6">
             <Link
               href={basePath}
-              className="mb-6 inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-gray-300"
+              className="mb-6 inline-flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-gray-200"
             >
               <ArrowLeft className="h-4 w-4" />
               {t.back}
@@ -235,7 +211,7 @@ export function SeoLandingPageView({
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-relaxed text-gray-400 sm:text-lg"
+                  className="mx-auto mt-6 max-w-[42rem] text-pretty text-base leading-[1.7] text-[#D1D5DB] sm:text-lg"
                 >
                   {lp.heroSubheadline}
                 </motion.p>
@@ -258,14 +234,16 @@ export function SeoLandingPageView({
                 {lp.heroSecondaryCtaText && lp.heroSecondaryCtaHref && (
                   <a
                     href={lp.heroSecondaryCtaHref}
-                    className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg border border-white/10 bg-transparent px-6 py-2.5 text-sm font-medium text-gray-400 transition-colors hover:border-white/20 hover:text-gray-200 sm:w-auto"
+                    className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg border border-white/10 bg-transparent px-6 py-2.5 text-sm font-medium text-[#D1D5DB] transition-colors hover:border-white/20 hover:text-white sm:w-auto"
                   >
                     {lp.heroSecondaryCtaText}
                   </a>
                 )}
               </motion.div>
               {lp.heroTrustLine && (
-                <p className="mt-7 text-sm text-gray-500">{lp.heroTrustLine}</p>
+                <p className="mt-8 text-sm leading-relaxed text-gray-400">
+                  {lp.heroTrustLine}
+                </p>
               )}
             </div>
           </div>
@@ -273,7 +251,7 @@ export function SeoLandingPageView({
 
         {/* Stats */}
         {lp.stats && lp.stats.length > 0 && (
-          <section className="border-y border-white/10 bg-gradient-to-b from-gray-950 to-black py-14 sm:py-16">
+          <section className="border-y border-white/10 bg-gradient-to-b from-[#0a1020] to-black py-16 sm:py-20">
             <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:px-6">
               {lp.stats.map((stat, i) => {
                 const Icon = STAT_ICONS[i % STAT_ICONS.length];
@@ -288,7 +266,7 @@ export function SeoLandingPageView({
                     <p className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                       {stat.value}
                     </p>
-                    <p className="mt-2 text-sm font-medium leading-snug text-gray-500">
+                    <p className="mt-2.5 text-[15px] font-medium leading-snug text-gray-300">
                       {stat.label}
                     </p>
                   </div>
@@ -300,26 +278,28 @@ export function SeoLandingPageView({
 
         {/* Intro */}
         {hasIntro && (
-          <section className="mx-auto max-w-3xl px-4 py-20 sm:px-6 md:py-28">
-            {lp.introTitle && (
-              <h2 className="mb-8 text-2xl font-bold text-white md:text-3xl">
-                {lp.introTitle}
-              </h2>
-            )}
-            {lp.introBody && lp.introBody.length > 0 && (
-              <div className="max-w-none text-base">
-                <PortableText value={lp.introBody} />
-              </div>
-            )}
+          <section className="bg-black px-4 py-28 sm:px-6 md:py-36">
+            <div className="mx-auto max-w-[42rem]">
+              {lp.introTitle && (
+                <h2 className="mb-10 text-2xl font-bold tracking-tight text-white md:text-3xl">
+                  {lp.introTitle}
+                </h2>
+              )}
+              {lp.introBody && lp.introBody.length > 0 && (
+                <div className="max-w-none text-base">
+                  <PortableText value={lp.introBody} />
+                </div>
+              )}
+            </div>
           </section>
         )}
 
         {/* Differentiator */}
         {lp.differentiatorItems && lp.differentiatorItems.length > 0 && (
-          <section className="border-t border-white/10 bg-gray-950/40 py-24 md:py-28">
+          <section className="border-t border-white/10 bg-[#050910] py-28 md:py-36">
             <div className="mx-auto max-w-6xl px-4 sm:px-6">
-              <div className="mx-auto mb-16 max-w-2xl text-center">
-                <span className="mb-3 inline-flex items-center gap-2 text-sm font-medium text-violet-400">
+              <div className="mx-auto mb-20 max-w-[42rem] text-center">
+                <span className="mb-4 inline-flex items-center gap-2 text-sm font-medium text-violet-400">
                   <Sparkles className="h-4 w-4" />
                   {locale === "es" ? "Enfoque" : "Approach"}
                 </span>
@@ -329,7 +309,7 @@ export function SeoLandingPageView({
                   </h2>
                 )}
                 {lp.differentiatorSubtitle && (
-                  <p className="mt-4 text-base leading-relaxed text-gray-500">
+                  <p className="mt-6 text-base leading-[1.7] text-[#D1D5DB]">
                     {lp.differentiatorSubtitle}
                   </p>
                 )}
@@ -352,7 +332,7 @@ export function SeoLandingPageView({
                       <h3 className="text-lg font-bold leading-snug text-white">
                         {item.title}
                       </h3>
-                      <p className="mt-3 text-sm leading-relaxed text-gray-500">
+                      <p className="mt-4 text-[15px] leading-[1.7] text-gray-300">
                         {item.description}
                       </p>
                     </motion.div>
@@ -367,11 +347,11 @@ export function SeoLandingPageView({
         {lp.seoEstrategicoServices && lp.seoEstrategicoServices.length > 0 && (
           <section
             id="servicios-estrategicos"
-            className="mx-auto max-w-6xl px-4 py-24 sm:px-6 md:py-28"
+            className="mx-auto max-w-6xl bg-black px-4 py-28 sm:px-6 md:py-36"
           >
-            <div className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <div className="max-w-xl">
-                <span className="mb-2 inline-flex items-center gap-2 text-sm font-medium text-blue-400">
+            <div className="mb-20 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div className="max-w-[42rem]">
+                <span className="mb-3 inline-flex items-center gap-2 text-sm font-medium text-blue-400">
                   <Search className="h-4 w-4" />
                   {locale === "es" ? "Servicios" : "Services"}
                 </span>
@@ -379,7 +359,7 @@ export function SeoLandingPageView({
                   {lp.seoEstrategicoTitle ?? t.strategicDefault}
                 </h2>
                 {lp.seoEstrategicoSubtitle && (
-                  <p className="mt-4 text-base leading-relaxed text-gray-500">
+                  <p className="mt-6 text-base leading-[1.7] text-[#D1D5DB]">
                     {lp.seoEstrategicoSubtitle}
                   </p>
                 )}
@@ -403,7 +383,7 @@ export function SeoLandingPageView({
                     <h3 className="text-lg font-bold leading-snug text-white">
                       {srv.title}
                     </h3>
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-500">
+                    <p className="mt-4 flex-1 text-[15px] leading-[1.7] text-gray-300">
                       {srv.description}
                     </p>
                   </div>
@@ -417,7 +397,7 @@ export function SeoLandingPageView({
         {lp.seoLocalBullets && lp.seoLocalBullets.length > 0 && (
           <section
             id="seo-local"
-            className="relative overflow-hidden border-y border-emerald-500/20 py-24 md:py-28"
+            className="relative overflow-hidden border-y border-emerald-500/20 bg-black py-28 md:py-36"
           >
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-emerald-950/40 via-black to-black" />
             <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
@@ -431,7 +411,7 @@ export function SeoLandingPageView({
                     {lp.seoLocalTitle ?? t.localDefault}
                   </h2>
                   {lp.seoLocalSubtitle && (
-                    <p className="mt-4 text-base leading-relaxed text-gray-500">
+                    <p className="mt-6 max-w-[42rem] text-base leading-[1.7] text-[#D1D5DB]">
                       {lp.seoLocalSubtitle}
                     </p>
                   )}
@@ -443,7 +423,9 @@ export function SeoLandingPageView({
                       className="flex gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-4"
                     >
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
-                      <span className="text-gray-300">{b.text}</span>
+                      <span className="leading-[1.7] text-[#D1D5DB]">
+                        {b.text}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -454,9 +436,12 @@ export function SeoLandingPageView({
 
         {/* Process */}
         {lp.processSteps && lp.processSteps.length > 0 && (
-          <section id="proceso" className="mx-auto max-w-6xl px-4 py-24 sm:px-6 md:py-28">
-            <div className="mx-auto mb-16 max-w-2xl text-center">
-              <span className="mb-3 inline-flex items-center gap-2 text-sm font-medium text-amber-400/90">
+          <section
+            id="proceso"
+            className="mx-auto max-w-6xl bg-[#050910] px-4 py-28 sm:px-6 md:py-36"
+          >
+            <div className="mx-auto mb-20 max-w-[42rem] text-center">
+              <span className="mb-4 inline-flex items-center gap-2 text-sm font-medium text-amber-400/90">
                 <Route className="h-4 w-4" />
                 {locale === "es" ? "Metodología" : "Method"}
               </span>
@@ -464,7 +449,7 @@ export function SeoLandingPageView({
                 {lp.processTitle ?? (locale === "es" ? "Cómo trabajamos" : "How we work")}
               </h2>
               {lp.processSubtitle && (
-                <p className="mt-4 text-base leading-relaxed text-gray-500">
+                <p className="mt-6 text-base leading-[1.7] text-[#D1D5DB]">
                   {lp.processSubtitle}
                 </p>
               )}
@@ -484,7 +469,7 @@ export function SeoLandingPageView({
                       <h3 className="text-lg font-bold leading-snug text-white">
                         {step.title}
                       </h3>
-                      <p className="mt-3 text-sm leading-relaxed text-gray-500">
+                      <p className="mt-4 text-[15px] leading-[1.7] text-gray-300">
                         {step.description}
                       </p>
                     </div>
@@ -497,9 +482,12 @@ export function SeoLandingPageView({
 
         {/* FAQ */}
         {lp.faqs && lp.faqs.length > 0 && (
-          <section id="faq" className="border-t border-white/10 bg-gray-950/60 py-24 md:py-28">
+          <section
+            id="faq"
+            className="border-t border-white/10 bg-black py-28 md:py-36"
+          >
             <div className="mx-auto max-w-3xl px-4 sm:px-6">
-              <h2 className="mb-12 text-center text-3xl font-bold tracking-tight text-white md:text-4xl">
+              <h2 className="mb-14 text-center text-3xl font-bold tracking-tight text-white md:text-4xl">
                 {lp.faqTitle ?? (locale === "es" ? "Preguntas frecuentes" : "Frequently asked questions")}
               </h2>
               <LandingFaqList items={lp.faqs} />
@@ -508,7 +496,7 @@ export function SeoLandingPageView({
         )}
 
         {/* Final CTA */}
-        <section className="mx-auto max-w-6xl px-4 pb-28 pt-12 sm:px-6">
+        <section className="mx-auto max-w-6xl bg-black px-4 pb-32 pt-16 sm:px-6">
           <div className="relative overflow-hidden rounded-3xl border border-blue-500/40 bg-gradient-to-br from-blue-600/25 via-blue-950/90 to-violet-950/50 px-8 py-16 text-center shadow-[0_0_0_1px_rgba(59,130,246,0.2),0_24px_80px_-20px_rgba(37,99,235,0.45)] md:px-16 md:py-20">
             <div className="pointer-events-none absolute -left-24 top-0 h-px w-[60%] bg-gradient-to-r from-transparent via-blue-400/40 to-transparent" />
             <div className="pointer-events-none absolute -left-20 top-0 h-48 w-48 rounded-full bg-blue-500/30 blur-3xl" />
@@ -517,7 +505,7 @@ export function SeoLandingPageView({
               {lp.ctaHeadline ?? t.ctaDefault}
             </h2>
             {lp.ctaSubheadline && (
-              <p className="relative mx-auto mt-4 max-w-lg text-base leading-relaxed text-gray-300">
+              <p className="relative mx-auto mt-6 max-w-[42rem] text-base leading-[1.7] text-[#E5E7EB]">
                 {lp.ctaSubheadline}
               </p>
             )}

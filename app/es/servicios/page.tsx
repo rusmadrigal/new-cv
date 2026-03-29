@@ -14,6 +14,11 @@ export const metadata = {
     "Servicios de SEO estratégico y local por país. Consultoría y auditorías técnicas para empresas que buscan crecimiento orgánico.",
   alternates: {
     canonical: `${siteUrl}/es/servicios`,
+    languages: {
+      en: `${siteUrl}/servicios`,
+      es: `${siteUrl}/es/servicios`,
+      "x-default": `${siteUrl}/servicios`,
+    },
   },
   openGraph: {
     url: `${siteUrl}/es/servicios`,

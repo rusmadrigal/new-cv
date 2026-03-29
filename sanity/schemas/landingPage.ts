@@ -437,6 +437,25 @@ export const landingPage = defineType({
       description:
         "Imagen para compartir en redes (default: imagen del sitio).",
     }),
+    defineField({
+      name: "hreflang",
+      type: "string",
+      title: "Hreflang (región / idioma)",
+      group: "seo",
+      description:
+        "Código BCP 47 para la etiqueta rel=alternate (minúsculas). Ej: es-cr (Costa Rica), es-mx (México), es-co (Colombia), en (inglés). Si lo dejas vacío, se usa es o en según el idioma del documento.",
+      placeholder: "ej. es-cr",
+      validation: (Rule) =>
+        Rule.custom((value) => {
+          if (!value || !String(value).trim()) return true;
+          const v = String(value).trim().toLowerCase();
+          // BCP 47 simplificado: lang o lang-region (guiones)
+          if (!/^[a-z]{2,3}(-[a-z0-9]+)*$/i.test(v)) {
+            return "Formato inválido. Usa minúsculas, ej: es-cr, es-mx, en";
+          }
+          return true;
+        }),
+    }),
   ],
   orderings: [
     {

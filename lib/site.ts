@@ -44,3 +44,6 @@ export const person = {
   },
   location: { locality: "San Jose", country: "Costa Rica" },
 };
+
+/** E.164 phone for JSON-LD / contact (Costa Rica). */
+export const businessPhone = "+50687773420";
