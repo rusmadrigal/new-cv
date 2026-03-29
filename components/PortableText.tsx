@@ -49,12 +49,8 @@ const components: PortableTextComponents = {
     ),
   },
   listItem: {
-    bullet: ({ children }) => (
-      <li className="leading-[1.7]">{children}</li>
-    ),
-    number: ({ children }) => (
-      <li className="leading-[1.7]">{children}</li>
-    ),
+    bullet: ({ children }) => <li className="leading-[1.7]">{children}</li>,
+    number: ({ children }) => <li className="leading-[1.7]">{children}</li>,
   },
   marks: {
     strong: ({ children }) => (

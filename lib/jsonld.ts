@@ -1,8 +1,13 @@
 import type { LandingPage, Locale } from "@/lib/sanity";
 import { siteUrl, person, businessPhone } from "@/lib/site";
-import { getLandingCountryLabel, landingServicesBasePath } from "@/lib/landing-page";
+import {
+  getLandingCountryLabel,
+  landingServicesBasePath,
+} from "@/lib/landing-page";
 
-function absoluteAssetUrl(pathOrUrl: string | null | undefined): string | undefined {
+function absoluteAssetUrl(
+  pathOrUrl: string | null | undefined,
+): string | undefined {
   const u = pathOrUrl?.trim();
   if (!u) return undefined;
   if (u.startsWith("http://") || u.startsWith("https://")) return u;
@@ -164,11 +169,7 @@ function buildLandingPageGraphNodes(params: {
     ],
   };
 
-  const graph: unknown[] = [
-    professionalService,
-    webPage,
-    breadcrumbList,
-  ];
+  const graph: unknown[] = [professionalService, webPage, breadcrumbList];
 
   if (lp.processSteps && lp.processSteps.length > 0) {
     const howToName =

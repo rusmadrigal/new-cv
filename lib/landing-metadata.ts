@@ -5,10 +5,7 @@ import { siteUrl, siteName, person } from "@/lib/site";
 import { getLandingCountryLabel } from "@/lib/landing-page";
 
 /** Normaliza a minúsculas (BCP 47 en HTML suele usarse en minúsculas, p. ej. es-cr). */
-function hreflangKey(
-  lp: LandingPage | null,
-  fallback: "es" | "en",
-): string {
+function hreflangKey(lp: LandingPage | null, fallback: "es" | "en"): string {
   const raw = lp?.hreflang?.trim();
   if (!raw) return fallback;
   return raw.toLowerCase();

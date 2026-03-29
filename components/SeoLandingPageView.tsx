@@ -144,8 +144,7 @@ export function SeoLandingPageView({
   const [contactOpen, setContactOpen] = useState(false);
 
   const hasIntro =
-    Boolean(lp.introTitle) ||
-    Boolean(lp.introBody && lp.introBody.length > 0);
+    Boolean(lp.introTitle) || Boolean(lp.introBody && lp.introBody.length > 0);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -446,7 +445,8 @@ export function SeoLandingPageView({
                 {locale === "es" ? "Metodología" : "Method"}
               </span>
               <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
-                {lp.processTitle ?? (locale === "es" ? "Cómo trabajamos" : "How we work")}
+                {lp.processTitle ??
+                  (locale === "es" ? "Cómo trabajamos" : "How we work")}
               </h2>
               {lp.processSubtitle && (
                 <p className="mt-6 text-base leading-[1.7] text-[#D1D5DB]">
@@ -488,7 +488,10 @@ export function SeoLandingPageView({
           >
             <div className="mx-auto max-w-3xl px-4 sm:px-6">
               <h2 className="mb-14 text-center text-3xl font-bold tracking-tight text-white md:text-4xl">
-                {lp.faqTitle ?? (locale === "es" ? "Preguntas frecuentes" : "Frequently asked questions")}
+                {lp.faqTitle ??
+                  (locale === "es"
+                    ? "Preguntas frecuentes"
+                    : "Frequently asked questions")}
               </h2>
               <LandingFaqList items={lp.faqs} />
             </div>

@@ -12,8 +12,14 @@ import {
   Zap,
 } from "lucide-react";
 import type { LandingPage, Locale } from "@/lib/sanity";
-import { getLandingCountryLabel, landingServicesBasePath } from "@/lib/landing-page";
-import { serviciosIndexCopy, UPCOMING_MARKET_COUNTRIES } from "@/lib/servicios-index-copy";
+import {
+  getLandingCountryLabel,
+  landingServicesBasePath,
+} from "@/lib/landing-page";
+import {
+  serviciosIndexCopy,
+  UPCOMING_MARKET_COUNTRIES,
+} from "@/lib/servicios-index-copy";
 import { SeoContactModal } from "@/components/SeoContactModal";
 
 const STEP_ICONS = [Search, Layers, Zap, Activity] as const;
@@ -23,7 +29,10 @@ type ServiciosIndexViewProps = {
   landingPages: LandingPage[];
 };
 
-export function ServiciosIndexView({ locale, landingPages }: ServiciosIndexViewProps) {
+export function ServiciosIndexView({
+  locale,
+  landingPages,
+}: ServiciosIndexViewProps) {
   const t = serviciosIndexCopy[locale];
   const basePath = landingServicesBasePath(locale);
   const [contactOpen, setContactOpen] = useState(false);
@@ -35,7 +44,9 @@ export function ServiciosIndexView({ locale, landingPages }: ServiciosIndexViewP
 
   const placeholders = useMemo(
     () =>
-      UPCOMING_MARKET_COUNTRIES.filter((p) => !publishedCountrySet.has(p.country)),
+      UPCOMING_MARKET_COUNTRIES.filter(
+        (p) => !publishedCountrySet.has(p.country),
+      ),
     [publishedCountrySet],
   );
 
@@ -110,7 +121,9 @@ export function ServiciosIndexView({ locale, landingPages }: ServiciosIndexViewP
         <section className="mx-auto max-w-5xl px-4 pt-10 sm:px-6 sm:pt-12">
           {landingPages.length === 0 ? (
             <div className="mb-8 text-center">
-              <p className="text-sm leading-relaxed text-gray-500">{t.emptyTitle}</p>
+              <p className="text-sm leading-relaxed text-gray-500">
+                {t.emptyTitle}
+              </p>
               <button
                 type="button"
                 onClick={() => setContactOpen(true)}
@@ -170,14 +183,17 @@ export function ServiciosIndexView({ locale, landingPages }: ServiciosIndexViewP
                         {t.upcomingLabel}
                       </span>
                     </div>
-                    <p className="text-lg font-semibold text-gray-500">{label}</p>
-                    <p className="mt-3 text-sm text-gray-600">{t.upcomingHint}</p>
+                    <p className="text-lg font-semibold text-gray-500">
+                      {label}
+                    </p>
+                    <p className="mt-3 text-sm text-gray-600">
+                      {t.upcomingHint}
+                    </p>
                   </div>
                 </div>
               );
             })}
           </div>
-
         </section>
 
         <div className="mx-auto mt-10 max-w-5xl border-t border-white/[0.07] px-4 sm:px-6" />
@@ -198,7 +214,9 @@ export function ServiciosIndexView({ locale, landingPages }: ServiciosIndexViewP
                   <div className="mx-auto mb-2.5 flex h-9 w-9 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400/90">
                     <Icon className="h-4 w-4" />
                   </div>
-                  <p className="text-sm font-semibold text-white">{step.title}</p>
+                  <p className="text-sm font-semibold text-white">
+                    {step.title}
+                  </p>
                   <p className="mt-1 text-[11px] leading-snug text-gray-500 sm:text-xs">
                     {step.desc}
                   </p>

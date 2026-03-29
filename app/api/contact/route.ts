@@ -32,7 +32,10 @@ function isAllowedRequestOrigin(req: NextRequest): boolean {
     return true;
   }
 
-  for (const header of [req.headers.get("origin"), req.headers.get("referer")]) {
+  for (const header of [
+    req.headers.get("origin"),
+    req.headers.get("referer"),
+  ]) {
     if (!header) continue;
     try {
       const host = new URL(header).hostname.replace(/^www\./, "");
@@ -52,7 +55,10 @@ function clip(s: string, max: number): string {
 export async function POST(req: NextRequest) {
   try {
     if (!isAllowedRequestOrigin(req)) {
-      return NextResponse.json({ ok: false, error: "forbidden" }, { status: 403 });
+      return NextResponse.json(
+        { ok: false, error: "forbidden" },
+        { status: 403 },
+      );
     }
 
     const body = await req.json();

@@ -152,8 +152,18 @@ export const landingPage = defineType({
         {
           type: "object",
           fields: [
-            { name: "value", type: "string", title: "Valor", validation: (Rule) => Rule.required() },
-            { name: "label", type: "string", title: "Etiqueta", validation: (Rule) => Rule.required() },
+            {
+              name: "value",
+              type: "string",
+              title: "Valor",
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "label",
+              type: "string",
+              title: "Etiqueta",
+              validation: (Rule) => Rule.required(),
+            },
           ],
           preview: {
             select: { value: "value", label: "label" },
@@ -203,8 +213,19 @@ export const landingPage = defineType({
         {
           type: "object",
           fields: [
-            { name: "title", type: "string", title: "Título", validation: (Rule) => Rule.required() },
-            { name: "description", type: "text", title: "Descripción", rows: 3, validation: (Rule) => Rule.required() },
+            {
+              name: "title",
+              type: "string",
+              title: "Título",
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "description",
+              type: "text",
+              title: "Descripción",
+              rows: 3,
+              validation: (Rule) => Rule.required(),
+            },
           ],
           preview: {
             select: { title: "title" },
@@ -336,8 +357,19 @@ export const landingPage = defineType({
         {
           type: "object",
           fields: [
-            { name: "title", type: "string", title: "Título del paso", validation: (Rule) => Rule.required() },
-            { name: "description", type: "text", title: "Descripción", rows: 3, validation: (Rule) => Rule.required() },
+            {
+              name: "title",
+              type: "string",
+              title: "Título del paso",
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "description",
+              type: "text",
+              title: "Descripción",
+              rows: 3,
+              validation: (Rule) => Rule.required(),
+            },
           ],
           preview: {
             select: { title: "title" },
@@ -365,8 +397,19 @@ export const landingPage = defineType({
         {
           type: "object",
           fields: [
-            { name: "question", type: "string", title: "Pregunta", validation: (Rule) => Rule.required() },
-            { name: "answer", type: "text", title: "Respuesta", rows: 5, validation: (Rule) => Rule.required() },
+            {
+              name: "question",
+              type: "string",
+              title: "Pregunta",
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "answer",
+              type: "text",
+              title: "Respuesta",
+              rows: 5,
+              validation: (Rule) => Rule.required(),
+            },
           ],
           preview: {
             select: { question: "question" },

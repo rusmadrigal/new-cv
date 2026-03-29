@@ -54,8 +54,7 @@ export const serviciosIndexCopy: Record<
     ],
     upcomingLabel: "Próximamente",
     upcomingHint: "Activá otro mercado pronto.",
-    emptyTitle:
-      "Próximamente más mercados. Escribime y definimos el alcance.",
+    emptyTitle: "Próximamente más mercados. Escribime y definimos el alcance.",
     emptyCta: "Agendar consulta",
     ctaTitle: "¿No estás seguro qué necesitas?",
     ctaSubtitle: "Te ayudo a definir la mejor estrategia para tu contexto.",
