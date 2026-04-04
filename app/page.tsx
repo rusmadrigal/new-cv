@@ -1,16 +1,7 @@
 import { SiteJsonLdGraph } from "@/components/JsonLd";
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
-import { AboutSection } from "@/components/AboutSection";
-import { VideoSection } from "@/components/VideoSection";
-import { SkillsSection } from "@/components/SkillsSection";
-import { ExperienceSection } from "@/components/ExperienceSection";
-import { CaseStudiesSection } from "@/components/CaseStudiesSection";
-import { ToolsSection } from "@/components/ToolsSection";
-import { ExpertiseSection } from "@/components/ExpertiseSection";
-import { EducationSection } from "@/components/EducationSection";
-import { RecommendationsSection } from "@/components/RecommendationsSection";
-import { ContactSection } from "@/components/ContactSection";
+import { HomeBelowFold } from "@/components/HomeBelowFold";
 import { Footer } from "@/components/Footer";
 import { getCaseStudies } from "@/lib/sanity";
 
@@ -25,18 +16,10 @@ export default async function Home() {
       <Navigation hasCaseStudies={hasCaseStudies} />
       <main id="main-content">
         <HeroSection />
-        <AboutSection />
-        <VideoSection />
-        <SkillsSection />
-        <ExperienceSection />
-        {hasCaseStudies && (
-          <CaseStudiesSection caseStudies={featuredCaseStudies} />
-        )}
-        <ToolsSection />
-        <ExpertiseSection />
-        <EducationSection />
-        <RecommendationsSection />
-        <ContactSection />
+        <HomeBelowFold
+          hasCaseStudies={hasCaseStudies}
+          featuredCaseStudies={featuredCaseStudies}
+        />
       </main>
       <Footer />
     </>

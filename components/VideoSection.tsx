@@ -123,6 +123,7 @@ export function VideoSection({ locale = "en" }: VideoSectionProps) {
                     <iframe
                       src={embedUrl}
                       title={t.video.videoA11y}
+                      loading="lazy"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="absolute left-0 top-1/2 w-full h-[130%] -translate-y-1/2"

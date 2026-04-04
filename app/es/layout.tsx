@@ -62,5 +62,10 @@ export const metadata: Metadata = {
 export default function EsLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return <>{children}</>;
+  /* lang en subtree (html sigue en root); class contents = sin caja de layout extra */
+  return (
+    <div lang="es" className="contents">
+      {children}
+    </div>
+  );
 }

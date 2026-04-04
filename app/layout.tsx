@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import {
@@ -77,6 +77,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#000000",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -88,6 +94,14 @@ export default function RootLayout({
       className={`dark ${inter.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <link
+          rel="preload"
+          href="/rusben.jpg"
+          as="image"
+          type="image/jpeg"
+        />
+      </head>
       <body
         className="font-sans min-h-screen overflow-x-hidden"
         suppressHydrationWarning

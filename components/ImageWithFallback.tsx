@@ -56,6 +56,7 @@ export function ImageWithFallback({
       className={className}
       onError={() => setDidError(true)}
       priority={priority}
+      fetchPriority={priority ? "high" : "auto"}
       unoptimized={!isLocal}
       sizes={sizes ?? "(max-width: 768px) 128px, 160px"}
     />

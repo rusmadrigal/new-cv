@@ -21,12 +21,29 @@ export function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored !== "accepted") setVisible(true);
-    } catch {
-      setVisible(true);
+    let cancelled = false;
+    const run = () => {
+      if (cancelled) return;
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored !== "accepted") setVisible(true);
+      } catch {
+        setVisible(true);
+      }
+    };
+
+    if (typeof requestIdleCallback !== "undefined") {
+      const id = requestIdleCallback(run, { timeout: 2500 });
+      return () => {
+        cancelled = true;
+        cancelIdleCallback(id);
+      };
     }
+    const t = window.setTimeout(run, 1200);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(t);
+    };
   }, []);
 
   const accept = () => {
