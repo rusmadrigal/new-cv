@@ -10,7 +10,7 @@ const education = [
     period: "2012 – 2014",
   },
   {
-    institution: "McKinsey & Company",
+    institution: "McKinsey Forward Program",
     degree:
       "Professional Development Program (Leadership, Problem Solving, and Business Skills)",
     field: "",

@@ -206,7 +206,7 @@ const translations = {
       langSpanish: "Español",
       items: [
         {
-          institution: "McKinsey & Company",
+          institution: "McKinsey Forward Program",
           degree:
             "Professional Development Program (Leadership, Problem Solving, and Business Skills)",
           field: "",
@@ -477,7 +477,7 @@ const translations = {
       langSpanish: "Español",
       items: [
         {
-          institution: "McKinsey & Company",
+          institution: "McKinsey Forward Program",
           degree:
             "Programa de desarrollo profesional (liderazgo, resolución de problemas y habilidades empresariales)",
           field: "",
