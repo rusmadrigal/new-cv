@@ -59,7 +59,9 @@ export default async function EnServicesPage() {
   const seoSection = {
     title: titleFromSanity || fb.seoSectionTitle,
     paragraphs:
-      parasFromSanity.length > 0 ? parasFromSanity : [...fb.seoSectionParagraphs],
+      parasFromSanity.length > 0
+        ? parasFromSanity
+        : [...fb.seoSectionParagraphs],
   };
 
   return (

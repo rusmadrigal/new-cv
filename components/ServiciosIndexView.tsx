@@ -187,9 +187,7 @@ export function ServiciosIndexView({
                         {t.upcomingLabel}
                       </span>
                     </div>
-                    <p className="text-lg font-bold text-gray-500">
-                      {label}
-                    </p>
+                    <p className="text-lg font-bold text-gray-500">{label}</p>
                     <p className="mt-3 text-[15px] leading-[1.7] text-gray-600">
                       {t.upcomingHint}
                     </p>

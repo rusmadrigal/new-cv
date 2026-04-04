@@ -1,8 +1,5 @@
 import { siteUrl } from "@/lib/site";
-import {
-  getCaseStudySlugs,
-  getLandingPageSlugs,
-} from "@/lib/sanity";
+import { getCaseStudySlugs, getLandingPageSlugs } from "@/lib/sanity";
 
 export type SitemapEntry = {
   loc: string;

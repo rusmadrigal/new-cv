@@ -14,8 +14,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: {
-    absolute:
-      "Servicios SEO en Latinoamérica | SEO Técnico y Estratégico",
+    absolute: "Servicios SEO en Latinoamérica | SEO Técnico y Estratégico",
   },
   description:
     "Servicios SEO para empresas en Latinoamérica. Estrategia, SEO técnico y contenido para crecer tráfico cualificado y escalar a nivel regional.",
@@ -69,7 +68,9 @@ export default async function EsServiciosPage() {
   const seoSection = {
     title: titleFromSanity || fb.seoSectionTitle,
     paragraphs:
-      parasFromSanity.length > 0 ? parasFromSanity : [...fb.seoSectionParagraphs],
+      parasFromSanity.length > 0
+        ? parasFromSanity
+        : [...fb.seoSectionParagraphs],
   };
 
   return (
