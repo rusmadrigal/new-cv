@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { GraduationCap, Languages } from "lucide-react";
 
 const education = [
+  /* Universidad Latina — oculto en front; descomentar si aplica
   {
     institution: "Universidad Latina de Costa Rica",
     degree:
@@ -9,6 +10,7 @@ const education = [
     field: "Marketing",
     period: "2012 – 2014",
   },
+  */
   {
     institution: "McKinsey Forward Program",
     degree:
@@ -28,6 +30,7 @@ const education = [
     field: "Marketing",
     period: "April 2024 – May 2024",
   },
+  /* Universidad Latina — oculto en front; descomentar si aplica
   {
     institution: "Universidad Latina de Costa Rica",
     degree:
@@ -35,6 +38,7 @@ const education = [
     field: "Empresa, gestión, marketing y disciplinas afines",
     period: "2007 – 2010",
   },
+  */
 ];
 
 const languages = [

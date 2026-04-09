@@ -224,6 +224,7 @@ const translations = {
           field: "Marketing",
           period: "October 2023 – February 2024",
         },
+        /* Universidad Latina — oculto en front; descomentar si volvés a mostrarlo
         {
           institution: "Universidad Latina de Costa Rica",
           degree:
@@ -238,6 +239,7 @@ const translations = {
           field: "Empresa, gestión, marketing y disciplinas afines",
           period: "2007 – 2010",
         },
+        */
       ],
     },
     recommendations: {
@@ -495,6 +497,7 @@ const translations = {
           field: "Marketing",
           period: "Octubre 2023 – Febrero 2024",
         },
+        /* Universidad Latina — oculto en front; descomentar si volvés a mostrarlo
         {
           institution: "Universidad Latina de Costa Rica",
           degree:
@@ -509,6 +512,7 @@ const translations = {
           field: "Empresa, gestión, marketing y disciplinas afines",
           period: "2007 – 2010",
         },
+        */
       ],
     },
     recommendations: {
