@@ -206,11 +206,17 @@ const translations = {
       langSpanish: "Español",
       items: [
         {
-          institution: "McKinsey Forward Program",
+          institution: "McKinsey & Company (McKinsey Accelerate)",
           degree:
             "Professional Development Program (Leadership, Problem Solving, and Business Skills)",
-          field: "",
-          period: "October 2025 – April 2026",
+          field: "Business & Leadership",
+          period: "April 2026 – June 2026",
+        },
+        {
+          institution: "Universidad de La Sabana (Colombia)",
+          degree: "Agile Methodologies and Organizational Innovation",
+          field: "Marketing",
+          period: "October 2023 – February 2024",
         },
         {
           institution: "Le Studio by PGD",
@@ -219,10 +225,17 @@ const translations = {
           period: "April 2024 – May 2024",
         },
         {
-          institution: "Universidad de La Sabana",
-          degree: "Metodologías Ágiles e Innovación en la Organización",
-          field: "Marketing",
-          period: "October 2023 – February 2024",
+          institution: "Colegio Universitario Boston",
+          degree:
+            "Frontend Engineer · Web Design – HTML, CSS, JavaScript, jQuery & PHP",
+          field: "Web Development",
+          period: "September 2008 – March 2010",
+        },
+        {
+          institution: "Instituto Universitario Jimenez",
+          degree: "Computer Operator Training (Databases & Web Development)",
+          field: "Computing",
+          period: "May 2005 – May 2006",
         },
         /* Universidad Latina — oculto en front; descomentar si volvés a mostrarlo
         {
@@ -479,23 +492,37 @@ const translations = {
       langSpanish: "Español",
       items: [
         {
-          institution: "McKinsey Forward Program",
+          institution: "McKinsey & Company (McKinsey Accelerate)",
           degree:
             "Programa de desarrollo profesional (liderazgo, resolución de problemas y habilidades empresariales)",
-          field: "",
-          period: "Octubre 2025 – Abril 2026",
+          field: "Negocios y Liderazgo",
+          period: "Abril 2026 – Junio 2026",
+        },
+        {
+          institution: "Universidad de La Sabana (Colombia)",
+          degree: "Metodologías ágiles e innovación en la organización",
+          field: "Marketing",
+          period: "Octubre 2023 – Febrero 2024",
         },
         {
           institution: "Le Studio by PGD",
-          degree: "Management Development Program 2024",
+          degree: "Programa de desarrollo gerencial 2024",
           field: "Marketing",
           period: "Abril 2024 – Mayo 2024",
         },
         {
-          institution: "Universidad de La Sabana",
-          degree: "Metodologías Ágiles e Innovación en la Organización",
-          field: "Marketing",
-          period: "Octubre 2023 – Febrero 2024",
+          institution: "Colegio Universitario Boston",
+          degree:
+            "Ingeniería frontend · Diseño web – HTML, CSS, JavaScript, jQuery y PHP",
+          field: "Desarrollo Web",
+          period: "Septiembre 2008 – Marzo 2010",
+        },
+        {
+          institution: "Instituto Universitario Jimenez",
+          degree:
+            "Capacitación en operador de computadoras (bases de datos y desarrollo web)",
+          field: "Informática",
+          period: "Mayo 2005 – Mayo 2006",
         },
         /* Universidad Latina — oculto en front; descomentar si volvés a mostrarlo
         {

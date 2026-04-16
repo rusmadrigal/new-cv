@@ -12,15 +12,15 @@ const education = [
   },
   */
   {
-    institution: "McKinsey Forward Program",
+    institution: "McKinsey & Company (McKinsey Accelerate)",
     degree:
       "Professional Development Program (Leadership, Problem Solving, and Business Skills)",
-    field: "",
-    period: "October 2025 – April 2026",
+    field: "Business & Leadership",
+    period: "April 2026 – June 2026",
   },
   {
-    institution: "Universidad de La Sabana",
-    degree: "Metodologías Ágiles e Innovación en la Organización",
+    institution: "Universidad de La Sabana (Colombia)",
+    degree: "Agile Methodologies and Organizational Innovation",
     field: "Marketing",
     period: "October 2023 – February 2024",
   },
@@ -29,6 +29,19 @@ const education = [
     degree: "Management Development Program 2024",
     field: "Marketing",
     period: "April 2024 – May 2024",
+  },
+  {
+    institution: "Colegio Universitario Boston",
+    degree:
+      "Frontend Engineer · Web Design – HTML, CSS, JavaScript, jQuery & PHP",
+    field: "Web Development",
+    period: "September 2008 – March 2010",
+  },
+  {
+    institution: "Instituto Universitario Jimenez",
+    degree: "Computer Operator Training (Databases & Web Development)",
+    field: "Computing",
+    period: "May 2005 – May 2006",
   },
   /* Universidad Latina — oculto en front; descomentar si aplica
   {
