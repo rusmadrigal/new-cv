@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   description: siteDescription,
   keywords: [
     "Technical SEO",
-    "AI-Driven SEO",
-    "Web Performance",
+    "AI & Growth Strategy",
+    "Growth Strategy",
     "Core Web Vitals",
     "JavaScript SEO",
     "Organic Growth",

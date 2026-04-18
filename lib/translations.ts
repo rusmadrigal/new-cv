@@ -22,8 +22,7 @@ const translations = {
       english: "English",
     },
     hero: {
-      subtitle:
-        "Senior Technical SEO | AI-Driven SEO, Web Performance & Growth",
+      subtitle: "Senior Technical SEO | AI & Growth Strategy",
       bio: "SEO professional with 10+ years of experience specializing in Technical SEO, large-scale websites, and AI-assisted workflows. Strong technical expertise across JavaScript environments, web performance optimization, and scalable organic growth strategies.",
       viewExperience: "View Experience",
       downloadResume: "Download Resume",
@@ -308,8 +307,7 @@ const translations = {
       english: "English",
     },
     hero: {
-      subtitle:
-        "Senior Technical SEO | SEO con IA, rendimiento web y crecimiento",
+      subtitle: "Senior Technical SEO | AI & Growth Strategy",
       bio: "Profesional SEO con más de 10 años de experiencia, especializado en SEO técnico, sitios web a gran escala y flujos de trabajo con IA. Sólida experiencia técnica en entornos JavaScript, optimización del rendimiento web y estrategias de crecimiento orgánico escalables.",
       viewExperience: "Ver experiencia",
       downloadResume: "Descargar CV",

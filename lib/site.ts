@@ -10,12 +10,12 @@ export const siteName = "Rusben Madrigal";
 /** Sufijo del `<title>` cuando una página define `title` (metadata template). */
 export const siteTitleSuffix = "Rus Madrigal";
 export const siteTitle =
-  "Rusben Madrigal | Senior Technical SEO | AI-Driven SEO & Growth";
+  "Rusben Madrigal | Senior Technical SEO | AI & Growth Strategy";
 export const siteDescription =
   "Senior Technical SEO with 10+ years driving growth for large websites. Expert in AI-driven SEO, Core Web Vitals optimization, and JavaScript SEO.";
 
 export const siteTitleEs =
-  "Rusben Madrigal | SEO Técnico Senior | SEO con IA y Growth";
+  "Rusben Madrigal | Senior Technical SEO | AI & Growth Strategy";
 export const siteDescriptionEs =
   "SEO Técnico Senior con 10+ años impulsando crecimiento en sitios web grandes. Experto en SEO con IA, Core Web Vitals y optimización JavaScript SEO.";
 
@@ -35,7 +35,7 @@ export const siteKeywordsEs = [
 export const person = {
   name: "Rusben Madrigal",
   jobTitle: "Senior Technical SEO",
-  tagline: "AI-Driven SEO, Web Performance & Growth",
+  tagline: "AI & Growth Strategy",
   email: "hello@rusmadrigal.com",
   image: "/rusben.jpg",
   linkedin: "https://www.linkedin.com/in/rusmadrigal/",

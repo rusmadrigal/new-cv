@@ -72,7 +72,7 @@ export function HeroSection() {
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-8">
-            Senior Technical SEO | AI-Driven SEO, Web Performance & Growth
+            Senior Technical SEO | AI & Growth Strategy
           </p>
 
           <p className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
