@@ -1,0 +1,114 @@
+"use client";
+
+import { PortableText as BasePortableText } from "@portabletext/react";
+import Image from "next/image";
+import { SmartLink } from "@/components/SmartLink";
+import { createImageUrlBuilder } from "@sanity/image-url";
+import { projectId, dataset } from "@/lib/sanity";
+import type {
+  PortableTextBlock,
+  PortableTextComponents,
+} from "@portabletext/react";
+
+const builder = createImageUrlBuilder({ projectId, dataset });
+
+function urlFor(source: { _ref?: string; asset?: { _ref?: string } }) {
+  return builder.image(source);
+}
+
+const components: PortableTextComponents = {
+  block: {
+    h2: ({ children }) => (
+      <h2 className="mt-10 mb-4 text-xl font-semibold text-white first:mt-0">
+        {children}
+      </h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="mt-8 mb-3 text-lg font-semibold text-gray-100">
+        {children}
+      </h3>
+    ),
+    normal: ({ children }) => (
+      <p className="mb-5 text-[#D1D5DB] leading-[1.7]">{children}</p>
+    ),
+    blockquote: ({ children }) => (
+      <blockquote className="my-4 border-l-4 border-blue-500/50 pl-4 italic text-[#D1D5DB]/90">
+        {children}
+      </blockquote>
+    ),
+  },
+  list: {
+    bullet: ({ children }) => (
+      <ul className="mb-5 list-inside list-disc space-y-2 text-[#D1D5DB]">
+        {children}
+      </ul>
+    ),
+    number: ({ children }) => (
+      <ol className="mb-5 list-inside list-decimal space-y-2 text-[#D1D5DB]">
+        {children}
+      </ol>
+    ),
+  },
+  listItem: {
+    bullet: ({ children }) => <li className="leading-[1.7]">{children}</li>,
+    number: ({ children }) => <li className="leading-[1.7]">{children}</li>,
+  },
+  marks: {
+    strong: ({ children }) => (
+      <strong className="font-semibold text-white">{children}</strong>
+    ),
+    em: ({ children }) => <em className="italic">{children}</em>,
+    code: ({ children }) => (
+      <code className="px-1.5 py-0.5 rounded bg-gray-800 text-gray-300 text-sm font-mono">
+        {children}
+      </code>
+    ),
+    link: ({ children, value }) => {
+      const href = value?.href?.trim();
+      if (!href) return <>{children}</>;
+      return (
+        <SmartLink
+          href={href}
+          className="text-blue-400 hover:text-blue-300 underline"
+        >
+          {children}
+        </SmartLink>
+      );
+    },
+  },
+  types: {
+    image: ({ value }) => {
+      if (!value?.asset) return null;
+      const url = urlFor(value).width(1200).url();
+      const alt = (value as { alt?: string }).alt ?? "";
+      const caption = (value as { caption?: string }).caption;
+      return (
+        <figure className="my-6">
+          <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-800">
+            <Image
+              src={url}
+              alt={alt}
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 896px"
+            />
+          </div>
+          {caption && (
+            <figcaption className="text-sm text-gray-500 mt-2 text-center">
+              {caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+    },
+  },
+};
+
+interface PortableTextProps {
+  value: PortableTextBlock[];
+}
+
+export function PortableText({ value }: PortableTextProps) {
+  if (!value?.length) return null;
+  return <BasePortableText value={value} components={components} />;
+}
