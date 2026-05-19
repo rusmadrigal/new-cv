@@ -14,7 +14,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: {
-    absolute: "Servicios SEO en Latinoamérica | SEO Técnico y Estratégico",
+    absolute: "Servicios SEO en Latinoamérica | SEO Profesional y Estratégico",
   },
   description:
     "Servicios SEO para empresas en Latinoamérica. Estrategia, SEO técnico y contenido para crecer tráfico cualificado y escalar a nivel regional.",
@@ -30,7 +30,7 @@ export const metadata = {
   },
   openGraph: {
     url: `${siteUrl}/es/servicios`,
-    title: "Servicios SEO en Latinoamérica | SEO Técnico y Estratégico",
+    title: "Servicios SEO en Latinoamérica | SEO Profesional y Estratégico",
     description:
       "Servicios SEO para empresas en Latinoamérica. Estrategia, SEO técnico y contenido para crecer tráfico cualificado y escalar a nivel regional.",
     siteName,
@@ -46,7 +46,7 @@ export const metadata = {
   robots: { index: true, follow: true },
   twitter: {
     card: "summary_large_image",
-    title: "Servicios SEO en Latinoamérica | SEO Técnico y Estratégico",
+    title: "Servicios SEO en Latinoamérica | SEO Profesional y Estratégico",
     description:
       "Servicios SEO para empresas en Latinoamérica. Estrategia, SEO técnico y contenido para crecer tráfico cualificado y escalar a nivel regional.",
     images: [`${siteUrl}${person.image}`],

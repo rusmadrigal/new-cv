@@ -4,6 +4,12 @@ import type { LandingPage, Locale } from "@/lib/sanity";
 import { siteUrl, siteName, person } from "@/lib/site";
 import { getLandingCountryLabel } from "@/lib/landing-page";
 
+/** Meta descriptions fijas por slug (ES) cuando el copy en código es la fuente de verdad. */
+const ES_LANDING_DESCRIPTION_OVERRIDES: Record<string, string> = {
+  "seo-costa-rica":
+    "Consultor SEO en Costa Rica. Estrategia, SEO técnico y AI Search para empresas que buscan crecimiento orgánico sostenible y visibilidad digital.",
+};
+
 /** Normaliza a minúsculas (BCP 47 en HTML suele usarse en minúsculas, p. ej. es-cr). */
 function hreflangKey(lp: LandingPage | null, fallback: "es" | "en"): string {
   const raw = lp?.hreflang?.trim();
@@ -45,6 +51,7 @@ export async function buildLandingSlugMetadata(
 
   const title = lp.seoTitle ?? lp.heroHeadline;
   const description =
+    (locale === "es" ? ES_LANDING_DESCRIPTION_OVERRIDES[slug] : undefined) ??
     lp.seoDescription ??
     (locale === "es"
       ? `${lp.heroHeadline}. Servicios de SEO estratégico y local para empresas en ${getLandingCountryLabel(lp)}.`

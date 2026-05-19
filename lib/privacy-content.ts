@@ -42,7 +42,7 @@ const privacyContent: Record<
       },
       {
         title: "Qué datos recogemos",
-        body: "Podemos recoger datos mínimos necesarios para el funcionamiento del sitio: (1) Cookies y tecnologías similares — por ejemplo para recordar tu consentimiento de cookies y preferencias de idioma. (2) Datos de uso — si utilizamos analíticas (p. ej. logs de servidor o una herramienta respetuosa con la privacidad), podemos recoger información anonimizada como páginas visitadas y referrer. (3) Contacto — si te pones en contacto por email o formulario, tratamos los datos que nos facilites solo para responder.",
+        body: "Podemos recoger datos mínimos necesarios para el funcionamiento del sitio: (1) Cookies y tecnologías similares, por ejemplo para recordar tu consentimiento de cookies y preferencias de idioma. (2) Datos de uso: si utilizamos analíticas (p. ej. logs de servidor o una herramienta respetuosa con la privacidad), podemos recoger información anonimizada como páginas visitadas y referrer. (3) Contacto: si te pones en contacto por email o formulario, tratamos los datos que nos facilites solo para responder.",
       },
       {
         title: "Cómo los usamos",

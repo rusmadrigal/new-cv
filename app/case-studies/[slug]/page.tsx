@@ -1,11 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { SiteJsonLdGraph } from "@/components/JsonLd";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { PortableText } from "@/components/PortableText";
 import { VideoEmbed } from "@/components/VideoEmbed";
+import { CaseStudyGallery } from "@/components/CaseStudyGallery";
 import {
   getCaseStudyBySlug,
   getCaseStudySlugs,
@@ -229,28 +229,11 @@ export default async function CaseStudyPage({
                   <h2 className="text-gray-400 text-sm uppercase tracking-wider mb-4">
                     {t.caseStudies.gallery}
                   </h2>
-                  <div className="grid gap-6 sm:grid-cols-2">
-                    {study.gallery
-                      .filter((img) => img.url)
-                      .map((img, i) => (
-                        <figure key={i}>
-                          <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-800">
-                            <Image
-                              src={img.url}
-                              alt={img.alt ?? study.title}
-                              fill
-                              className="object-cover"
-                              sizes="(max-width: 640px) 100vw, 50vw"
-                            />
-                          </div>
-                          {img.caption && (
-                            <figcaption className="text-sm text-gray-500 mt-2">
-                              {img.caption}
-                            </figcaption>
-                          )}
-                        </figure>
-                      ))}
-                  </div>
+                  <CaseStudyGallery
+                    images={study.gallery ?? []}
+                    defaultAlt={study.title}
+                    locale="en"
+                  />
                 </section>
               ) : null}
 

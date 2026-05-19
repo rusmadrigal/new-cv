@@ -12,12 +12,20 @@ const RESUME_PDF = "/resume.pdf";
 
 interface HeroSectionProps {
   locale?: Locale;
+  /** ES home: landing por país detectado; si no se pasa, usa traducción o listado. */
+  servicesHref?: string;
 }
 
-export function HeroSection({ locale = "en" }: HeroSectionProps) {
+export function HeroSection({
+  locale = "en",
+  servicesHref,
+}: HeroSectionProps) {
   const t = getTranslations(locale);
-  const badgeText = t.hero.badge;
-  const secondaryCtaHref = t.hero.secondaryCtaHref;
+  const showHeroPortrait = t.hero.showHeroPortrait;
+  const badgeText = t.hero.badge?.trim() ?? "";
+  const showBadge = showHeroPortrait && badgeText.length > 0;
+  const secondaryCtaHref =
+    servicesHref?.trim() || t.hero.secondaryCtaHref || "";
   const [badgeHover, setBadgeHover] = useState(false);
   const [badgeTap, setBadgeTap] = useState(false);
   const [shimmerKey, setShimmerKey] = useState(0);
@@ -68,60 +76,65 @@ export function HeroSection({ locale = "en" }: HeroSectionProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-6 sm:mb-8 flex justify-center"
-          >
-            <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0">
-              <ImageWithFallback
-                src={HERO_IMAGE}
-                alt="Rusben Madrigal"
-                width={160}
-                height={160}
-                priority
-                className="w-full h-full rounded-full object-cover border-2 border-white/20 shadow-xl"
-              />
-              {/* Open to Work badge – centrado; vuelve al mismo lugar al quitar el puntero */}
-              <div
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[10%] w-[92%] flex justify-center items-center"
-                aria-hidden
-              >
-                <motion.div
-                  className={`open-to-work-badge flex items-center justify-center rounded-full py-1 px-1.5 w-full max-w-full bg-gradient-to-r from-blue-500 via-blue-400 to-purple-500 text-white border border-white/20 cursor-default ${badgeHover ? "run-shimmer" : ""}`}
-                  style={{ transformOrigin: "center center" }}
-                  animate={{ scale: badgeScale }}
-                  transition={{
-                    duration: 0.35,
-                    ease: [0.25, 0.46, 0.45, 0.94],
-                  }}
-                  onPointerEnter={() => setBadgeHover(true)}
-                  onPointerLeave={() => {
-                    setBadgeHover(false);
-                    setBadgeTap(false);
-                    setShimmerKey((k) => k + 1);
-                  }}
-                  onPointerDown={() => setBadgeTap(true)}
-                  onPointerUp={() => setBadgeTap(false)}
-                  onPointerCancel={() => setBadgeTap(false)}
-                >
-                  <span className="relative inline-block text-[9px] md:text-[10px] font-bold tracking-tight uppercase">
-                    <span>{badgeText}</span>
-                    <span
-                      key={shimmerKey}
-                      className="open-to-work-shimmer-text select-none text-[9px] md:text-[10px] font-bold tracking-tight uppercase"
-                      aria-hidden
+          {showHeroPortrait ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="mb-6 sm:mb-8 flex justify-center"
+            >
+              <motion.div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0">
+                <ImageWithFallback
+                  src={HERO_IMAGE}
+                  alt="Rusben Madrigal"
+                  width={160}
+                  height={160}
+                  priority
+                  className="w-full h-full rounded-full object-cover border-2 border-white/20 shadow-xl"
+                />
+                {showBadge ? (
+                  <div
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[10%] w-[92%] flex justify-center items-center"
+                    aria-hidden
+                  >
+                    <motion.div
+                      className={`open-to-work-badge flex items-center justify-center rounded-full py-1 px-1.5 w-full max-w-full bg-gradient-to-r from-blue-500 via-blue-400 to-purple-500 text-white border border-white/20 cursor-default ${badgeHover ? "run-shimmer" : ""}`}
+                      style={{ transformOrigin: "center center" }}
+                      animate={{ scale: badgeScale }}
+                      transition={{
+                        duration: 0.35,
+                        ease: [0.25, 0.46, 0.45, 0.94],
+                      }}
+                      onPointerEnter={() => setBadgeHover(true)}
+                      onPointerLeave={() => {
+                        setBadgeHover(false);
+                        setBadgeTap(false);
+                        setShimmerKey((k) => k + 1);
+                      }}
+                      onPointerDown={() => setBadgeTap(true)}
+                      onPointerUp={() => setBadgeTap(false)}
+                      onPointerCancel={() => setBadgeTap(false)}
                     >
-                      {badgeText}
-                    </span>
-                  </span>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
+                      <span className="relative inline-block text-[9px] md:text-[10px] font-bold tracking-tight uppercase">
+                        <span>{badgeText}</span>
+                        <span
+                          key={shimmerKey}
+                          className="open-to-work-shimmer-text select-none text-[9px] md:text-[10px] font-bold tracking-tight uppercase"
+                          aria-hidden
+                        >
+                          {badgeText}
+                        </span>
+                      </span>
+                    </motion.div>
+                  </div>
+                ) : null}
+              </motion.div>
+            </motion.div>
+          ) : null}
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl mb-3 sm:mb-5 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+          <h1
+            className={`text-4xl sm:text-5xl md:text-6xl lg:text-8xl mb-3 sm:mb-5 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent ${showHeroPortrait ? "" : "mt-2 sm:mt-4"}`}
+          >
             Rusben Madrigal
           </h1>
 

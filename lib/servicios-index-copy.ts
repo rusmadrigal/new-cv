@@ -27,7 +27,7 @@ export const serviciosIndexCopy: Record<
   es: {
     heroTitle: "Servicios SEO en Latinoamérica",
     heroSubheading:
-      "Consultoría SEO técnica y estratégica para crecer en mercados LATAM",
+      "Consultoría SEO profesional y estratégica para crecer en mercados LATAM",
     heroSupportingLine: "",
     seoSectionTitle: "Servicios SEO para empresas en Latinoamérica",
     seoSectionParagraphs: [

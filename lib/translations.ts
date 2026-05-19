@@ -22,6 +22,7 @@ const translations = {
       english: "English",
     },
     hero: {
+      showHeroPortrait: true,
       badge: "#OPENTOWORK",
       subtitle: "Senior Technical SEO | AI & Growth Strategy",
       bio: "SEO professional with 10+ years of experience specializing in Technical SEO, large-scale websites, and AI-assisted workflows. Strong technical expertise across JavaScript environments, web performance optimization, and scalable organic growth strategies.",
@@ -202,6 +203,7 @@ const translations = {
     },
     education: {
       languages: "Languages",
+      languagesIntro: "",
       education: "Education",
       fullProfessional: "Full Professional",
       nativeBilingual: "Native or Bilingual",
@@ -284,7 +286,7 @@ const translations = {
     cookie: {
       headline: "Hey, I'm tracking you.",
       message:
-        "Only cookies — nothing creepy. Read the fine print or accept and carry on.",
+        "Only cookies, nothing creepy. Read the fine print or accept and carry on.",
       accept: "Accept",
       privacyLink: "Privacy Policy",
     },
@@ -300,8 +302,8 @@ const translations = {
       caseStudies: "Resultados",
       tools: "Herramientas",
       expertise: "Servicios",
-      education: "Formación",
-      recommendations: "Clientes",
+      education: "Idiomas",
+      recommendations: "Reseñas",
       contact: "Contacto",
       more: "Más",
       letsTalk: "Agendar consulta",
@@ -311,9 +313,10 @@ const translations = {
       english: "English",
     },
     hero: {
-      badge: "#CONSULTORSEO",
-      subtitle: "Consultoría SEO Técnica | Costa Rica",
-      bio: "Ayudo a empresas en Costa Rica a ganar visibilidad en Google con SEO técnico de alto nivel: auditorías, rendimiento web, JavaScript SEO e IA. Más de 10 años con marcas globales — ahora como consultor para tu negocio.",
+      showHeroPortrait: false,
+      badge: "",
+      subtitle: "Consultoría SEO Profesional",
+      bio: "Ayudo a empresas en Costa Rica a ganar visibilidad en Google con consultoría SEO profesional: estrategia, contenido, aspectos técnicos e IA. Más de 10 años con marcas globales; ahora como consultor para tu negocio.",
       viewExperience: "Mi enfoque",
       downloadResume: "Servicios SEO",
       secondaryCtaHref: "/es/servicios",
@@ -323,18 +326,18 @@ const translations = {
       title: "Por qué trabajar conmigo",
       portraitSrc: "/rusben-about.png",
       portraitAlt:
-        "Rusben Madrigal, consultor SEO técnico en Costa Rica, retrato profesional",
-      p1: "Soy consultor de SEO técnico en Costa Rica, con más de una década resolviendo retos de visibilidad orgánica para sitios internacionales y marcas globales — ahora enfocado en empresas locales que quieren crecer con datos, no con promesas vacías.",
+        "Rusben Madrigal, consultor SEO profesional en Costa Rica, retrato profesional",
+      p1: "Soy consultor de SEO profesional en Costa Rica, con más de una década impulsando visibilidad orgánica para sitios internacionales y marcas globales. Hoy me enfoco en empresas locales que quieren crecer con datos, no con promesas vacías.",
       p2: "Mi consultoría une SEO, ingeniería y analítica: arquitectura de sitio, rastreo e indexación, Core Web Vitals, datos estructurados y stacks JavaScript modernos (Next.js, React). Priorizo lo que mueve el negocio: tráfico cualificado, conversiones y sostenibilidad a largo plazo.",
-      p3: "Trabajo con dueños de negocio, equipos de marketing y desarrollo en Costa Rica y LATAM. Si tu sitio no rinde en búsqueda o perdió tráfico, definimos un plan claro, ejecutable y medible — sin listas interminables desconectadas de tus objetivos.",
+      p3: "Trabajo con dueños de negocio, equipos de marketing y desarrollo en Costa Rica y LATAM. Si tu sitio no rinde en búsqueda o perdió tráfico, definimos un plan claro, ejecutable y medible, sin listas interminables desconectadas de tus objetivos.",
     },
     video: {
       badge: "Video de presentación",
       title: "Cómo trabajo",
       description:
-        "Conoce mi forma de abordar proyectos de SEO técnico: diagnóstico, priorización y resultados medibles para empresas en Costa Rica.",
+        "Conoce mi forma de abordar proyectos de SEO: estrategia, diagnóstico, priorización y resultados medibles para empresas en Costa Rica.",
       videoTitle: "¡Hola, soy Rusben!",
-      videoSubtitle: "Consultoría SEO técnica",
+      videoSubtitle: "Consultoría SEO Profesional",
       videoA11y: "Video de presentación de Rusben Madrigal",
       yearsExperience: "Años de experiencia en SEO",
       languages: "Idiomas",
@@ -428,7 +431,7 @@ const translations = {
     caseStudies: {
       title: "Resultados para clientes",
       subtitle:
-        "Proyectos reales donde el SEO técnico generó crecimiento orgánico y mejoras de rendimiento medibles — el mismo nivel que aplico en consultoría",
+        "Proyectos reales donde el SEO estratégico generó crecimiento orgánico y mejoras de rendimiento medibles, con el mismo nivel que aplico en consultoría",
       challenge: "Reto",
       solution: "Solución",
       results: "Resultados",
@@ -440,7 +443,7 @@ const translations = {
       addInSanity: "Añade contenido en Sanity Studio (ej. /studio)",
       listTitle: "Resultados para clientes",
       listSubtitle:
-        "Evidencia de impacto en SEO técnico: tráfico, rendimiento e indexación — referencia para tu proyecto en Costa Rica",
+        "Evidencia de impacto en SEO: tráfico, rendimiento e indexación, como referencia para tu proyecto en Costa Rica",
     },
     tools: {
       title: "Stack de trabajo",
@@ -466,7 +469,7 @@ const translations = {
         {
           title: "SEO para sitios JavaScript",
           description:
-            "Indexación, renderizado y arquitectura en Next.js, React y SPAs — para que Google vea lo que tus usuarios ven.",
+            "Indexación, renderizado y arquitectura en Next.js, React y SPAs, para que Google vea lo que tus usuarios ven.",
         },
         {
           title: "Core Web Vitals y velocidad",
@@ -486,68 +489,20 @@ const translations = {
         {
           title: "SEO con IA y automatización",
           description:
-            "Flujos que aceleran auditorías y reporting sin sacrificar calidad — ideal para equipos pequeños en CR.",
+            "Flujos que aceleran auditorías y reporting sin sacrificar calidad, ideales para equipos pequeños en CR.",
         },
       ],
     },
     education: {
-      languages: "Idiomas",
+      languages: "Idiomas de trabajo",
+      languagesIntro:
+        "Proyectos SEO en Costa Rica y LATAM suelen requerir coordinación con equipos locales e internacionales, documentación y reporting en ambos idiomas.",
       education: "Formación",
       fullProfessional: "Profesional completo",
       nativeBilingual: "Nativo o bilingüe",
       langEnglish: "Inglés",
       langSpanish: "Español",
-      items: [
-        {
-          institution: "McKinsey & Company (McKinsey Accelerate)",
-          degree:
-            "Programa de desarrollo profesional (liderazgo, resolución de problemas y habilidades empresariales)",
-          field: "Negocios y Liderazgo",
-          period: "Abril 2026 – Junio 2026",
-        },
-        {
-          institution: "Universidad de La Sabana (Colombia)",
-          degree: "Metodologías ágiles e innovación en la organización",
-          field: "Marketing",
-          period: "Octubre 2023 – Febrero 2024",
-        },
-        {
-          institution: "Le Studio by PGD",
-          degree: "Programa de desarrollo gerencial 2024",
-          field: "Marketing",
-          period: "Abril 2024 – Mayo 2024",
-        },
-        {
-          institution: "Colegio Universitario Boston",
-          degree:
-            "Ingeniería frontend · Diseño web – HTML, CSS, JavaScript, jQuery y PHP",
-          field: "Desarrollo Web",
-          period: "Septiembre 2008 – Marzo 2010",
-        },
-        {
-          institution: "Instituto Universitario Jimenez",
-          degree:
-            "Capacitación en operador de computadoras (bases de datos y desarrollo web)",
-          field: "Informática",
-          period: "Mayo 2005 – Mayo 2006",
-        },
-        /* Universidad Latina — oculto en front; descomentar si volvés a mostrarlo
-        {
-          institution: "Universidad Latina de Costa Rica",
-          degree:
-            "Licenciatura en Administración de Empresas con énfasis en Marketing y Ventas",
-          field: "Marketing",
-          period: "2012 – 2014",
-        },
-        {
-          institution: "Universidad Latina de Costa Rica",
-          degree:
-            "Bachillerato en Administración de Empresas con énfasis en Marketing y Ventas",
-          field: "Empresa, gestión, marketing y disciplinas afines",
-          period: "2007 – 2010",
-        },
-        */
-      ],
+      items: [],
     },
     recommendations: {
       title: "Confianza de la industria",
@@ -558,7 +513,7 @@ const translations = {
     contact: {
       title: "¿Hablamos de tu proyecto?",
       subtitle:
-        "Si tienes una empresa en Costa Rica y quieres más tráfico orgánico, mejor rendimiento técnico o recuperar visibilidad perdida, escríbeme. Cuéntame tu sitio, mercado y objetivos — te respondo en menos de 24 horas.",
+        "Si tienes una empresa en Costa Rica y quieres más tráfico orgánico, mejor rendimiento técnico o recuperar visibilidad perdida, escríbeme. Cuéntame tu sitio, mercado y objetivos; te respondo en menos de 24 horas.",
       backToTop: "Volver arriba",
       linkedInAria: "Abrir perfil de LinkedIn",
       githubAria: "Abrir perfil de GitHub",
@@ -571,12 +526,12 @@ const translations = {
       contact: "Contacto",
       privacy: "Política de privacidad",
       servicesSeo: "Servicios SEO",
-      location: "Consultoría SEO · San José, Costa Rica",
+      location: "Consultoría SEO Profesional · San José, Costa Rica",
     },
     cookie: {
       headline: "Hey, te estoy trackeando.",
       message:
-        "Solo cookies — nada raro. Lee la letra pequeña o acepta y sigue.",
+        "Solo cookies, nada raro. Lee la letra pequeña o acepta y sigue.",
       accept: "Aceptar",
       privacyLink: "Política de privacidad",
     },

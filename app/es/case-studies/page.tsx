@@ -19,7 +19,7 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Casos de estudio",
   description:
-    "Casos de estudio y proyectos de SEO técnico por Rusben Madrigal. Crecimiento orgánico medible y optimización en sitios a gran escala.",
+    "Casos de estudio y proyectos de SEO por Rusben Madrigal. Crecimiento orgánico medible y optimización en sitios a gran escala.",
   alternates: {
     canonical: `${siteUrl}/es/case-studies`,
     languages: {
@@ -31,7 +31,7 @@ export const metadata = {
     url: `${siteUrl}/es/case-studies`,
     title: `Casos de estudio | ${siteName}`,
     description:
-      "Casos de estudio y proyectos de SEO técnico por Rusben Madrigal. Crecimiento orgánico medible.",
+      "Casos de estudio y proyectos de SEO por Rusben Madrigal. Crecimiento orgánico medible.",
     siteName,
     images: [
       {
@@ -45,7 +45,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image" as const,
     title: `Casos de estudio | ${siteName}`,
-    description: "Casos de estudio de SEO técnico por Rusben Madrigal.",
+    description: "Casos de estudio de SEO por Rusben Madrigal.",
   },
 };
 

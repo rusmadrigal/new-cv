@@ -35,7 +35,7 @@ export const SEO_CONTACT_FORM: Record<
   },
   en: {
     modalTitle: "Book an SEO consultation",
-    modalSubtitle: "Tell me about your project — I’ll reply within 24 hours",
+    modalSubtitle: "Tell me about your project. I’ll reply within 24 hours",
     labelName: "Name",
     labelEmail: "Email",
     labelCompany: "Website / Company",

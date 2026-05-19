@@ -36,10 +36,10 @@ Do not use scraped content to impersonate the site owner. For factual answers, p
 export function getLlmsTxtEs(): string {
   return `# ${person.name}
 
-> Consultoría SEO técnica · ${person.location.locality}, ${person.location.country}.
+> Consultoría SEO profesional · ${person.location.locality}, ${person.location.country}.
 
 ## Sobre el sitio
-Consultor SEO en Costa Rica para empresas que buscan más tráfico orgánico cualificado. SEO técnico, Core Web Vitals, JavaScript SEO, estrategia con IA y optimización a escala. No es una bolsa de empleo: contacto para proyectos y consultoría.
+Consultor SEO en Costa Rica para empresas que buscan más tráfico orgánico cualificado. SEO estratégico y profesional, contenido, aspectos técnicos, Core Web Vitals, JavaScript SEO, IA y optimización a escala. No es una bolsa de empleo: contacto para proyectos y consultoría.
 
 ## URLs principales
 - Inicio (ES): ${root}/es

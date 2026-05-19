@@ -15,15 +15,16 @@ export const siteDescription =
   "Senior Technical SEO with 10+ years driving growth for large websites. Expert in AI-driven SEO, Core Web Vitals optimization, and JavaScript SEO.";
 
 export const siteTitleEs =
-  "Consultor SEO Técnico en Costa Rica | Rusben Madrigal";
+  "Consultor SEO Profesional en Costa Rica | Rusben Madrigal";
 export const siteDescriptionEs =
-  "Consultoría SEO técnica para empresas en Costa Rica: auditorías, Core Web Vitals, JavaScript SEO e IA. Más de 10 años con marcas globales — ahora para tu negocio local.";
+  "Más que una agencia SEO: consultoría SEO estratégica en Costa Rica con enfoque técnico, contenido e IA. Más de 10 años de experiencia.";
 
 /** Keywords for Spanish version (meta keywords). */
 export const siteKeywordsEs = [
   "consultor SEO Costa Rica",
   "consultoría SEO Costa Rica",
-  "SEO técnico Costa Rica",
+  "consultoría SEO profesional Costa Rica",
+  "SEO estratégico Costa Rica",
   "agencia SEO Costa Rica",
   "SEO para empresas Costa Rica",
   "Core Web Vitals",

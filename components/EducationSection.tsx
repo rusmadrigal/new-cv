@@ -17,6 +17,9 @@ export function EducationSection({ locale = "en" }: EducationSectionProps) {
   const t = getTranslations(locale);
   const languages = LANGUAGES_LIST(t);
   const education = t.education.items;
+  const showCredentials = education.length > 0;
+  const languagesIntro = t.education.languagesIntro?.trim();
+
   return (
     <section
       id="education"
@@ -28,14 +31,20 @@ export function EducationSection({ locale = "en" }: EducationSectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className={showCredentials ? "mb-16" : undefined}
         >
-          <div className="flex items-center gap-3 mb-8">
-            <Languages className="w-8 h-8 text-blue-400" />
+          <div className="flex items-center gap-3 mb-4 sm:mb-6">
+            <Languages className="w-8 h-8 text-blue-400 shrink-0" />
             <h2 className="text-3xl md:text-4xl bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
               {t.education.languages}
             </h2>
           </div>
+
+          {languagesIntro ? (
+            <p className="text-gray-400 text-lg leading-relaxed mb-8 max-w-3xl">
+              {languagesIntro}
+            </p>
+          ) : null}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {languages.map((lang, index) => (
@@ -54,47 +63,49 @@ export function EducationSection({ locale = "en" }: EducationSectionProps) {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex items-center gap-3 mb-8">
-            <GraduationCap className="w-8 h-8 text-blue-400" />
-            <h2 className="text-3xl md:text-4xl bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              {t.education.education}
-            </h2>
-          </div>
+        {showCredentials ? (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <GraduationCap className="w-8 h-8 text-blue-400 shrink-0" />
+              <h2 className="text-3xl md:text-4xl bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+                {t.education.education}
+              </h2>
+            </div>
 
-          <div className="space-y-4 sm:space-y-5">
-            {education.map((edu, index) => (
-              <motion.div
-                key={`${edu.institution}-${edu.period}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-6 hover:border-blue-500/50 transition-all"
-              >
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
-                  <div>
-                    <h3 className="text-xl text-white mb-2">
-                      {edu.institution}
-                    </h3>
-                    <p className="text-gray-300">{edu.degree}</p>
-                    {edu.field && (
-                      <p className="text-sm text-gray-500 mt-1">{edu.field}</p>
-                    )}
+            <div className="space-y-4 sm:space-y-5">
+              {education.map((edu, index) => (
+                <motion.div
+                  key={`${edu.institution}-${edu.period}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  viewport={{ once: true }}
+                  className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-6 hover:border-blue-500/50 transition-all"
+                >
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
+                    <div>
+                      <h3 className="text-xl text-white mb-2">
+                        {edu.institution}
+                      </h3>
+                      <p className="text-gray-300">{edu.degree}</p>
+                      {edu.field ? (
+                        <p className="text-sm text-gray-500 mt-1">{edu.field}</p>
+                      ) : null}
+                    </div>
+                    <p className="text-sm text-gray-400 mt-2 md:mt-0">
+                      {edu.period}
+                    </p>
                   </div>
-                  <p className="text-sm text-gray-400 mt-2 md:mt-0">
-                    {edu.period}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        ) : null}
       </div>
     </section>
   );
