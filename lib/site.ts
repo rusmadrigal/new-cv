@@ -38,6 +38,10 @@ export const person = {
 /** E.164 phone for JSON-LD / contact (Costa Rica). */
 export const businessPhone = "+50687773420";
 
+/** Single CV PDF served for EN and ES download buttons. */
+export const resumePdfUrl = "/resume.pdf";
+export const resumeDownloadFilename = "Rusben_Madrigal_CV.pdf";
+
 /** Global robots policy — site is not indexed by search engines. */
 export const siteRobots = {
   index: false,

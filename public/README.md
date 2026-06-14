@@ -3,6 +3,6 @@
 Coloca aquí los archivos del sitio:
 
 - **`rusben.jpg`** — Foto de perfil del hero (home).
-- **`resume.pdf`** — CV en PDF para el botón "Download Resume".
+- **`resume.pdf`** — CV único (EN/ES). Fuente: `Rusben_Madrigal_CV.pdf`.
 
-Si usas otro nombre para el PDF, edita la constante `RESUME_PDF` en `components/HeroSection.tsx`.
+La ruta y el nombre de descarga se configuran en `lib/site.ts` (`resumePdfUrl`, `resumeDownloadFilename`).

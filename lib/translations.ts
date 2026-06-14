@@ -382,8 +382,8 @@ const translations = {
         "Senior Technical SEO | SEO con IA, rendimiento web y crecimiento",
       bio: "Profesional SEO senior con más de 10 años de experiencia, especializado en SEO técnico para sitios web a gran escala e internacionales. Sólida formación técnica en entornos JavaScript, con experiencia práctica en auditorías, Core Web Vitals, análisis de logs y datos estructurados.",
       viewExperience: "Mi trayectoria",
-      downloadResume: "Servicios SEO",
-      secondaryCtaHref: "/es/servicios",
+      downloadResume: "Descargar CV",
+      secondaryCtaHref: "",
       contactMe: "Agendar consulta",
     },
     about: {
@@ -430,7 +430,7 @@ const translations = {
     experience: {
       title: "Trayectoria",
       wantFull: "¿Necesitas más contexto sobre mi background antes de contratar?",
-      downloadCv: "Descargar perfil (PDF)",
+      downloadCv: "Descargar CV",
       items: [
         {
           company: "Granicus",

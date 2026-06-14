@@ -6,26 +6,19 @@ import { ChevronDown, Download } from "lucide-react";
 import Link from "next/link";
 import { ImageWithFallback } from "./ImageWithFallback";
 import { getTranslations, type Locale } from "@/lib/translations";
+import { resumeDownloadFilename, resumePdfUrl } from "@/lib/site";
 
 const HERO_IMAGE = "/rusben.jpg";
-const RESUME_PDF = "/resume.pdf";
 
 interface HeroSectionProps {
   locale?: Locale;
-  /** ES home: landing por país detectado; si no se pasa, usa traducción o listado. */
-  servicesHref?: string;
 }
 
-export function HeroSection({
-  locale = "en",
-  servicesHref,
-}: HeroSectionProps) {
+export function HeroSection({ locale = "en" }: HeroSectionProps) {
   const t = getTranslations(locale);
   const showHeroPortrait = t.hero.showHeroPortrait;
   const badgeText = t.hero.badge?.trim() ?? "";
   const showBadge = showHeroPortrait && badgeText.length > 0;
-  const secondaryCtaHref =
-    servicesHref?.trim() || t.hero.secondaryCtaHref || "";
   const [badgeHover, setBadgeHover] = useState(false);
   const [badgeTap, setBadgeTap] = useState(false);
   const [shimmerKey, setShimmerKey] = useState(0);
@@ -153,23 +146,14 @@ export function HeroSection({
             >
               {t.hero.viewExperience}
             </button>
-            {secondaryCtaHref ? (
-              <Link
-                href={secondaryCtaHref}
-                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 sm:px-8 py-3.5 border border-gray-700 text-white rounded-lg hover:border-gray-500 transition-all active:scale-[0.98] hover:shadow-lg hover:shadow-blue-500/20 group text-base font-medium"
-              >
-                {t.hero.downloadResume}
-              </Link>
-            ) : (
-              <Link
-                href={RESUME_PDF}
-                download="Rusben-Madrigal-CV.pdf"
-                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 sm:px-8 py-3.5 border border-gray-700 text-white rounded-lg hover:border-gray-500 transition-all active:scale-[0.98] hover:shadow-lg hover:shadow-blue-500/20 group text-base font-medium"
-              >
-                <Download className="w-4 h-4 shrink-0 transition-transform group-hover:translate-y-0.5" />
-                {t.hero.downloadResume}
-              </Link>
-            )}
+            <Link
+              href={resumePdfUrl}
+              download={resumeDownloadFilename}
+              className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 sm:px-8 py-3.5 border border-gray-700 text-white rounded-lg hover:border-gray-500 transition-all active:scale-[0.98] hover:shadow-lg hover:shadow-blue-500/20 group text-base font-medium"
+            >
+              <Download className="w-4 h-4 shrink-0 transition-transform group-hover:translate-y-0.5" />
+              {t.hero.downloadResume}
+            </Link>
             <button
               onClick={() => scrollToContact()}
               className="min-h-[48px] px-6 sm:px-8 py-3.5 border border-gray-700 text-white rounded-lg hover:border-gray-500 transition-all active:scale-[0.98] hover:shadow-lg hover:shadow-purple-500/20 text-base font-medium"
