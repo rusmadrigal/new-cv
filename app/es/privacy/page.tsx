@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   description:
     "Política de privacidad y uso de cookies de www.rusmadrigal.com.",
   alternates: {
-    canonical: `${baseUrlEs}/privacy`,
     languages: { en: `${siteUrl}/privacy`, es: `${baseUrlEs}/privacy` },
   },
   openGraph: {

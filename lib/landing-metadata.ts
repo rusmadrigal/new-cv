@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getLandingPageBySlug } from "@/lib/sanity";
 import type { LandingPage, Locale } from "@/lib/sanity";
-import { siteUrl, siteName, person } from "@/lib/site";
+import { siteUrl, siteName, person, siteRobots } from "@/lib/site";
 import { getLandingCountryLabel } from "@/lib/landing-page";
 
 /** Meta descriptions fijas por slug (ES) cuando el copy en código es la fuente de verdad. */
@@ -18,7 +18,7 @@ function hreflangKey(lp: LandingPage | null, fallback: "es" | "en"): string {
 }
 
 /**
- * Hreflang + canonical para landings. Las claves de `languages` salen del campo
+ * Hreflang para landings. Las claves de `languages` salen del campo
  * `hreflang` en Sanity (p. ej. es-cr); si está vacío: es / en según documento.
  */
 export async function buildLandingSlugMetadata(
@@ -47,7 +47,7 @@ export async function buildLandingSlugMetadata(
     languages["x-default"] = urlEn;
   }
 
-  const canonical = locale === "es" ? urlEs : urlEn;
+  const pageUrl = locale === "es" ? urlEs : urlEn;
 
   const title = lp.seoTitle ?? lp.heroHeadline;
   const description =
@@ -63,12 +63,11 @@ export async function buildLandingSlugMetadata(
     title,
     description: desc,
     alternates: {
-      canonical,
       languages,
     },
     openGraph: {
       type: "website",
-      url: canonical,
+      url: pageUrl,
       title,
       description: desc,
       siteName,
@@ -81,6 +80,6 @@ export async function buildLandingSlugMetadata(
       title,
       description: desc,
     },
-    robots: { index: true, follow: true },
+    robots: siteRobots,
   };
 }

@@ -8,7 +8,7 @@ import {
   getServiciosEsIndex,
 } from "@/lib/sanity";
 import { serviciosIndexCopy } from "@/lib/servicios-index-copy";
-import { siteUrl, siteName, person } from "@/lib/site";
+import { siteUrl, siteName, person, siteRobots } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
@@ -19,7 +19,6 @@ export const metadata = {
   description:
     "Servicios SEO para empresas en Latinoamérica. Estrategia, SEO técnico y contenido para crecer tráfico cualificado y escalar a nivel regional.",
   alternates: {
-    canonical: `${siteUrl}/es/servicios`,
     languages: {
       en: `${siteUrl}/services`,
       es: `${siteUrl}/es/servicios`,
@@ -43,7 +42,7 @@ export const metadata = {
       },
     ],
   },
-  robots: { index: true, follow: true },
+  robots: siteRobots,
   twitter: {
     card: "summary_large_image",
     title: "Servicios SEO en Latinoamérica | SEO Profesional y Estratégico",

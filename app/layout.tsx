@@ -8,6 +8,7 @@ import {
   siteTitleSuffix,
   siteDescription,
   person,
+  siteRobots,
 } from "@/lib/site";
 import { CookieConsent } from "@/components/CookieConsent";
 
@@ -24,17 +25,6 @@ export const metadata: Metadata = {
     template: `%s | ${siteTitleSuffix}`,
   },
   description: siteDescription,
-  keywords: [
-    "Technical SEO",
-    "AI & Growth Strategy",
-    "Growth Strategy",
-    "Core Web Vitals",
-    "JavaScript SEO",
-    "Organic Growth",
-    "Rusben Madrigal",
-    "SEO Consultant",
-    "Costa Rica",
-  ],
   authors: [{ name: person.name, url: siteUrl }],
   creator: person.name,
   openGraph: {
@@ -59,16 +49,8 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [`${siteUrl}${person.image}`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
+  robots: siteRobots,
   alternates: {
-    canonical: siteUrl,
     languages: { en: siteUrl, es: `${siteUrl}/es` },
   },
   verification: {

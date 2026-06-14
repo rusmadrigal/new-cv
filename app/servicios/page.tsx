@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { getLandingPages, getCaseStudies } from "@/lib/sanity";
-import { siteUrl, siteName, person } from "@/lib/site";
+import { siteUrl, siteName, person, siteRobots } from "@/lib/site";
 import { getLandingCountryLabel } from "@/lib/landing-page";
 import { ArrowRight, MapPin, Sparkles } from "lucide-react";
 
@@ -12,9 +12,6 @@ export const metadata = {
   title: "SEO services",
   description:
     "Strategic and local SEO services by market. Technical consulting and audits for companies focused on organic growth.",
-  alternates: {
-    canonical: `${siteUrl}/servicios`,
-  },
   openGraph: {
     url: `${siteUrl}/servicios`,
     title: `SEO services | ${siteName}`,
@@ -30,7 +27,7 @@ export const metadata = {
       },
     ],
   },
-  robots: { index: true, follow: true },
+  robots: siteRobots,
 };
 
 export default async function EnServiciosPage() {
@@ -69,10 +66,10 @@ export default async function EnServiciosPage() {
                 More markets coming soon. For now, reach out directly.
               </p>
               <a
-                href="mailto:hello@rusmadrigal.com"
+                href={`mailto:${person.email}`}
                 className="mt-4 inline-block text-sm font-medium text-blue-400 hover:text-blue-300"
               >
-                hello@rusmadrigal.com
+                {person.email}
               </a>
             </div>
           ) : (

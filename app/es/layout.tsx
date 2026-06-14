@@ -5,8 +5,8 @@ import {
   siteTitleEs,
   siteTitleSuffix,
   siteDescriptionEs,
-  siteKeywordsEs,
   person,
+  siteRobots,
 } from "@/lib/site";
 const baseUrlEs = `${siteUrl}/es`;
 
@@ -17,7 +17,6 @@ export const metadata: Metadata = {
     template: `%s | ${siteTitleSuffix}`,
   },
   description: siteDescriptionEs,
-  keywords: siteKeywordsEs,
   authors: [{ name: person.name, url: siteUrl }],
   creator: person.name,
   openGraph: {
@@ -42,16 +41,8 @@ export const metadata: Metadata = {
     description: siteDescriptionEs,
     images: [`${siteUrl}${person.image}`],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
+  robots: siteRobots,
   alternates: {
-    canonical: baseUrlEs,
     languages: { en: siteUrl, es: baseUrlEs },
   },
   verification: {

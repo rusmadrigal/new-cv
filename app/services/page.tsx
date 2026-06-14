@@ -8,7 +8,7 @@ import {
   getServiciosEnIndex,
 } from "@/lib/sanity";
 import { serviciosIndexCopy } from "@/lib/servicios-index-copy";
-import { siteUrl, siteName, person } from "@/lib/site";
+import { siteUrl, siteName, person, siteRobots } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
@@ -17,7 +17,6 @@ export const metadata = {
   description:
     "Strategic and local SEO services by market. Technical consulting and audits for companies focused on organic growth.",
   alternates: {
-    canonical: `${siteUrl}/services`,
     languages: {
       en: `${siteUrl}/services`,
       es: `${siteUrl}/es/servicios`,
@@ -41,7 +40,7 @@ export const metadata = {
       },
     ],
   },
-  robots: { index: true, follow: true },
+  robots: siteRobots,
 };
 
 export default async function EnServicesPage() {

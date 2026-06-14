@@ -117,8 +117,8 @@ export const landingPage = defineType({
       type: "string",
       title: "Hero – Enlace del CTA",
       group: "content",
-      description: "Ej: mailto:hello@rusmadrigal.com o #contacto",
-      initialValue: "mailto:hello@rusmadrigal.com",
+      description: "Ej: mailto:rusbenmadrigal@gmail.com o #contacto",
+      initialValue: "mailto:rusbenmadrigal@gmail.com",
     }),
     defineField({
       name: "heroTrustLine",
@@ -452,7 +452,7 @@ export const landingPage = defineType({
       type: "string",
       title: "CTA final – Enlace",
       group: "content",
-      initialValue: "mailto:hello@rusmadrigal.com",
+      initialValue: "mailto:rusbenmadrigal@gmail.com",
     }),
 
     // Meta

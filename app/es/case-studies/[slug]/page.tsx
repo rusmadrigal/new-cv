@@ -34,17 +34,16 @@ function buildMeta(
     study.seoDescription ??
     `${study.title} – ${study.client}. ${caseStudyMeta}`;
   const desc = description.slice(0, 155);
-  const canonical = `${siteUrl}${basePath}/case-studies/${slug}`;
+  const pageUrl = `${siteUrl}${basePath}/case-studies/${slug}`;
   const ogImage =
     study.ogImage ?? study.gallery?.[0]?.url ?? `${siteUrl}/rusben.jpg`;
 
   return {
     title,
     description: desc,
-    alternates: { canonical },
     openGraph: {
       type: "article",
-      url: canonical,
+      url: pageUrl,
       title,
       description: desc,
       images: [{ url: ogImage, width: 1200, height: 630, alt: study.title }],

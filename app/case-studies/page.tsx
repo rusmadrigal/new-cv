@@ -21,7 +21,6 @@ export const metadata = {
   description:
     "Technical SEO case studies and projects by Rusben Madrigal. Measurable organic growth, Core Web Vitals, and large-scale website optimization.",
   alternates: {
-    canonical: `${siteUrl}/case-studies`,
     languages: {
       en: `${siteUrl}/case-studies`,
       es: `${siteUrl}/es/case-studies`,

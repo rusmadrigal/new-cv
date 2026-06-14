@@ -4,7 +4,7 @@ import {
   getLandingPageSlugs,
   getCaseStudies,
 } from "@/lib/sanity";
-import { siteUrl, siteName, person } from "@/lib/site";
+import { siteUrl, siteName, person, siteRobots } from "@/lib/site";
 import { getLandingCountryLabel } from "@/lib/landing-page";
 import { SeoLandingPageView } from "@/components/SeoLandingPageView";
 
@@ -29,16 +29,15 @@ export async function generateMetadata({
     lp.seoDescription ??
     `${lp.heroHeadline}. Strategic and local SEO for businesses in ${getLandingCountryLabel(lp)}.`;
   const desc = description.slice(0, 155);
-  const canonical = `${siteUrl}/servicios/${slug}`;
+  const pageUrl = `${siteUrl}/servicios/${slug}`;
   const ogImage = lp.ogImage ?? `${siteUrl}${person.image}`;
 
   return {
     title,
     description: desc,
-    alternates: { canonical },
     openGraph: {
       type: "website",
-      url: canonical,
+      url: pageUrl,
       title,
       description: desc,
       siteName,
@@ -51,7 +50,7 @@ export async function generateMetadata({
       title,
       description: desc,
     },
-    robots: { index: true, follow: true },
+    robots: siteRobots,
   };
 }
 

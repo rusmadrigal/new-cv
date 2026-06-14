@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { siteUrl } from "@/lib/site";
 
-/** robots.txt dinámico: permite indexación pública, bloquea /api/, enlaza sitemap. */
+/** robots.txt dinámico: no indexación pública; bloquea /api/. */
 export default function robots(): MetadataRoute.Robots {
   const base = siteUrl.replace(/\/$/, "");
   return {

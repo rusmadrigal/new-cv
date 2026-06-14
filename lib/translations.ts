@@ -24,8 +24,8 @@ const translations = {
     hero: {
       showHeroPortrait: true,
       badge: "#OPENTOWORK",
-      subtitle: "Senior Technical SEO | AI & Growth Strategy",
-      bio: "SEO professional with 10+ years of experience specializing in Technical SEO, large-scale websites, and AI-assisted workflows. Strong technical expertise across JavaScript environments, web performance optimization, and scalable organic growth strategies.",
+      subtitle: "Senior Technical SEO | AI-Driven SEO, Web Performance & Growth",
+      bio: "Senior SEO professional with 10+ years of experience, specializing in Technical SEO for large-scale and international websites. Strong technical background across JavaScript-based environments, with hands-on expertise in audits, Core Web Vitals, log analysis, and structured data.",
       viewExperience: "View Experience",
       downloadResume: "Download Resume",
       secondaryCtaHref: "",
@@ -35,9 +35,9 @@ const translations = {
       title: "About Me",
       portraitSrc: "",
       portraitAlt: "",
-      p1: "Technical SEO strategist with more than a decade of experience working with large-scale international websites and global brands.",
-      p2: "My work focuses on the intersection of SEO, engineering, and data. I specialize in improving crawlability, rendering behavior, Core Web Vitals, and structured data implementations across modern JavaScript environments.",
-      p3: "I frequently collaborate with product, engineering, and analytics teams to solve complex technical challenges and drive sustainable organic growth.",
+      p1: "Senior SEO professional with 10+ years of experience, specializing in Technical SEO for large-scale and international websites.",
+      p2: "Strong technical background across JavaScript-based environments, with hands-on expertise in audits, Core Web Vitals, log analysis, and structured data.",
+      p3: "Data-driven strategist leveraging analytics and AI-assisted workflows to accelerate analysis, prioritize opportunities, and support scalable SEO decisions. Collaborative leader, working closely with engineering and product teams to deliver sustainable organic growth.",
     },
     video: {
       badge: "Video introduction",
@@ -54,22 +54,21 @@ const translations = {
     skills: {
       title: "Core Skills",
       list: [
-        "SEO Strategy",
-        "IA / AI-Driven SEO",
-        "Web Performance Optimization",
         "Technical SEO",
         "JavaScript SEO",
+        "HTML",
+        "CSS",
         "Next.js / Rendering",
-        "Site Architecture",
-        "Crawlability & Indexation",
+        "Crawlability & Site Architecture",
         "Core Web Vitals",
         "Structured Data (JSON-LD)",
         "Log File Analysis",
+        "Web Performance Optimization",
+        "Lighthouse & PageSpeed Insights",
         "GA4",
         "GTM",
         "Looker Studio",
         "SQL",
-        "Lighthouse & PageSpeed Insights",
       ],
     },
     experience: {
@@ -77,6 +76,30 @@ const translations = {
       wantFull: "Want to see my full experience and background?",
       downloadCv: "Download my CV",
       items: [
+        {
+          company: "Granicus",
+          role: "Senior SEO Analyst",
+          location: "San Jose, Costa Rica (Remote)",
+          period: "May 2026 – Present",
+          description:
+            "Lead organic growth initiatives for destination and tourism-focused digital experiences across the U.S. market.",
+          highlights: [
+            "Drive technical SEO, content strategy, AI search visibility, performance analysis, CRO collaboration, and enterprise-level optimization across large-scale web ecosystems.",
+            "Work cross-functionally with content, UX, analytics, and development teams to improve discoverability, user acquisition, and organic performance through data-driven strategies and scalable SEO frameworks.",
+          ],
+        },
+        {
+          company: "Taco Digital",
+          role: "Head of SEO (Contractor)",
+          location: "United States",
+          period: "January 2026 – March 2026",
+          description:
+            "Led SEO strategy and delivery during a fixed-term engagement, overseeing day-to-day execution, prioritization, and process improvements to stabilize output and align with business goals.",
+          highlights: [
+            "Designed and implemented n8n-based automation workflows for SEO and content operations, improving scalability, reducing manual effort, and standardizing delivery.",
+            "Developed sales enablement materials (PowerPoint) translating SEO into business impact, defining scope, methodology, and growth opportunities for new-business conversations.",
+          ],
+        },
         {
           company: "Publicis Groupe",
           role: "SEO Associate Director",
@@ -104,6 +127,17 @@ const translations = {
           ],
         },
         {
+          company: "Advision Development",
+          role: "Senior Technical SEO",
+          location: "Santa Ana, San Jose, Costa Rica",
+          period: "May 2021 – May 2022",
+          description:
+            "Led Technical SEO strategy and execution, optimizing site performance, crawlability, and indexation.",
+          highlights: [
+            "Partnered with development and content teams to implement scalable technical solutions, driving improvements in organic visibility and search performance.",
+          ],
+        },
+        {
           company: "The Strategic Group",
           role: "Senior Technical SEO",
           location: "San José, Costa Rica",
@@ -121,7 +155,7 @@ const translations = {
         },
         {
           company: "Tripadvisor",
-          role: "Senior Technical SEO",
+          role: "Senior Technical SEO (Contractor)",
           location: "Remote",
           period: "February 2018 – April 2020",
           description:
@@ -132,6 +166,35 @@ const translations = {
             "Improved web rendering.",
             "Implementation, improvement and maintenance of Schema Markup.",
             "Sitemaps.xml and .zip structure optimization.",
+          ],
+        },
+        {
+          company: "SBR NetMarketing and Consulting S.A",
+          role: "Mid SEO & Web Analytics",
+          location: "Santa Ana, Costa Rica",
+          period: "February 2016 – February 2018",
+          description:
+            "Technical SEO and web analytics across client websites and migrations.",
+          highlights: [
+            "Code improvement and optimization (PHP).",
+            "Migration of old site to ReactJS.",
+            "On-page optimization (metadata, internal links, etc.).",
+            "Improved web rendering.",
+            "Implementation, improvement and maintenance of Schema Markup.",
+            "Collaborated on Google Tag Manager implementation and exporting data to Data Studio.",
+          ],
+        },
+        {
+          company: "DayStar Properties",
+          role: "Junior SEO",
+          location: "Costa Rica",
+          period: "February 2009 – March 2013",
+          description: "Foundational SEO work on WordPress-based websites.",
+          highlights: [
+            "Basic SEO optimization focused on WP CMS.",
+            "Reporting updates to SEO Manager.",
+            "Metadata (title/descriptions) optimization.",
+            "Competitors audit.",
           ],
         },
       ],
@@ -302,7 +365,7 @@ const translations = {
       caseStudies: "Resultados",
       tools: "Herramientas",
       expertise: "Servicios",
-      education: "Idiomas",
+      education: "Formación",
       recommendations: "Reseñas",
       contact: "Contacto",
       more: "Más",
@@ -315,21 +378,22 @@ const translations = {
     hero: {
       showHeroPortrait: false,
       badge: "",
-      subtitle: "Consultoría SEO Profesional",
-      bio: "Ayudo a empresas en Costa Rica a ganar visibilidad en Google con consultoría SEO profesional: estrategia, contenido, aspectos técnicos e IA. Más de 10 años con marcas globales; ahora como consultor para tu negocio.",
-      viewExperience: "Mi enfoque",
+      subtitle:
+        "Senior Technical SEO | SEO con IA, rendimiento web y crecimiento",
+      bio: "Profesional SEO senior con más de 10 años de experiencia, especializado en SEO técnico para sitios web a gran escala e internacionales. Sólida formación técnica en entornos JavaScript, con experiencia práctica en auditorías, Core Web Vitals, análisis de logs y datos estructurados.",
+      viewExperience: "Mi trayectoria",
       downloadResume: "Servicios SEO",
       secondaryCtaHref: "/es/servicios",
       contactMe: "Agendar consulta",
     },
     about: {
-      title: "Por qué trabajar conmigo",
+      title: "Resumen profesional",
       portraitSrc: "/rusben-about.png",
       portraitAlt:
         "Rusben Madrigal, consultor SEO profesional en Costa Rica, retrato profesional",
-      p1: "Soy consultor de SEO profesional en Costa Rica, con más de una década impulsando visibilidad orgánica para sitios internacionales y marcas globales. Hoy me enfoco en empresas locales que quieren crecer con datos, no con promesas vacías.",
-      p2: "Mi consultoría une SEO, ingeniería y analítica: arquitectura de sitio, rastreo e indexación, Core Web Vitals, datos estructurados y stacks JavaScript modernos (Next.js, React). Priorizo lo que mueve el negocio: tráfico cualificado, conversiones y sostenibilidad a largo plazo.",
-      p3: "Trabajo con dueños de negocio, equipos de marketing y desarrollo en Costa Rica y LATAM. Si tu sitio no rinde en búsqueda o perdió tráfico, definimos un plan claro, ejecutable y medible, sin listas interminables desconectadas de tus objetivos.",
+      p1: "Profesional SEO senior con más de 10 años de experiencia, especializado en SEO técnico para sitios web a gran escala e internacionales.",
+      p2: "Sólida formación técnica en entornos basados en JavaScript, con experiencia práctica en auditorías, Core Web Vitals, análisis de logs y datos estructurados.",
+      p3: "Estratega orientado a datos que aprovecha analítica y flujos de trabajo asistidos por IA para acelerar el análisis, priorizar oportunidades y respaldar decisiones SEO escalables. Líder colaborativo que trabaja de cerca con equipos de ingeniería y producto para lograr un crecimiento orgánico sostenible.",
     },
     video: {
       badge: "Video de presentación",
@@ -346,22 +410,21 @@ const translations = {
     skills: {
       title: "Habilidades principales",
       list: [
-        "Estrategia SEO",
-        "IA / SEO impulsado por IA",
-        "Optimización de rendimiento web",
         "SEO técnico",
         "JavaScript SEO",
+        "HTML",
+        "CSS",
         "Next.js / Renderizado",
-        "Arquitectura de sitio",
-        "Rastreabilidad e indexación",
+        "Rastreabilidad y arquitectura de sitio",
         "Core Web Vitals",
         "Datos estructurados (JSON-LD)",
         "Análisis de logs",
+        "Optimización de rendimiento web",
+        "Lighthouse y PageSpeed Insights",
         "GA4",
         "GTM",
         "Looker Studio",
         "SQL",
-        "Lighthouse y PageSpeed Insights",
       ],
     },
     experience: {
@@ -369,6 +432,30 @@ const translations = {
       wantFull: "¿Necesitas más contexto sobre mi background antes de contratar?",
       downloadCv: "Descargar perfil (PDF)",
       items: [
+        {
+          company: "Granicus",
+          role: "Analista SEO Senior",
+          location: "San José, Costa Rica (Remoto)",
+          period: "Mayo 2026 – Presente",
+          description:
+            "Lidero iniciativas de crecimiento orgánico para experiencias digitales de destinos y turismo en el mercado estadounidense.",
+          highlights: [
+            "Impulso SEO técnico, estrategia de contenido, visibilidad en búsqueda con IA, análisis de rendimiento, colaboración en CRO y optimización a nivel enterprise en ecosistemas web a gran escala.",
+            "Trabajo de forma transversal con equipos de contenido, UX, analítica y desarrollo para mejorar la discoverability, adquisición de usuarios y rendimiento orgánico mediante estrategias basadas en datos y marcos SEO escalables.",
+          ],
+        },
+        {
+          company: "Taco Digital",
+          role: "Head of SEO (Contratista)",
+          location: "Estados Unidos",
+          period: "Enero 2026 – Marzo 2026",
+          description:
+            "Lideré la estrategia y ejecución SEO durante un contrato a plazo fijo, supervisando la operación diaria, priorización y mejoras de procesos para estabilizar la entrega y alinearla con los objetivos del negocio.",
+          highlights: [
+            "Diseñé e implementé flujos de automatización con n8n para operaciones SEO y de contenido, mejorando la escalabilidad, reduciendo el esfuerzo manual y estandarizando la entrega.",
+            "Desarrollé materiales de ventas (PowerPoint) que traducen el SEO en impacto de negocio, definiendo alcance, metodología y oportunidades de crecimiento para conversaciones comerciales.",
+          ],
+        },
         {
           company: "Publicis Groupe",
           role: "SEO Associate Director",
@@ -396,6 +483,17 @@ const translations = {
           ],
         },
         {
+          company: "Advision Development",
+          role: "Senior Technical SEO",
+          location: "Santa Ana, San José, Costa Rica",
+          period: "Mayo 2021 – Mayo 2022",
+          description:
+            "Lideré la estrategia y ejecución de SEO técnico, optimizando rendimiento del sitio, rastreabilidad e indexación.",
+          highlights: [
+            "Colaboré con equipos de desarrollo y contenido para implementar soluciones técnicas escalables, impulsando mejoras en visibilidad orgánica y rendimiento en búsqueda.",
+          ],
+        },
+        {
           company: "The Strategic Group",
           role: "Senior Technical SEO",
           location: "San José, Costa Rica",
@@ -413,7 +511,7 @@ const translations = {
         },
         {
           company: "Tripadvisor",
-          role: "Senior Technical SEO",
+          role: "Senior Technical SEO (Contratista)",
           location: "Remoto",
           period: "Febrero 2018 – Abril 2020",
           description:
@@ -424,6 +522,35 @@ const translations = {
             "Mejora del renderizado web.",
             "Implementación, mejora y mantenimiento de Schema Markup.",
             "Optimización de estructura de Sitemaps.xml y .zip.",
+          ],
+        },
+        {
+          company: "SBR NetMarketing and Consulting S.A",
+          role: "SEO Medio y Web Analytics",
+          location: "Santa Ana, Costa Rica",
+          period: "Febrero 2016 – Febrero 2018",
+          description:
+            "SEO técnico y analítica web en sitios de clientes y migraciones.",
+          highlights: [
+            "Mejora y optimización de código (PHP).",
+            "Migración de sitio antiguo a ReactJS.",
+            "Optimización on-page (metadatos, enlaces internos, etc.).",
+            "Mejora del renderizado web.",
+            "Implementación, mejora y mantenimiento de Schema Markup.",
+            "Colaboración en implementación de Google Tag Manager y exportación de datos a Data Studio.",
+          ],
+        },
+        {
+          company: "DayStar Properties",
+          role: "SEO Junior",
+          location: "Costa Rica",
+          period: "Febrero 2009 – Marzo 2013",
+          description: "Trabajo SEO fundamental en sitios basados en WordPress.",
+          highlights: [
+            "Optimización SEO básica enfocada en CMS WP.",
+            "Reportes de actualización al SEO Manager.",
+            "Optimización de metadatos (títulos/descripciones).",
+            "Auditoría de competidores.",
           ],
         },
       ],
@@ -502,7 +629,41 @@ const translations = {
       nativeBilingual: "Nativo o bilingüe",
       langEnglish: "Inglés",
       langSpanish: "Español",
-      items: [],
+      items: [
+        {
+          institution: "McKinsey & Company (McKinsey Accelerate)",
+          degree:
+            "Programa de Desarrollo Profesional (Liderazgo, resolución de problemas y habilidades de negocio)",
+          field: "Negocios y liderazgo",
+          period: "Abril 2026 – Junio 2026",
+        },
+        {
+          institution: "Universidad de La Sabana (Colombia)",
+          degree: "Metodologías ágiles e innovación organizacional",
+          field: "Marketing",
+          period: "Octubre 2023 – Febrero 2024",
+        },
+        {
+          institution: "Le Studio by PGD",
+          degree: "Management Development Program 2024",
+          field: "Marketing",
+          period: "Abril 2024 – Mayo 2024",
+        },
+        {
+          institution: "Colegio Universitario Boston",
+          degree:
+            "Frontend Engineer · Diseño web – HTML, CSS, JavaScript, jQuery y PHP",
+          field: "Desarrollo web",
+          period: "Septiembre 2008 – Marzo 2010",
+        },
+        {
+          institution: "Instituto Universitario Jimenez",
+          degree:
+            "Capacitación de operador de computadoras (bases de datos y desarrollo web)",
+          field: "Informática",
+          period: "Mayo 2005 – Mayo 2006",
+        },
+      ],
     },
     recommendations: {
       title: "Confianza de la industria",

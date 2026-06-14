@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, error: "email" }, { status: 400 });
     }
 
-    const to = process.env.CONTACT_TO_EMAIL ?? "hello@rusmadrigal.com";
+    const to = process.env.CONTACT_TO_EMAIL ?? "rusbenmadrigal@gmail.com";
     const key = process.env.RESEND_API_KEY;
 
     if (key) {
